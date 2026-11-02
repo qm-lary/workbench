@@ -461,6 +461,7 @@ main{padding:26px 32px 60px;max-width:1180px;width:100%;margin:0 auto;min-width:
 
 
 
+
 /*==SKILLS_CSS_START==*/
 /* ===== 技能集成：脚本审核 / 游戏项目 ===== */
 textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.8;
@@ -1374,6 +1375,7 @@ details.sec .sec-body{margin-top:12px}
 
 
 
+
 <!--SKILLS_SEC_START-->
     <!-- ======== 总览 ======== -->
     <section class="view on" id="view-overview">
@@ -1619,6 +1621,7 @@ details.sec .sec-body{margin-top:12px}
 <!--SKILLS_SEC_END-->
 </main>
 </div>
+
 
 
 
@@ -2467,7 +2470,7 @@ details.sec .sec-body{margin-top:12px}
           var empty = (state.todos.length + state.projects.length + state.ideas.length) === 0;
           var cleared = false;
           try { cleared = localStorage.getItem('pmwb_demo_cleared') === '1'; } catch (e) { cleared = false; }
-          if (empty && !cleared) {
+          if (empty && !cleared && !(window.__GH && window.__GH.isConfigured())) {
             var demo = demoData();
             state.todos = demo.todos;
             state.projects = demo.projects;
@@ -3485,6 +3488,7 @@ details.sec .sec-body{margin-top:12px}
   }
 })();
 </script>
+
 
 
 
