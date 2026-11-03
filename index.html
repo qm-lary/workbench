@@ -462,6 +462,11 @@ main{padding:26px 32px 60px;max-width:1180px;width:100%;margin:0 auto;min-width:
 
 
 
+
+
+
+
+
 /*==SKILLS_CSS_START==*/
 /* ===== 技能集成：脚本审核 / 游戏项目 ===== */
 textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.8;
@@ -768,6 +773,303 @@ details.sec .sec-body{margin-top:12px}
   .dr-act .icon-btn{height:31px;min-width:36px;font-size:11.5px}
   .dr-t{font-size:13px}
 }
+
+/* ===== 总览：电子黄历 + 项目统筹 + 流程进度 ===== */
+.alm{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  padding:14px 18px;margin-bottom:16px;border-radius:14px;
+  border:1px solid var(--line);position:relative;overflow:hidden;
+  background:linear-gradient(115deg,rgba(40,27,55,.92),rgba(21,14,31,.94));
+  box-shadow:var(--shadow);
+}
+.alm::after{
+  content:"";position:absolute;right:-40px;top:-60px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,164,92,.16),transparent 68%);pointer-events:none;
+}
+.alm-date{display:flex;flex-direction:column;align-items:center;min-width:66px}
+.alm-day{
+  font-family:var(--serif);font-size:38px;line-height:1;letter-spacing:1px;
+  background:linear-gradient(170deg,#f6e6c0,#c9a45c);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.alm-md{font-size:11.5px;color:var(--ink-4);margin-top:4px;white-space:nowrap}
+.alm-meta{border-left:1px dashed var(--line-2);padding-left:16px}
+.alm-lunar{font-family:var(--serif);font-size:15px;letter-spacing:1.6px;color:var(--gold-b)}
+.alm-gz{font-size:11.5px;color:var(--ink-4);letter-spacing:.6px;margin-top:3px}
+.alm-yiji{display:flex;flex-direction:column;gap:6px;flex:1 1 260px;min-width:0}
+.alm-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.seal{
+  flex:none;width:21px;height:21px;border-radius:4px;display:grid;place-items:center;
+  font-family:var(--serif);font-size:12px;font-style:normal;color:#fff6ea;
+  background:linear-gradient(160deg,#b64a33,#8b3123);
+  box-shadow:inset 0 0 0 1px rgba(255,235,210,.3),0 2px 6px rgba(0,0,0,.35);
+}
+.seal.ji{background:linear-gradient(160deg,#44505c,#2a333b)}
+.alm-row span{
+  font-size:12px;color:var(--ink-2);padding:1px 9px;border-radius:99px;
+  border:1px solid var(--line-2);background:rgba(255,255,255,.03);white-space:nowrap;
+}
+.alm-bless{flex:0 1 auto;text-align:right;min-width:150px}
+.alm-bless em{
+  display:block;font-family:var(--serif);font-style:normal;font-size:15.5px;letter-spacing:2px;
+  color:var(--gold-b);line-height:1.6;
+}
+.alm-bless span{font-size:10.5px;color:var(--ink-4);letter-spacing:2px}
+.alm-theme{
+  flex:none;border:1px solid var(--line-2);background:transparent;color:var(--ink-3);
+  font-size:11.5px;letter-spacing:1px;padding:5px 10px;border-radius:8px;cursor:pointer;
+  transition:all .15s;align-self:flex-start;
+}
+.alm-theme:hover{color:var(--gold-b);border-color:var(--line)}
+
+.alm-note{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:11.5px;color:var(--ink-4)}
+.alm-note b{color:var(--gold);font-weight:600;letter-spacing:1px;margin-right:2px}
+.alm-note span{border:1px solid var(--line-2);border-radius:99px;padding:2px 9px}
+.alm-note span.warn{color:#e0b07a;border-color:rgba(216,163,82,.35)}
+
+/* 项目卡 */
+.pj{
+  border:1px solid var(--line-2);border-radius:12px;padding:12px 14px;margin-bottom:10px;
+  background:rgba(255,255,255,.018);cursor:pointer;transition:border-color .15s,background .15s;
+}
+.pj:hover{border-color:var(--line);background:rgba(255,255,255,.035)}
+.pj:last-child{margin-bottom:0}
+.pj-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pj-top b{font-family:var(--serif);font-size:14.5px;letter-spacing:.8px;color:var(--ink)}
+.pj-client{font-size:11.5px;color:var(--ink-4)}
+.pj-pct{margin-left:auto;font-family:var(--serif);font-size:16px;color:var(--gold-b);letter-spacing:.5px}
+.pj-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.pj-seg{min-width:0}
+.pj-l{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.pj-n{font-size:11.5px;color:var(--ink-3);letter-spacing:.6px;white-space:nowrap}
+.pj-seg em{font-style:normal;font-size:11px;color:var(--ink-4)}
+.pj-seg i{display:block;height:6px;border-radius:99px;background:rgba(255,255,255,.09);margin-top:6px;overflow:hidden}
+.pj-seg i b{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#7a5c2c,#c9a45c);transition:width .3s}
+.pj-seg.done .pj-n{color:var(--ink-2)}
+.pj-seg.done i b{background:linear-gradient(90deg,#8c6a33,#eddaa9)}
+.pj-seg.cur .pj-n{color:var(--gold-b)}
+.pj-seg.cur em{color:var(--gold-b)}
+.pj-seg.cur i b{background:linear-gradient(90deg,#c9a45c,#ffe6b0);box-shadow:0 0 8px rgba(201,164,92,.5)}
+.pj-seg.wait .pj-n{color:var(--ink-4)}
+.pj-foot{margin-top:8px;display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-3)}
+.pj-now b{color:var(--gold);font-weight:600}
+.pj-block{color:#e0b07a}
+.pj-ok{color:var(--ok)}
+
+@media (max-width:760px){
+  .alm{gap:12px;padding:12px 14px}
+  .alm-meta{border-left:0;padding-left:0}
+  .alm-yiji{flex:1 1 100%}
+  .alm-bless{flex:1 1 100%;text-align:left;min-width:0}
+  .pj-bars{grid-template-columns:1fr;gap:8px}
+}
+
+@media (max-width:760px){
+  .alm-theme{position:absolute;right:10px;top:10px;z-index:2;background:rgba(10,7,16,.35)}
+  body.ink .alm-theme{background:rgba(255,255,255,.6)}
+}
+
+/* ===== 水墨皮肤：只换皮，不动结构 ===== */
+body.ink{
+  --bg:#ece5d6;--bg-2:#e6dfcf;
+  --surface:rgba(255,252,246,.88);--surface-2:rgba(238,231,217,.72);
+  --line:rgba(35,32,27,.2);--line-2:rgba(35,32,27,.1);
+  --ink:#221f1a;--ink-2:#463f36;--ink-3:#6b6156;--ink-4:#8b8175;
+  --gold:#8f3b2b;--gold-b:#7c3a24;--gold-d:#b06a4f;
+  --teal:#8f3b2b;--teal-d:#7c3a24;--teal-soft:rgba(143,59,43,.09);
+  --cyan:#3c4a52;--cyan-soft:rgba(60,74,82,.1);
+  --danger:#a8362a;--danger-soft:rgba(168,54,42,.1);
+  --warn:#9a6a1f;--warn-soft:rgba(154,106,31,.1);
+  --ok:#3c6b4b;--ok-soft:rgba(60,107,75,.1);
+  --shadow:0 1px 2px rgba(70,60,45,.06),0 14px 30px rgba(70,60,45,.1);
+  background:#ece5d6;color:var(--ink);
+}
+body.ink::before{
+  background:
+    radial-gradient(880px 520px at 10% -8%,rgba(60,74,82,.11),transparent 62%),
+    radial-gradient(760px 470px at 96% 4%,rgba(143,59,43,.07),transparent 66%),
+    radial-gradient(900px 620px at 88% 104%,rgba(60,74,82,.09),transparent 64%),
+    radial-gradient(700px 460px at 2% 96%,rgba(120,110,95,.1),transparent 70%),
+    #ece5d6;
+}
+body.ink::after{opacity:.2;mix-blend-mode:multiply}
+body.ink .bg-art{opacity:.07;filter:grayscale(1)}
+
+/* 侧栏 */
+body.ink .side{
+  background:linear-gradient(180deg,rgba(248,243,234,.95),rgba(232,224,210,.97));
+  border-right-color:rgba(35,32,27,.12);
+  box-shadow:1px 0 0 rgba(255,255,255,.5),14px 0 40px rgba(90,78,58,.1);
+}
+body.ink .logo,body.ink .brand b{color:#2b2620}
+body.ink .nav button{color:#463f36}
+body.ink .nav button.on{
+  background:linear-gradient(90deg,rgba(143,59,43,.12),rgba(143,59,43,.02));
+  color:#7c3a24;box-shadow:inset 2px 0 0 #8f3b2b,inset 0 0 0 1px rgba(143,59,43,.12);
+}
+body.ink .side-foot button{background:rgba(255,255,255,.5);border-color:rgba(35,32,27,.16);color:#463f36}
+body.ink .side-foot .hint{color:#8b8175}
+
+/* 卡片与标题 */
+body.ink .card{
+  background:linear-gradient(180deg,rgba(255,253,248,.95),rgba(246,240,230,.97));
+  border-color:rgba(35,32,27,.13);
+}
+body.ink .card::before{border-color:rgba(143,59,43,.16)}
+body.ink .card-h h2{color:#2b2620}
+body.ink .card-h .meta{color:#8b8175}
+body.ink .hero h1{
+  background:linear-gradient(160deg,#3a342c 10%,#8f3b2b 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:none;
+}
+body.ink .hero .sub{color:#6b6156}
+body.ink .stat{
+  background:linear-gradient(180deg,rgba(255,253,248,.95),rgba(241,234,222,.95));
+  border-color:rgba(35,32,27,.13);
+}
+body.ink .stat .k{color:#7c3a24}
+body.ink .stat .v{color:#2b2620}
+body.ink .stat.danger .v{color:#a8362a}
+body.ink .stat.warn .v{color:#9a6a1f}
+
+/* 按钮 */
+body.ink .btn{
+  background:linear-gradient(160deg,#a8492f,#8b3123);color:#fff6ec;
+  border-color:rgba(143,59,43,.5);
+  box-shadow:0 2px 10px rgba(143,59,43,.18),inset 0 1px 0 rgba(255,255,255,.18);
+}
+body.ink .btn.ghost{background:rgba(255,255,255,.55);color:#463f36;border-color:rgba(35,32,27,.18);box-shadow:none}
+body.ink .icon-btn{background:rgba(255,255,255,.55);border-color:rgba(35,32,27,.16);color:#463f36}
+body.ink .chip-btn{border-color:rgba(35,32,27,.16);color:#463f36;background:rgba(255,255,255,.4)}
+body.ink .chip-btn.on{background:linear-gradient(160deg,#a8492f,#8b3123);color:#fff6ec;border-color:transparent}
+
+/* 表单 */
+body.ink input,body.ink textarea,body.ink select{
+  background:rgba(255,255,255,.75);border-color:rgba(35,32,27,.16);color:#221f1a;
+}
+body.ink input::placeholder,body.ink textarea::placeholder{color:#a1968a}
+body.ink .field label{color:#7c3a24}
+
+/* 二级切换 */
+body.ink .subtabs{background:rgba(35,32,27,.05);border-color:rgba(35,32,27,.12)}
+body.ink .subtabs button{color:#6b6156}
+body.ink .subtabs button.on{background:linear-gradient(160deg,#a8492f,#8b3123);color:#fff6ec}
+
+/* 列表 / 空态 / 代码块 */
+body.ink .ov-mod{background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(246,240,230,.8));border-color:rgba(35,32,27,.13)}
+body.ink .ov-mod b{color:#2b2620}
+body.ink .ov-mod span{color:#8b8175}
+body.ink .cmd{background:rgba(255,252,246,.9);color:#3d372f;border-color:rgba(35,32,27,.14)}
+body.ink .empty-state{color:#8b8175}
+body.ink .todo{background:rgba(255,255,255,.6);border-color:rgba(35,32,27,.1)}
+body.ink .todo .t-title{color:#221f1a}
+body.ink .todo.done .t-title{color:#9a9084}
+body.ink .mod-item{background:rgba(255,255,255,.6);border-color:rgba(35,32,27,.1)}
+
+/* 黄历 / 项目卡 */
+body.ink .alm{
+  background:linear-gradient(115deg,rgba(255,253,247,.96),rgba(244,237,225,.96));
+  border-color:rgba(35,32,27,.14);
+}
+body.ink .alm::after{background:radial-gradient(circle,rgba(143,59,43,.09),transparent 68%)}
+body.ink .alm-day{background:linear-gradient(170deg,#4a4238,#8f3b2b);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.ink .alm-md,body.ink .alm-gz{color:#8b8175}
+body.ink .alm-lunar{color:#2b2620}
+body.ink .alm-most{border-color:rgba(35,32,27,.12)}
+body.ink .alm-meta{border-left-color:rgba(35,32,27,.12)}
+body.ink .alm-row span{color:#463f36;border-color:rgba(35,32,27,.14);background:rgba(255,255,255,.5)}
+body.ink .alm-bless em{color:#7c3a24}
+body.ink .alm-bless span{color:#a1968a}
+body.ink .alm-theme{color:#6b6156;border-color:rgba(35,32,27,.16)}
+body.ink .alm-note{color:#8b8175}
+body.ink .alm-note b{color:#7c3a24}
+body.ink .alm-note span{border-color:rgba(35,32,27,.14)}
+body.ink .alm-note span.warn{color:#9a6a1f;border-color:rgba(154,106,31,.3)}
+body.ink .pj{background:rgba(255,255,255,.55);border-color:rgba(35,32,27,.12)}
+body.ink .pj:hover{background:rgba(255,255,255,.8);border-color:rgba(143,59,43,.3)}
+body.ink .pj-top b{color:#2b2620}
+body.ink .pj-pct{color:#7c3a24}
+body.ink .pj-client,body.ink .pj-n,body.ink .pj-seg em{color:#8b8175}
+body.ink .pj-seg i{background:rgba(35,32,27,.09)}
+body.ink .pj-seg i b{background:linear-gradient(90deg,#b9a583,#8f3b2b)}
+body.ink .pj-seg.done i b{background:linear-gradient(90deg,#8b8175,#3c4a52)}
+body.ink .pj-seg.cur .pj-n{color:#7c3a24}
+body.ink .pj-seg.cur i b{background:linear-gradient(90deg,#c0563a,#8b3123);box-shadow:0 0 8px rgba(143,59,43,.35)}
+body.ink .pj-foot{color:#6b6156}
+body.ink .pj-now b{color:#7c3a24}
+body.ink .pj-block{color:#9a6a1f}
+
+/* 流程清单 */
+body.ink .sop-stage{background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(246,240,230,.7));border-color:rgba(35,32,27,.12)}
+body.ink .ss-h{background:rgba(143,59,43,.05);border-bottom-color:rgba(35,32,27,.12)}
+body.ink .ss-name{color:#2b2620}
+body.ink .sop-item{border-bottom-color:rgba(35,32,27,.07)}
+body.ink .sop-item:hover{background:rgba(143,59,43,.04)}
+body.ink .si-t{color:#221f1a}
+body.ink .si-d{color:#8b8175}
+body.ink .sop-bar{background:rgba(35,32,27,.09);border-color:rgba(35,32,27,.12)}
+body.ink .sop-bar i{background:linear-gradient(90deg,#b06a4f,#8b3123)}
+body.ink .sop-item input[type=checkbox]{border-color:rgba(35,32,27,.3);background:rgba(255,255,255,.7)}
+body.ink .sop-item input[type=checkbox]:checked{background:linear-gradient(160deg,#a8492f,#8b3123);border-color:#8b3123}
+body.ink .sop-item input[type=checkbox]:checked::after{border-right-color:#fff6ec;border-bottom-color:#fff6ec}
+
+/* AI 对话 */
+body.ink .ai-chat{background:rgba(255,255,255,.55);border-color:rgba(35,32,27,.12)}
+body.ink .ai-body{background:rgba(255,255,255,.85);border-color:rgba(35,32,27,.12);color:#221f1a}
+body.ink .ai-msg.me .ai-body{background:rgba(143,59,43,.1);border-color:rgba(143,59,43,.28);color:#5c2a1e}
+body.ink .ai-who{color:#8b8175}
+body.ink .ai-input textarea{background:rgba(255,255,255,.8);border-color:rgba(35,32,27,.16);color:#221f1a}
+body.ink .ai-bar{background:rgba(255,255,255,.55);border-color:rgba(35,32,27,.12)}
+body.ink .ai-cfg{background:rgba(255,255,255,.45);border-color:rgba(35,32,27,.12)}
+body.ink .ai-cfg summary{color:#6b6156}
+
+/* 弹层 */
+body.ink .gh-panel{
+  background:linear-gradient(180deg,#fffdf8,#f4eee3);color:#221f1a;
+  border-color:rgba(143,59,43,.35);box-shadow:0 24px 60px rgba(70,60,45,.35);
+}
+body.ink .gh-panel h3{color:#2b2620}
+body.ink .gh-panel p.hint,body.ink .gh-panel label{color:#8b8175}
+body.ink .gh-panel input{background:#fff;border-color:rgba(35,32,27,.18);color:#221f1a}
+body.ink .gh-btn{background:linear-gradient(160deg,#a8492f,#8b3123);color:#fff6ec;border-color:transparent}
+body.ink .gh-btn.ghost{background:rgba(255,255,255,.6);color:#463f36;border-color:rgba(35,32,27,.16)}
+body.ink .gh-mask{background:rgba(70,60,45,.35)}
+
+/* 图表 */
+body.ink .bar{background:rgba(35,32,27,.09)}
+body.ink .bar i{background:linear-gradient(180deg,#c0563a,#8b3123)}
+
+/* 内联金色的小按钮（清空示例） */
+body.ink #btnClearDemo{color:#7c3a24 !important;border-color:rgba(143,59,43,.35) !important}
+
+/* 提醒卡 / 图表 / 提示条 */
+body.ink .alert{
+  background:linear-gradient(180deg,rgba(255,253,248,.95),rgba(244,238,227,.96));
+  border-color:rgba(35,32,27,.13);
+}
+body.ink .alert.hot{background:linear-gradient(180deg,rgba(214,140,120,.16),rgba(255,250,244,.96));border-color:rgba(168,54,42,.35)}
+body.ink .alert.warn{background:linear-gradient(180deg,rgba(200,160,90,.16),rgba(255,250,244,.96));border-color:rgba(154,106,31,.32)}
+body.ink .alert h3{color:#2b2620}
+body.ink .alert .big,body.ink .alert .big span{color:#2b2620}
+body.ink .alert p,body.ink .alert .meta{color:#6b6156}
+body.ink .alert .item{color:#463f36}
+body.ink .chart-box{
+  background:linear-gradient(180deg,rgba(255,253,248,.95),rgba(244,238,227,.96));
+  border-color:rgba(35,32,27,.13);
+}
+body.ink .chart-box::before{border-color:rgba(143,59,43,.12)}
+body.ink .chart-box h4{color:#2b2620}
+body.ink .hbar .lb{color:#463f36}
+body.ink .hbar .num{color:#7c3a24}
+body.ink .hbar .track{background:rgba(35,32,27,.1)}
+body.ink .week-svg text{fill:#6b6156}
+body.ink .week-svg line,body.ink .week-svg .axis{stroke:rgba(35,32,27,.16)}
+body.ink .tip{
+  background:rgba(200,160,90,.14);border-color:rgba(154,106,31,.32);color:#7c3a24;
+}
+body.ink .tip b{color:#8f3b2b}
+body.ink .badge{background:rgba(143,59,43,.14);color:#7c3a24}
+body.ink .tag{background:rgba(35,32,27,.06);color:#463f36;border-color:rgba(35,32,27,.12)}
 
 /* ===== 手机端：能编辑、点得中、不放大 ===== */
 @media (max-width:900px){
@@ -1376,17 +1678,31 @@ details.sec .sec-body{margin-top:12px}
 
 
 
+
+
+
+
+
 <!--SKILLS_SEC_START-->
     <!-- ======== 总览 ======== -->
     <section class="view on" id="view-overview">
+      <div class="alm" id="ovAlmanac"></div>
+
       <div class="card">
-        <div class="card-h"><h2>关键数字</h2><span class="meta" id="ovMeta"></span></div>
+        <div class="card-h"><h2>项目统筹</h2><span class="meta" id="ovMeta"></span></div>
         <div class="stat-grid ov-stats" id="ovStats"></div>
-        <div class="btn-row" id="ovQuick" style="margin-top:14px"></div>
+        <div class="alm-note" id="ovLegend"></div>
       </div>
+
+      <div class="card">
+        <div class="card-h"><h2>各项目进度</h2><span class="meta">前期 → 执行中 → 后期，按公司流程走</span></div>
+        <div id="ovProjects"></div>
+      </div>
+
       <div class="card">
         <div class="card-h"><h2>各版块</h2><span class="meta">点进去</span></div>
         <div class="ov-grid" id="ovModules"></div>
+        <div class="btn-row" id="ovQuick" style="margin-top:14px"></div>
       </div>
     </section>
 
@@ -1621,6 +1937,11 @@ details.sec .sec-body{margin-top:12px}
 <!--SKILLS_SEC_END-->
 </main>
 </div>
+
+
+
+
+
 
 
 
@@ -3520,6 +3841,11 @@ details.sec .sec-body{margin-top:12px}
 
 
 
+
+
+
+
+
 <!--SKILLS_JS_START-->
 <script id="skillData" type="application/json">{"rules":[{"id":"U1","title":"禁用极限词（第一/最…）","fix":"平台限流 + 广告法风险，改为客观描述（'最'类主观词如'最爱'属误报，人工复核）","level":"红线","patterns":["第一","最好","最强","最棒","最美","最便宜","最低","最高","唯一","国家级","顶级","最佳","绝无仅有","史无前例"]},{"id":"U2","title":"避免'打卡'字眼（会限流）","fix":"'打卡'易限流，口播/字幕改用'出片''必去点位'等替代说法","level":"红线","patterns":["打卡"]},{"id":"U3","title":"法律法规红线","fix":"违法违规、涉政/涉黄/涉赌内容一律删除（需人工复核）","level":"红线","patterns":["赌博","色情","涉政","违禁"]},{"id":"U4","title":"口径低调，避免绝对化夸张","fix":"收敛夸张形容词，用具体事实替代","level":"建议","patterns":["拉满","直接吓哭","霸气十足","无敌","神图","太雅了"]},{"id":"U5","title":"未确认信息不得当作事实","fix":"删除未经官方确认的信息；如需保留须提供来源","level":"红线","patterns":["据说","听说","网传"]},{"id":"B1","title":"脚本不露出商务名字","fix":"内部执行脚本不得出现商务/品牌名称","level":"红线","manual":true},{"id":"B2","title":"题词账号：不露出品牌全称","fix":"口播、字幕不可露出品牌【全称】；代称可正常口播露出；画面中的品牌内容需打码","level":"红线","brand":"题词"},{"id":"B3","title":"不题词账号：品牌全称露出限量","fix":"品牌【全称】口播可露 1-2 次，远景模糊 1 次（≤2s），不可太明显，字幕不可露出；代称可正常口播露出","level":"红线","brand":"不题词"},{"id":"Q1","title":"无错别字、病句，语句通顺","fix":"逐句校对错别字/病句/标点","level":"红线","manual":true},{"id":"Q2","title":"无攻击性/歧视性表达","fix":"删除攻击、歧视、贬损性表达","level":"红线","patterns":["垃圾","智障","脑残","滚","丑"]},{"id":"Q3","title":"避免重复，尤其与开头雷同","fix":"检查并替换与开头雷同、段落内重复的表述","level":"建议","patterns":["退一万步"]},{"id":"Q4","title":"理顺逻辑、删除口语废话","fix":"重排段落逻辑，删除无意义口头语","level":"建议","patterns":["还有还有"]}],"games":[{"game":"王者荣耀","aliases":["王者","小王","打王者","KPL"],"updated":"2026-10-27","scope":"会火 · 腾讯天美 王者 IP 市场团队（嘉年华、万象棋等王者系项目）","know":{"verdict":"这块活拍的从来不是操作，是角色、关系和氛围。所以审稿的重点也不在游戏内容对不对，而在画面干不干净、素材有没有重复、字幕对不对得上口播——客户会指到秒。","gameBasics":[{"k":"玩什么","v":"5 打 5 的 MOBA，两队各五人，推掉对方水晶获胜。一局 15-20 分钟，以手机端为主。"},{"k":"像什么","v":"像英雄联盟的手游版。一人一个英雄、四个技能，靠发育和团战配合赢。"},{"k":"谁在玩","v":"几乎全年龄，女性占比在 MOBA 里偏高。泛用户极多，很多人不打排位，只看内容。"},{"k":"内容能拍什么","v":"① 角色 cos 与 CP 向 ② 游戏内整活与高光 ③ 借角色拍短剧、才艺"}],"basics":[{"q":"要不要会玩？","a":"不用。上面四条够你跟人聊。这块活卖的是角色和关系，不是操作。","note":"脚本里出现「什么出装」「怎么打团」这类技术内容，基本是自嗨，可以砍。观众看的是人和氛围。"},{"q":"客户是谁、怕什么？","a":"腾讯天美·王者 IP 市场团队。怕内容像广告，怕偷跑，怕画面不干净。","note":"他们常规打法是水下单 + 冲榜，不走明广。所以文案口语化、有情绪，比写得漂亮重要。"},{"q":"我到底在防什么错？","a":"只有四类：口径说错、事实说错、平台限流、表达难看。","note":"王者系最容易栽在第四类——表达。客户会逐条点，精确到秒。"}],"blindspots":[{"t":"把 CP 拍成真人恋情","why":"角色 CP 是流量密码，但把两位真人演员往情侣上绑就越界了。这类内容客户会直接否。","fix":"可以嗑角色、可以说「哥妹感」「宿命感」，不能替真人下定义。用角色关系说事，不用真人关系说事。"},{"t":"拿素材凑时长","why":"素材不够时容易同一段反复用。客户对重复的敏感度高于素材不够，会一条条点名删。","fix":"剪之前先列素材清单去重，开头和中段绝不复用同一段。宁可删，不要凑。"},{"t":"字幕和口播对不上","why":"客户会对着时间轴核字幕，错位会被精确点到某秒。这是王者系最高频的退回原因。","fix":"剪完自己用 0.5 倍速对口型过一遍，改过字幕的版本要重新报秒数。"},{"t":"画面里闪过别的东西","why":"转场、过场一闪而过的字幕或花字残留，客户逐帧看也看得见。","fix":"成片前做一次「只看画面不看内容」的检查，重点看过场和转场。"},{"t":"用真人主播表情包、龙图","why":"这类素材会影响平台投流与冲榜审核，是硬性规避项。","fix":"一律不用。要表情包就用游戏内角色或原创素材。"}]},"platforms":[{"name":"抖音","role":"主战场，量都在这儿","shapes":["角色 cos / 短剧（30-60s）","游戏内整活与高光（20-40s）","才艺、变装、氛围向（15-30s）"],"fit":"常规走水下单，靠内容自然起量，不投明广。开头 2 秒必须抓人。","warn":"水下单有露出分级，题词与不题词账号标准不一样，发之前必须核。"},{"name":"B 站","role":"让懂的人信服","shapes":["KPL 赛事二路与复盘","角色考据、剧情向长内容","鬼畜与二创"],"fit":"能吃长内容，评论区会较真细节。角色设定、皮肤故事这类内容在这儿更受待见。","warn":"同一支片子直接搬过来效果差，标题和节奏都要重做。"},{"name":"公众号","role":"承接与沉淀","shapes":["官方资讯与版本说明","活动规则、报名入口","玩家社区向内容"],"fit":"不负责拉新。活动规则、奖励发放、报名方式放这里，玩家找不到入口时能查。","warn":"别指望它带量，它的作用是「有个地方能查到」。"}],"audit":{"premise":"PM 不写内容，PM 的活是审。王者系客户审得比大多数客户细——他会指到某一秒。所以这道关你自己先过一遍，别把问题交上去。","flow":[{"step":"第一遍：当刷到的人看","desc":"只看前 2 秒。抓不抓人？抓不住就换开头，别往下看。这一遍不纠错别字。"},{"step":"第二遍：过四类清单","desc":"口径、事实、限流、表达，逐类查。王者系问题八成集中在表达类，重点看素材重复和字幕错位。"},{"step":"第三遍：逐条编号回填","desc":"客户是编号列意见的，你就编号回填，并在改处标红。回「已改红字第 3 条」，不回「已修改」。"}],"checks":[{"cat":"口径","color":"red","hint":"这个词客户认不认。王者系的口径红线集中在「别夸过头」和「别拉踩」。","items":[{"rule":"不做过高评价","bad":"封神 / 爆表 / 天花板 / 无敌","good":"还原度很高 / 这一版很稳 / 值得看","case":"客户红线原话：不提「封神」等太高评价的词，避免官方宣传稿口径。有账号因为规避「爆表」把整段字幕删了。"},{"rule":"不拉踩其他游戏","bad":"比某游戏好玩多了 / 某游早就凉了","good":"只讲自家内容好在哪，不做横向比较","case":"红线原话：不得与其他任何游戏做拉踩对比，不露其他游戏 IP 的 logo、周边。"},{"rule":"CP 只嗑角色，不绑真人","bad":"他俩是不是在一起了 / 官宣了吧","good":"这对角色的宿命感太强了 / 哥妹感拉满（指角色）","case":"CP 向是王者系最大流量口，但可以嗑角色不能替真人下定义。边界一旦越，客户直接否。"},{"rule":"不提前发布","bad":"官方还没发，我们先上一条试试","good":"等官方号 / 选手物料发完再发","case":"常规打法是水下单 + 冲榜，但节奏必须跟官方对齐，偷跑要撤稿。"}]},{"cat":"事实","color":"purple","hint":"这条信息经不经得起客户一句「你确定吗」。王者系主要体现在素材来源和 IP 边界。","items":[{"rule":"引用外部素材必须标来源","bad":"直接搬摄影号的巡游素材，不标出处","good":"标注 cr：原作者，或走平台引用机制","case":"客户会主动提「能不能通过打 cr 引用的形式确保不侵权」。用外部素材先想好版权路径。"},{"rule":"不出现其他游戏元素","bad":"背景里带别的游戏 logo、周边、界面","good":"画面里只有王者自己的元素","case":"露其他游戏 IP 属红线，返工。拍之前清一遍现场和道具。"},{"rule":"活动和奖励信息要准","bad":"来了就有皮肤 / 人人都能领","good":"写清领取条件、时间、入口","case":"涉及权益，写「能领到什么」时必须同时写「怎么才能领到」。这条在所有游戏项目里都成立。"}]},{"cat":"限流","color":"amber","hint":"平台会不会压你。王者系常规走水下单，这一类的容错最低。","items":[{"rule":"水下单露出按账号分级","bad":"不题词账号口播念品牌名、字幕打出品牌","good":"按 `_通用/01-平台敏感点与水下单标准` 逐项核：口播次数、字幕、画面时长、话题词","case":"嘉年华这批 8 个账号里 4 个可提词、4 个不可，两套标准不能混。露出超限的后果是限流、下架且不补发。"},{"rule":"不用真人主播表情包、龙图","bad":"画面里出现真人主播表情包、龙图","good":"用游戏内角色、原创素材替代","case":"这类素材会影响投流与冲榜审核，属硬性规避。"},{"rule":"不碰未成年与消费引导","bad":"学生党冲一波 / 充值返利","good":"完全不涉及消费引导","case":"禁止引导未成年消费、充值等敏感话题出现在内容里。"},{"rule":"极限词一律规避","bad":"第一 / 最强 / 唯一 / 顶级","good":"换客观描述","case":"平台限流 + 广告法双风险。王者系尤其敏感，连「爆表」这类极端词都要换。"}]},{"cat":"表达","color":"blue","hint":"王者系问题八成在这类。客户会逐条点，精确到秒。这是你和别人拉开差距的地方。","items":[{"rule":"前 2 秒必须抓人","bad":"平铺直叙铺垫、从空镜开始、慢慢推向主体","good":"第一帧就是高热素材或强钩子","case":"客户原话：「最开头的素材不太好看不够抓眼球，建议开头就用热度比较高的摄影号巡游素材」。"},{"rule":"素材不能重复","bad":"同一段画面在开头和中段各用一次；为了凑时长反复用","good":"一段只出现一次；不够就删，不要凑","case":"客户原话：「第一二段重复素材太多，第一段素材都替换」「依偎打盹有点重复，换一个」「下班依偎着睡觉这里太重复了，删掉」。","media":"素材去重","caption":"同一段素材出现两次，客户会点名删。剪之前先列清单去重"},{"rule":"字幕必须对得上口播","bad":"29s 处字幕和念的内容不一致","good":"逐句对齐，改过字幕的版本重新报秒数","case":"客户原话：「29s 口播字幕不对应，调整字幕」。这是王者系最典型的退回理由。"},{"rule":"画面里不能闪别的字幕","bad":"26s 附近闪过一帧其他字幕 / 花字残留","good":"过场与转场逐帧过一遍","case":"客户原话：「26s 附近有一瞬间闪过其他字幕，处理一下」。逐帧看，闪一下也算。"},{"rule":"文案不能像官方稿或 AI 稿","bad":"本次活动旨在… / 诚邀各位玩家共襄盛举","good":"口语、有情绪、有具体细节","case":"万象棋 bf 红线第一条就是「文案写成官方宣传稿 / 明显 AI 稿 → 直接退回重写」。"}]}]},"client":{"premise":"腾讯天美·王者 IP 市场团队的典型画像是画面型，兼一点口径型：不跟你争创意，但会指到某一秒告诉你哪里不对。摸清这一点，比记住十条要求有用。","figure":{"src":"","caption":""},"modes":[{"mode":"画面型","signal":"打回理由是「26s 闪过其他字幕」「29s 口播字幕不对应」「这段素材重复」。颗粒度到秒。","action":"交稿前自己按秒对一遍：字幕对口播、过场逐帧看、素材清单去重。用 0.5 倍速过一遍口型。","risk":"他不会说「大概哪里不对」。你交上去的东西必须是能逐帧看的，交之前你自己就该先看到这些问题。"},{"mode":"口径型","signal":"打回理由是「不能提封神」「不能拉踩」「不能偷跑」。改得不多，但一次都不能错。","action":"交稿前过一遍口径清单。创意方向不用反复请示，放心大胆拍。","risk":"他的雷区不在创意，在说法。一个形容词可能直接否掉一条片子。"},{"mode":"转化型","signal":"打回理由是「开头不够抓人」「没有钩子」。","action":"第一帧就上高热素材，别用空镜铺垫。开头不行，后面全废。","risk":"这类客户不看你写得多完整，只看前两秒留不留得住人。"}],"quotes":[{"q":"29s 口播字幕不对应，调整字幕","want":"字幕和口播逐句对齐","prevent":"剪完用 0.5 倍速对口型过一遍，改过的版本重新报秒数"},{"q":"26s 附近有一瞬间闪过其他字幕，处理一下","want":"画面干净，闪一帧也不行","prevent":"成片前做一次「只看画面不看内容」的检查，重点看过场与转场"},{"q":"最开头的素材不太好看不够抓眼球，建议开头就用热度比较高的摄影号巡游素材","want":"前 2 秒必须有钩子","prevent":"素材库里优先找已在平台跑出热度的片段，不要用空镜开场"},{"q":"第一二段重复素材太多，第一段素材都替换","want":"素材不能复用","prevent":"剪之前先列素材清单去重，开头与中段绝不复用同一段"},{"q":"依偎打盹有点重复，换一个","want":"同类型画面不要连着出现","prevent":"同情绪的镜头一段只留一个，多了就换"},{"q":"下班依偎着睡觉这里太重复了，删掉","want":"宁可删，不要凑","prevent":"时长不够时先想删哪段，而不是先想补哪段"},{"q":"可以用少司缘大司命的 CG 内容引用","want":"主动给素材建议，别让达人空手编","prevent":"脚本阶段就把可用素材清单和引用方式给到达人"},{"q":"大巴车内容换成下班路上打招呼，实在没素材就删掉","want":"素材不到位就换场景或删段","prevent":"每段脚本都准备一个 B 方案，别把整条押在一个拍不到的镜头上"},{"q":"能不能通过打 cr 引用的形式确保不侵权","want":"外部素材要有版权路径","prevent":"用外部素材就标来源，能走平台引用机制就走"},{"q":"不提「封神」等太高评价的词，避免官方宣传稿口径","want":"夸得具体，不夸上天","prevent":"写完搜一遍「封神、爆表、天花板、无敌」，全换掉"}],"contact":[{"step":"收到批注，逐条编号回填","do":"客户是编号列意见的，你就编号回。改处在表里标红，回「已改红字第 3 条」。不要只回一句「已修改」——他要能一眼找到改在哪。"},{"step":"改完自己先按秒核一遍","do":"字幕对口播、过场逐帧看、素材去重。他指到秒，你就得先看到秒。这一步花十分钟，能省一轮返工。"},{"step":"素材不到位及时说，别硬凑","do":"拍不到就问客户要替代素材，或直接删段。客户自己也说过「实在没素材就删掉」——凑出来的片子一定会被打回。"},{"step":"新口径当天进台账","do":"这次新学到的说法（哪种词不能提、哪类素材不能用），当天记下来。王者系的口径散在批注里，攒到项目结束一定忘。"}]}},{"game":"王者万象棋","aliases":["万象棋","六角笼","王者自走棋"],"updated":"2026-10-27","scope":"会火 · 腾讯天美 王者 IP 市场团队（与王者荣耀同一客户主体）","know":{"verdict":"开服项目的核心不是创意，是节奏与合规。官方物料没发完，内容做得再好也不能发。这一条比任何文案技巧都重要。","gameBasics":[{"k":"玩什么","v":"自走棋。买棋子、凑阵容、升星，靠阵容搭配和运气打赢对手，不用实时操作。一局二十分钟左右。"},{"k":"像什么","v":"同类目就是自走棋（金铲铲那一路），但节奏更快，官方口径叫「一刷二养三炸场」。"},{"k":"谁在玩","v":"王者 IP 用户 + 自走棋玩家。上手门槛低、能好友组队，所以泛用户多，新手也多。"},{"k":"内容能拍什么","v":"① 明星与主播合体造事件 ② 比赛高光二传 ③ 玩法教学与上分攻略"}],"basics":[{"q":"要不要会玩？","a":"不用。这块活卖的是「人和事件」——谁来了、谁跟谁互怼、谁放了狠话，不是怎么下棋。","note":"自走棋的玩法内容很难拍好看，除非做攻略向。泛用户看的是嘉宾反应，不是棋盘。"},{"q":"客户是谁、怕什么？","a":"腾讯天美·王者 IP 市场团队。开服阶段最怕偷跑，其次怕内容像官方稿。","note":"他们有明确的十条红线（bf 原文），是硬要求，不是建议。审稿时逐条对，不要凭印象。"},{"q":"我到底在防什么错？","a":"只有四类：口径说错、事实说错、平台限流、表达难看。","note":"开服项目还要多加一条：节奏。官方号没发完就先发，等于自己把项目搞砸。"}],"blindspots":[{"t":"官方物料没发完就先发","why":"开服期最致命的错。官方号与选手物料没发之前，任何内容都不能上，这是硬红线。","fix":"发布前逐个确认：官方号发了吗？选手物料发了吗？两条都确认了再排期。宁晚半天，不早一小时。"},{"t":"三条线的文案写成一个样","why":"明星方向、活动方向、高光二传，三条线人群完全不同。用一套模板套三个方向，一定同质化。","fix":"三个方向三套 brief：明星向讲人设与入坑，活动向讲事件感，二传向讲段子。分开写，别复用。"},{"t":"文案像官方稿或 AI 稿","why":"bf 红线第一条。官方稿口径会被直接退回重写，明显 AI 稿同理。","fix":"口语、有情绪、有具体细节。写完念一遍，像不像人在说话。"},{"t":"话题带错或不带","why":"冲榜靠话题聚合。话题不贴合内容，客户会要求舍弃；漏带就白做。","fix":"每条内容发布前对一遍话题清单：冲热话题 + 发布话题，平台不同话题也不同。"},{"t":"用真人主播表情包、龙图","why":"影响投流与冲榜审核，是 bf 里明确列出的禁忌。","fix":"一律不用。表情包只用游戏内角色或原创素材。"}]},"platforms":[{"name":"抖音","role":"主投，量主要在这儿","shapes":["明星/主播合体事件（30-60s）","比赛高光二传（20-40s）","玩法教学（30-60s）"],"fit":"开服期主投，配合冲热话题做集中发布。三条线都放这儿。","warn":"话题必须带对（#王者万象棋开启预下载 等），漏带等于白做。"},{"name":"快手","role":"第二主投，人群更下沉","shapes":["同抖音，但节奏更直给","喊话、互怼类冲突内容"],"fit":"和抖音同批内容可分发，但要带快手对应的冲热话题。","warn":"同一支片子直接搬，标题和文案要按快手调，别原样复制。"},{"name":"B站 / 小红书 / 微博","role":"分发补位，不是主战场","shapes":["B站：Tag + 预告向","小红书：图文与体验向","微博：话题发酵"],"fit":"有分发就带对应话题，没分发不用强做。资源优先给抖音快手。","warn":"客户原话：「话题要贴合内容属性，不相关就舍弃」——别为了铺平台硬发。"}],"audit":{"premise":"PM 不写内容，PM 的活是审。开服项目的审稿有两道关：第一道是内容和口径，第二道是节奏——什么时候能发。第二道过不了，第一道全白做。","flow":[{"step":"第一遍：确认能不能发","desc":"先别审内容。先确认官方号和选手物料发了没有。没发就压着，这条比内容质量优先。"},{"step":"第二遍：过四类清单","desc":"口径、事实、限流、表达，逐类查。开服期口径类问题最多，bf 十条红线逐条对。"},{"step":"第三遍：对话题和平台","desc":"每条内容配哪个话题、发哪个平台，发布前逐条核。话题漏带或不贴合，客户会要求重发。"}],"checks":[{"cat":"口径","color":"red","hint":"bf 里有十条红线，逐条对，不要凭印象。这一类错了最容易被退回重写。","items":[{"rule":"不做过高评价","bad":"封神 / 爆表 / 天花板 / 吊打一切","good":"上手很快 / 阵容很有意思 / 值得试试","case":"bf 红线原话：「不提「封神」等太高评价的词」，同时不要写成官方宣传稿口径。"},{"rule":"不拉踩、不内涵官方","bad":"比某棋好玩多了 / 官方这波操作看不懂","good":"只讲自家内容好在哪，不比较、不评价官方决策","case":"bf 原话：「不得拉踩其他任何游戏」「不内涵、贬低官方」「不抹黑、不恶意解读、不传谣」。"},{"rule":"不对具体人员人身攻击","bad":"嘲讽某位嘉宾的能力、外貌、口条","good":"玩梗可以，落点在行为和反应，不落到人身上","case":"bf 原话：「不得对具体人员人身攻击」。互怼类内容最容易越界，这条要盯住。"},{"rule":"嘉宾身份表述准确","bad":"黄子韬来打比赛了","good":"黄子韬是王者万象棋电竞代言人","case":"他是电竞代言人，不是普通嘉宾。身份说错属于事实错误，客户会改。"}]},{"cat":"事实","color":"purple","hint":"开服项目的硬信息不能错：上线时间、赛事名称、嘉宾身份。","items":[{"rule":"三条核心信息必须在","bad":"只讲嘉宾，不提游戏上线","good":"王者万象棋上线 + 六角笼争霸赛直播嘉宾 + 六角笼争霸赛直播","case":"客户硬性要求：所有内容必须包含这三条信息。这是 bf 里的明文规定，不是建议。"},{"rule":"时间和名称不能错","bad":"9 月 10 号开启预下载（混淆预下载和上线）","good":"按官方口径区分：预下载、开服、直播各是什么时间","case":"开服期时间点密集，预下载、开服、直播三件事容易搅在一起。脚本里每个时间点都要对官方口径。"},{"rule":"不编玩法细节","bad":"这游戏能 XX 人一起下棋（没依据的人数/规则）","good":"只用官方介绍过的玩法点：「一刷二养三炸场」、好友组队上分","case":"自走棋的规则细节容易被达人按自己理解写。不确定的玩法描述直接删，别猜。"}]},{"cat":"限流","color":"amber","hint":"开服期全部走冲榜，限流一次就前功尽弃。这一类的容错最低。","items":[{"rule":"不用真人主播表情包、龙图","bad":"画面里出现真人主播表情包、龙图","good":"用游戏内角色、原创素材替代","case":"bf 原话：「禁真人主播、龙图等表情包（影响投流与冲榜审核）」。"},{"rule":"不碰未成年与消费","bad":"学生党冲一波 / 充值返利 / 首充福利","good":"完全不涉及消费引导","case":"bf 原话：「禁未成年消费 / 充值相关话题」。另禁政治、宗教、色情、公序良俗相关。"},{"rule":"极限词一律规避","bad":"第一 / 最强 / 唯一 / 顶级","good":"换客观描述","case":"平台限流 + 广告法双风险。标题、口播、字幕都要过一遍。"},{"rule":"话题要贴合内容","bad":"为了铺量，所有内容都带同一串话题","good":"内容对不上就舍弃该话题","case":"客户原话：「话题要贴合内容属性，不相关就舍弃」。硬凑话题会被要求重发。"}]},{"cat":"表达","color":"blue","hint":"三条线三个写法，不能一套模板套三个方向。这是最容易偷懒也最容易翻车的地方。","items":[{"rule":"三个方向分开写","bad":"一条文案改个开头，就当成三个方向发","good":"明星向讲人设与入坑，活动向讲事件感，二传向讲段子","case":"项目复盘结论：三线并推能覆盖不同人群，但文案要分开写——同一条内容套三个方向一定同质化。"},{"rule":"文案不能像官方稿或 AI 稿","bad":"本次直播将呈现精彩对决，敬请期待","good":"口语、有情绪、有具体细节","case":"bf 红线第一条：拒绝明显 AI 稿的文案、不要写成官方宣传稿口径。"},{"rule":"二传要有梗，不是流水账","bad":"把直播从头到尾剪一遍，配上解说","good":"挑一个最有反差的瞬间，前 3 秒就抛出来","case":"高光二传线账号多、单条要求低，最容易做成流水账。它靠的是「哪一段最有梗」，不是「讲得多全」。"},{"rule":"开头 2 秒抓人","bad":"先介绍游戏背景，再进正题","good":"第一帧就是冲突、狠话或名场面","case":"开服期信息密度高，前 2 秒留不住人，后面全白做。"}]}]},"client":{"premise":"王者系同一客户主体（腾讯天美·王者 IP 市场团队），但万象棋这轮是开服项目，客户的关注点从「画面干不干净」偏向「节奏对不对、红线有没有踩」。判断依据还是看批注落在哪。","figure":{"src":"","caption":""},"modes":[{"mode":"口径型","signal":"打回理由是「不能提封神」「不能拉踩」「不能内涵官方」。bf 里有十条明文红线。","action":"交稿前逐条对 bf 十条红线，不要凭印象。创意方向不用反复请示。","risk":"红线是硬要求，不是建议。一条踩了整条重写，尤其在开服这种节点上。"},{"mode":"节奏型","signal":"打回理由是「官方还没发你们怎么先发了」「话题不对」「排期冲突」。","action":"发布前逐个确认官方号与选手物料是否已发，话题是否匹配。排期表要跟客户对齐。","risk":"偷跑的后果比内容差严重得多——要撤稿，且影响后续合作信任。"},{"mode":"画面型","signal":"打回理由是「26s 闪过其他字幕」「字幕和口播不对应」。跟王者荣耀那条线一致，指到秒。","action":"交稿前按秒对一遍：字幕对口播、过场逐帧看、素材去重。","risk":"同一客户主体，审片习惯不会因为换了游戏就变。"}],"quotes":[{"q":"不提「封神」等太高评价的词，避免官方宣传稿口径","want":"夸得具体，不夸上天","prevent":"写完搜一遍「封神、爆表、天花板、无敌」，全换掉"},{"q":"不得拉踩其他任何游戏，不露其他游戏 IP 的 logo / 周边","want":"只讲自家，不比较","prevent":"脚本里不出现任何其他游戏名；现场道具清一遍"},{"q":"禁真人主播、龙图等表情包（影响投流与冲榜审核）","want":"素材干净，能过投流","prevent":"素材库单独建一个「不可用」文件夹，剪的时候看不到"},{"q":"禁止偷跑：官方号与选手物料发布后才可发","want":"节奏跟官方对齐","prevent":"发布前一天再确认一次官方号动态，别只看最初排期"},{"q":"所有内容必须包含王者万象棋上线、六角笼争霸赛直播嘉宾、六角笼争霸赛直播信息","want":"三条硬信息一条不能少","prevent":"做成 checklist，每条内容发布前逐项打勾"},{"q":"话题要贴合内容属性，不相关就舍弃","want":"话题和内容对得上","prevent":"先定内容再挑话题，别反过来"},{"q":"拒绝明显 AI 稿的文案；不要写成官方宣传稿口径","want":"像人说的话","prevent":"写完念一遍，出现「旨在」「共襄盛举」这类词就重写"},{"q":"不得对具体人员人身攻击","want":"玩梗可以，别攻击人","prevent":"互怼类内容落点在行为，不落到外貌、能力、口条"},{"q":"不抹黑、不恶意解读、不传谣，不内涵、贬低官方","want":"情绪可以有，立场不能歪","prevent":"涉及官方决策的内容一律不碰"},{"q":"禁未成年消费 / 充值相关话题","want":"完全不碰消费引导","prevent":"出现「学生党」「首充」「返利」就整句删"}],"contact":[{"step":"先把发布节奏锁死","do":"开服项目的排期表就是命。先跟客户对齐官方号、选手物料、达人内容的发布先后顺序，写进表里，每天对一次。"},{"step":"三条线三套 brief","do":"明星向、活动向、高光二传，人群不同、写法不同。用一套模板批量下发，出来的一定同质化。"},{"step":"交稿前逐条对红线","do":"bf 十条红线打印出来对着勾。口径类问题返工成本最高，一条踩了整条重写。"},{"step":"话题单独做一张表","do":"平台 × 冲热话题 × 发布话题，一行一条。发布前逐条核，漏带等于白做。"}]}},{"game":"无畏契约","aliases":["瓦","Valorant","打瓦","开瓦"],"updated":"2026-10-27","scope":"会火 · 腾讯/拳头系项目（赛事、联名、线下活动）","know":{"verdict":"这活儿不需要会玩。观众里一大半也不玩，他们看的是人、场面和梗。你唯一要比观众多懂的一件事是：什么说法会被客户打回。","gameBasics":[{"k":"玩什么","v":"5 打 5 的射击游戏，两队轮流进攻防守。进攻方在固定点位装「爆能器」，防守方拆掉，先赢 13 局取胜。"},{"k":"像什么","v":"玩法接近 CS，但每个角色有技能（类似守望先锋）。不过枪法比技能更重要。"},{"k":"谁在玩","v":"一二线年轻人为主，男女比在射击游戏里最均衡，网吧常客多。泛用户比核心玩家多得多。"},{"k":"内容能拍什么","v":"① 现场/活动 ② 游戏内高光与整活 ③ 借游戏场景做娱乐内容（颜值、剧情、测评）"}],"_basics说明":"这四条是基础认知，固定保留，保持一行说完。下面三条才是 PM 视角，不要重复上面已经讲过的。","basics":[{"q":"要不要会玩？","a":"不用。上面四条够你跟人聊，也够你判断脚本有没有说错。","note":"如果脚本里出现「几打几」「怎么赢」这类技术信息，基本都是废话，可以砍——观众不看这个。"},{"q":"客户是谁、怕什么？","a":"游戏官方或联名品牌。他们不怕没人看，怕说错。","note":"所以你的活不是想创意，是守住说法和事实。创意差一点顶多数据平，说错一句直接返工。"},{"q":"我到底在防什么错？","a":"只有四类：口径说错、事实说错、平台限流、表达难看。","note":"后面第二部分，整页都在讲这四类。"}],"blindspots":[{"t":"术语说错，一眼露怯","why":"红毯、端游党、手游咖这类词，达人圈里没人这么说，客户一看就知道策划没做过这个盘子。","fix":"统一用：走秀/秀场、端瓦/手瓦、瓦友、出片。拿不准的词先问，别自己造。"},{"t":"把限定权益写成人人可得","why":"上机卡、战绩小票、周边都是限量的，写成「来了就有」是事实错误，客户必须打回。","fix":"写能领到什么时，必须同时写怎么才能领到：提前预约 / 每天 4 场 / 60 个席位。"},{"t":"官方分区名自己起","why":"达人不知道官方怎么叫，会写「那个玻璃房子」「监控那边」，客户看到要改一遍。","fix":"把官方分区清单直接发给达人，让他挑着写，不要让他自己命名。"},{"t":"把到场嘉宾写成能偶遇","why":"嘉宾可能是闭门会出席、按日排期的表演赛嘉宾、一日网管，三种身份完全不同。","fix":"派单前先问一句：这人当天在哪、以什么身份出现。"}]},"platforms":[{"name":"抖音","role":"让不知道的人知道","shapes":["现场探班 vlog（40-70s）","爆料/悬念（30-50s）","二创整活（20-40s）"],"fit":"主战场。前 3 秒给看点，中段 2-3 个具体信息，结尾一句情绪收口。","warn":"「打卡」「第一/最」会限流，口播字幕都别出现。"},{"name":"B 站","role":"让有兴趣的人信服","shapes":["赛事二路解说","长测评 / 解说向","选手与 UP 主联动"],"fit":"能吃长内容，搜索长尾好，适合放复盘、幕后、深度体验。","warn":"同一支片子搬过来效果差，需要重新剪节奏和标题。"},{"name":"公众号","role":"把信的人留下","shapes":["官方资讯","活动报名与规则说明","玩家社区向内容"],"fit":"不负责拉新，负责承接和沉淀。活动规则、预约方式、名额说明放这里最稳。","warn":"别指望它带量，它的作用是「有个地方能查到」。"}],"audit":{"premise":"PM 不写内容，PM 的活是审。审对了，片子差不到哪去；审漏了，做得再好也要返工。","flow":[{"step":"第一遍：当没玩过的人看","desc":"只看一件事：看不看得懂。哪句听不懂、哪个画面对不上，直接标。这一遍不纠错别字。"},{"step":"第二遍：过四类清单","desc":"口径、事实、限流、表达，逐类查。这四类对应客户打回你的全部理由，没有第五类。"},{"step":"第三遍：对着原表回填","desc":"批注式回填，位置对位置。客户在哪句话旁边点了问题，你就在同一位置回「已改」或「已按…调整」。别笼统回「已修改」。"}],"checks":[{"cat":"口径","color":"red","hint":"这个词客户认不认。认不认，跟对不对无关。","items":[{"rule":"不能自封奢侈","bad":"高奢 / 轻奢 / 奢华 / 顶奢","good":"高端时尚品牌 / 潮流 / 有设计感","case":"客户原话：「不要提高奢了」。7 个账号的脚本都出现过这个词，一次性全改。"},{"rule":"端游手游不对立","bad":"专门划分了手瓦专区 / 端游党可以…手游咖可以…","good":"端手一体，端瓦手瓦都能玩","case":"客户原话：「不要将端手瓦的玩家对立开」。注意：说「还专门划分了手瓦区」也算分裂。"},{"rule":"术语用官方说法","bad":"红毯","good":"走秀 / 秀场","case":"客户原话：「红毯改为走秀、秀场之类的」。这类词一改就是全局替换，交稿前先搜一遍。"},{"rule":"嘉宾身份别说错","bad":"去了网吧就能看到 coke 和 dank1ng","good":"作为表演赛嘉宾 / 一日网管按日排期到场；两人出席的是前置闭门会","case":"客户原话：「这个是前置两人出席闭门会，不是去了网吧能现场看到两个主播」。"},{"rule":"分区名用官方命名","bad":"那个玻璃房 / 监控那边 / 有个展区","good":"高光廊道 / 网吧监控室 / 2026 冠军赛奖杯陈列区","case":"客户原话：「这里需要简单说明一些区块的特色，比如冠军奖杯展区能看到 26 年冠军赛的奖杯、潮流监控区能出片」。","media":"分区命名","caption":"官方分区清单直接发给达人，让他挑着写，不要让他自己命名"}]},{"cat":"事实","color":"purple","hint":"这条信息经不经得起客户一句「你确定吗」。","items":[{"rule":"权益有没有门槛","bad":"现场人人都有定制上机卡和战绩小票","good":"提前预约锁定上机时段，才能领定制上机卡与战绩小票","case":"客户原话：「提前预约才会有定制上机卡和小票」。写过一次就被退回过，这类信息必须同时写门槛。"},{"rule":"数字、时间、地点要有出处","bad":"听说有好几个分区 / 大概下午开始","good":"官方口径：8 个功能区，每天 4 场，14:00 开始","case":"凡是「据说」「听说」「网传」开头的，一律删或补来源。客户一问就露。"},{"rule":"不要写装修和陈设","bad":"松木香气、暗金配色、装修很有质感","good":"高定装备库能看到全套定制外设，潮流监控区能直接出片","case":"客户原话：「关于网吧装潢的相关话术全部删掉，主要围绕网吧内的场景区块进行介绍」。写装修是新人最常犯的错。"}]},{"cat":"限流","color":"amber","hint":"平台会不会压你。压了不一定看得见，但数据会很难看。","items":[{"rule":"「打卡」不能用","bad":"这里太适合打卡了 / 必打卡点位","good":"这里很出片 / 这个点位值得专门来一趟","case":"公司规范：「打卡」字眼会限流。注意不是不能说这个点位，是别说「打卡」两个字。"},{"rule":"极限词不能用","bad":"第一 / 最好 / 最强 / 唯一 / 顶级","good":"国内首个 / 今年新开的 / 少见","case":"限流 + 广告法双风险。口播、字幕、文案、标题都要过一遍。"},{"rule":"品牌露出按账号分级","bad":"题词账号口播念品牌全称、字幕打出品牌名","good":"题词账号零全称露出，画面品牌物料打码；代称可正常说","case":"公司规范：限的是品牌【全称】。代称（瓦、世家这类）可以正常口播，不计次数。"},{"rule":"不引流第三方、不做硬广感","bad":"点击主页链接购买 / 加我微信 / 全网最低","good":"想去的可以搜官方账号看预约方式","case":"引流和硬广感都会被压量，同时客户也会否。"}]},{"cat":"表达","color":"blue","hint":"读起来顺不顺、听不听得到重点。这一类客户不会全提，但提了就是硬伤。","items":[{"rule":"开头别铺垫","bad":"本以为是一次普通的周末 / 话又说回来 / 我觉得吧","good":"第一句直接抛信息或抛悬念","case":"客户原话：「缩短，快速引到主题」。前 3 秒没信息，完播率就废了。","video":"https://www.douyin.com/search/无畏契约%20网吧","videoNote":"示例位：换成你项目里一次过的定稿片子，新人照着看语感最快"},{"rule":"一段只留一个说法","bad":"同一句意思换个词说两遍；开头和结尾重复","good":"重复的那句删掉，或者换个信息点","case":"客户原话：「话术上换一下，重复了」「退一万步，你这样说跟开头一样了」。"},{"rule":"不要贬低性表达","bad":"上不了台面 / 不配 / 抬不起头 / 吊打","good":"中性或正向描述，讲事实不讲评判","case":"客户原话：「不要有上不了台面这种话术输出」。调性红线，一次都不能有。"},{"rule":"口语要顺，不要口水","bad":"还有还有 / 就是那种 / 然后然后","good":"删掉口头语，句子之间靠逻辑连，不靠连接词堆","case":"脚本是要念出来的。自己念一遍，念不顺的地方就是问题。"}]}]},"client":{"premise":"客户的审核方式，比客户的要求更值得记。要求会变，审核习惯不太变。看前三轮批注落在哪一列，就能判断他是哪一型，然后用对应的方式交稿。","figure":{"src":"秒级对表","caption":"画面型客户看片的方式：指到秒，不指大概。所以你自己得先对一遍"},"modes":[{"mode":"口径型","signal":"打回理由几乎都是「这个词不能说」「这个说法不对」。改得不多，但一次都不能错。","action":"交稿前自己过一遍口径清单，把每条口径记进台账。创意不用反复请示，放心大胆写。","risk":"他的雷区不在创意，在说法。你觉得是小事的一个形容词，可能是他的红线。"},{"mode":"画面型","signal":"打回理由是「29s 字幕不对应」「26s 闪过其他字幕」「这段素材上一支片子用过」。颗粒度到秒。","action":"交稿前按秒对一遍：字幕和口播对不对得上、画面有没有穿帮、素材有没有重复。自己做一遍秒级对表。","risk":"他不会告诉你「大概哪里不对」，他会指到秒。你交上去的东西必须是能逐帧看的。"},{"mode":"转化型","signal":"打回理由是「看不到重点」「没引导」「不知道让人干什么」。","action":"开头第一句就交代是什么、在哪、什么时候；结尾给一个明确动作。中间别绕。","risk":"这类客户不关心你写得多漂亮，只关心看完的人会不会动。"}],"quotes":[{"q":"缩短，快速引到主题","want":"前 3 秒必须给信息","prevent":"交稿前数一下，前两句里有没有出现活动名或爆点"},{"q":"关于网吧装潢的相关话术全部删掉，主要围绕网吧内的场景区块进行介绍","want":"写功能，不写装修","prevent":"全文搜「装修、装潢、配色、香气、氛围」，搜到就改"},{"q":"提前预约才会有定制上机卡和小票","want":"权益必须写门槛","prevent":"每写一个「能领到」，后面必须跟一句「怎么才能领到」"},{"q":"这个是前置两人出席闭门会，不是去了网吧能现场看到两个主播","want":"嘉宾身份要准","prevent":"涉及嘉宾，先确认到场方式，再写句子"},{"q":"红毯改为走秀、秀场之类的","want":"术语统一","prevent":"交稿前全局搜一遍术语黑名单"},{"q":"不要将端手瓦的玩家对立开","want":"端手一体","prevent":"出现「专门、只、划分、党、咖」这类分裂感词就检查"},{"q":"不要有上不了台面这种话术输出","want":"不做价值评判","prevent":"写完自己念一遍：这句话是不是在贬低谁"},{"q":"话术上换一下，重复了","want":"一段一个说法","prevent":"把开头和结尾并排放，看看是不是说了同一件事"},{"q":"不要有类似真人快打的话术","want":"别夸张成打架","prevent":"涉及线下互动，写「线下就能拉到双排队友」这类具体好处，不写对打"},{"q":"手瓦专区稍微再展开一些","want":"信息要够，不是点到为止","prevent":"每个区块至少给一句特色，不能只有名字"}],"contact":[{"step":"收到批注，先分类","do":"客户只会做三个动作：删（这类话术不许有）、换（这个说法不对）、补（这个信息漏了）。先判断是哪一类，再动手。听到「删」就别优化，直接删干净。"},{"step":"回填到原位置，别复述","do":"客户在哪句话旁边点的批注，就在那个位置回。回「已按第 3 点改为…」，不回「已修改，请查收」。他最烦的是翻回去找不到改哪了。"},{"step":"新口径当天进台账","do":"这次新学到的口径，当天写进档案。攒到项目结束一定忘。下一个人接手时，这份台账就是他的第一天。"},{"step":"拿不准的当天问，别猜","do":"分区怎么命名、嘉宾以什么身份出现、权益有没有门槛，这三件事猜错必然返工。问一句的成本，远低于改一版。"}]}},{"game":"希望之启航","aliases":["希望OL","希望","爷青回项目"],"updated":"2026-10-27","scope":"会火 · 恺英（《希望之启航》线）","know":{"verdict":"这个客户基本不挑稿，只回「✅」。听起来轻松，实际上更危险——没人帮你兜底，标准得你自己顶住。而且这类项目不出爆款，靠波次铺量，一条做砸不会有人提醒你。","gameBasics":[{"k":"玩什么","v":"MMORPG。打怪升级、刷装备、组队副本，Q 版画风的经典韩系 MMO 那一套。"},{"k":"像什么","v":"像 2000 年代那批韩系网游的手游版。玩法不新，卖的就是「原汁原味」。"},{"k":"谁在玩","v":"老《希望 OL》玩家，80/90 后，情怀驱动强。泛化靠娱乐人群，不是靠核心玩家。"},{"k":"内容能拍什么","v":"① IP 情怀回忆 ② 游戏圈集体事件 ③ 主播名场面二传（综艺整活向）"}],"basics":[{"q":"要不要会玩？","a":"不用。这活卖的是回忆，不是玩法。你没玩过反而更接近大部分观众。","note":"老玩家想看的是「还是那个样子」，所以你要确认画风、地图、BGM 这些细节对不对，而不是玩法讲解得清不清楚。"},{"q":"客户是谁、怕什么？","a":"《希望 OL》正版手游官方。怕内容空——通篇「爷青回」但说不出具体好在哪。","note":"情怀类内容最容易写成套话。客户不会逐句挑，但观众会用划走来投票。"},{"q":"我到底在防什么错？","a":"只有四类：口径说错、事实说错、平台限流、表达难看。","note":"这类项目第四类最关键——不出爆款、靠铺量，所以每一条的平均质量决定整体。"}],"blindspots":[{"t":"情怀写成空洞套话","why":"「童年回来了」「爷青回」写十遍也不会让人下载。观众要的是具体的东西：哪个地图、哪段 BGM、哪个 NPC。","fix":"一条内容至少给两个具体细节：某个地图场景、某段音乐、某个老玩法。写不出具体细节就说明这条没内容。"},{"t":"把情怀写成卖惨","why":"「现在的小孩都不懂」「再也回不去了」这类调子会让人觉得沉重，划走率反而更高。","fix":"落点在「还能再玩一次」的爽感，不在「失去了」的遗憾。"},{"t":"波次节奏乱掉","why":"这个项目是三波集中发布，不是随时发。提前发或漏发，整波的效果都会打折。","fix":"预热 10.19、10.21，公测 10.23，三波各自有主题。发布表和内容主题绑死，不要单条自行调整。"},{"t":"水下单露出超限","why":"全部走抖音水下单，字幕露品牌、口播超次数都会限流，且不补发。","fix":"按 `_通用/01-平台敏感点与水下单标准` 逐项核：口播次数、字幕、画面时长、话题词。"},{"t":"以为铺量就不用管单条质量","why":"24 条里最高只有 24.5 万曝光，没有爆款。总量是靠每条都不差堆出来的，一条明显拉胯会拖整体。","fix":"每条都按同一套标准过。不要因为「反正这条不重要」就放过。"}]},"platforms":[{"name":"抖音","role":"唯一主战场","shapes":["情怀回忆向（30-60s）","事件造势向（20-40s）","综艺整活二传（20-40s）"],"fit":"三波内容全部投抖音，走水下单。靠波次铺量堆声量，不押单条爆款。","warn":"水下单露出分级最严。字幕不露品牌，口播次数有限制。"},{"name":"快手","role":"可分发，但不是重点","shapes":["同抖音内容改写标题后分发"],"fit":"有资源就分发，没有不影响主线。","warn":"老游戏情怀人群在快手也不少，但表达要更直白，别太文艺。"},{"name":"B站 / 小红书","role":"长尾沉淀","shapes":["B站：老游戏考据、回忆向长视频","小红书：画风对比、老玩家晒图"],"fit":"不是这次项目的重点，但作为长尾内容有价值。","warn":"B 站用户对「炒冷饭」很敏感，情怀类内容容易被评论区质疑，需要真实细节支撑。"}],"audit":{"premise":"PM 不写内容，PM 的活是审。这个客户不看稿，所以这道关只有你自己。你放过的问题，会直接出现在成片里。","flow":[{"step":"第一遍：找具体细节","desc":"只看一件事：这条里面有没有两个以上的具体东西（地图、BGM、NPC、老玩法）。没有就是空话，退回。"},{"step":"第二遍：过四类清单","desc":"口径、事实、限流、表达，逐类查。情怀类重点看表达——是不是又写成「爷青回」套话。"},{"step":"第三遍：对波次和话题","desc":"确认这条属于哪一波、主题对不对、发布时间对不对、话题带了没有。"}],"checks":[{"cat":"口径","color":"red","hint":"情怀类的口径核心是：说具体，不说感慨；说得到，不说失去。","items":[{"rule":"情怀必须落到具体细节","bad":"瞬间回到童年 / 爷青回 / 青春回来了","good":"还是那个地图、还是那段 BGM、还是那个 NPC 的台词","case":"项目复盘结论：情怀向内容容易写成空洞的「梦回童年」，要落到具体角色、场景、台词。"},{"rule":"不做价值判断式贬低","bad":"现在的小孩都不懂什么叫游戏 / 现在的游戏都是垃圾","good":"我们那会儿玩的，现在还能再玩一次","case":"贬低其他游戏或玩家群体，既踩平台调性红线，也让内容显得刻薄。"},{"rule":"不夸大定位","bad":"史上最强情怀服 / 第一 MMO 手游","good":"原汁原味的画风和玩法","case":"极限词既限流又违反广告法。情怀不是靠夸出来的。"}]},{"cat":"事实","color":"purple","hint":"老玩家会较真。版本、时间、玩法一旦说错，评论区第一条就是纠正你。","items":[{"rule":"时间节点不能错","bad":"10 月 19 号公测（混淆预热和公测）","good":"预热 10.19 / 10.21，公测 10.23","case":"这个项目是三波：预热两波 + 公测一波。时间说错等于把节奏讲乱，客户要改。"},{"rule":"版本与玩法以官方为准","bad":"这版本新增了 XX 职业（自己按端游记忆写）","good":"只用官方介绍过的内容","case":"老玩家对版本细节极敏感，按记忆写十有八九出错。拿不准就去问客户或查官方公告。"},{"rule":"直播素材要标来源与时间","bad":"随手截一段直播画面就用","good":"标明来源（小团团 × 官方号直播）与大致时间点","case":"直播切片涉及原声与画面版权，用外部素材必须标来源。"}]},{"cat":"限流","color":"amber","hint":"全部走抖音水下单，露出超限就是限流、下架且不补发。","items":[{"rule":"水下单露出按账号分级","bad":"字幕打品牌全称、口播反复念游戏名","good":"按 `_通用/01-平台敏感点与水下单标准` 核：口播次数、字幕、画面时长、话题词","case":"题词与不题词账号两套标准，别混。后果是限流、下架且不补发。"},{"rule":"极限词规避","bad":"第一 / 最强 / 唯一 / 顶级","good":"换客观描述","case":"平台限流 + 广告法双风险。标题、口播、字幕、话题都要过一遍。"},{"rule":"别把情怀做成低质感慨","bad":"整条只有风景空镜 + 煽情 BGM + 一句「回不去了」","good":"有具体内容、有信息量、有画面细节","case":"平台对低质、纯情绪拼接的内容会压量。情怀是包装，内容才是本体。"}]},{"cat":"表达","color":"blue","hint":"这个项目不出爆款，靠每条都不差。所以第四类没有「这条不重要」的例外。","items":[{"rule":"开头必须给具体钩子","bad":"先来一段风景空镜，配一句「还记得那年吗」","good":"第一帧就是老玩家一眼认出的画面或音效","case":"情怀向的开头最容易拖。前 2 秒给不出「我认得这个」，后面就留不住人。"},{"rule":"一条只说一个情绪","bad":"既讲童年、又讲兄弟、又讲青春，全都说一点","good":"一条只打一个点，说透","case":"情怀内容信息密度低，塞太多情绪反而都不成立。"},{"rule":"二传要挑名场面，不是流水账","bad":"把直播从头到尾剪一遍","good":"挑一个最有反差的瞬间，前 3 秒抛出来","case":"综艺整活向的价值在「哪一段最好笑」，不在「讲得多全」。"},{"rule":"字幕要对得上口播","bad":"字幕和念的内容不一致，或错字连篇","good":"逐句对齐，念一遍再定稿","case":"这个客户不挑，但错字和错位观众看得见，直接影响完播。"}]}]},"client":{"premise":"这个客户是「低干预型」：基本只回 ✅，不写文字意见。好处是效率高，坏处是没有外部标准帮你兜底——所有判断都得你自己做，而且做完没人告诉你对不对。","figure":{"src":"","caption":""},"modes":[{"mode":"低干预型","signal":"反馈基本是「✅」或「可以」，没有文字意见。选题和脚本方向一次过。","action":"自己按四类清单逐条过，把标准当成客户会挑那样去审。别因为没人提意见就放松。","risk":"不是说客户没要求，是他信任你的判断。一旦出问题，责任全在执行方。"},{"mode":"节奏型","signal":"会关注发布时间、波次安排、是否跟官方口径一致。","action":"发布表和主题绑死，三波各发什么、什么时候发，提前对齐并写在表里。","risk":"这类项目效果靠节奏，单条乱掉会拖整波。"},{"mode":"口径型","signal":"偶尔指出「这个说法不行」「这个不能提」，但频率低。","action":"每次收到这类反馈，当天记进台账。这类客户的口径是攒出来的，不是一开始就给你的。","risk":"反馈少，所以每一条都特别值钱，别忘。"}],"quotes":[{"q":"【执行表要求】三波集中发布：预热 10.19、10.21，公测 10.23","want":"节奏是项目的一部分，不是执行细节","prevent":"发布表和内容主题绑死，不因单条原因调整"},{"q":"【执行表要求】抖音水下单，字幕不露品牌、口播次数受限","want":"露出不能超限，超了限流不补发","prevent":"按 `_通用/01-平台敏感点与水下单标准` 逐项核"},{"q":"【执行表要求】公测当天录制小团团 × 官方号直播（19:00–21:30），切片次日进二传","want":"直播素材当天转存、次日能用","prevent":"提前安排录屏与转存，不要等直播结束才找人要素材"},{"q":"【执行表要求】情怀内容要落到具体画风、玩法、老玩家记忆点","want":"说具体，不说感慨","prevent":"一条内容至少给两个具体细节，写不出就退"},{"q":"【本轮客户仅回复「✅」，无文字意见】","want":"信任执行方判断","prevent":"把「没人提意见」当成「没问题」是最危险的误读，自己当客户审一遍"}],"contact":[{"step":"客户不挑，你更要挑","do":"这类客户把判断权交给你了。每次交稿前自己走一遍四类清单，把标准当成客户会逐条挑那样执行。"},{"step":"波次表先定死","do":"三波各自的主题、账号、发布时间，一张表写完跟客户对齐。之后单条内容不轻易调波次。"},{"step":"直播素材当天转存","do":"公测当天有直播录制，当天就要把素材拿下来、标好时间码。第二天再找就来不及做二传。"},{"step":"零星的反馈当天记","do":"这个客户一年可能只说几句意见。每一句都是口径，当天进台账，别靠记忆。"}]}},{"game":"永恒大陆","aliases":["永恒","西游群英荟","风云联动"],"updated":"2026-10-27","scope":"会火 · 恺英（《永恒大陆》线）","know":{"verdict":"这个游戏不拍玩法，拍的是「梗」。官方办一场直播，达人从几 GB 录屏里挑几十秒剪成段子。所以这块活的真正门槛不是文案，是能不能在素材里找到那个点。","gameBasics":[{"k":"玩什么","v":"经典 MMO。刷怪爆装、装备保值、自由交易、公会战，万人同屏那一套。"},{"k":"像什么","v":"像早期《奇迹 MU》那批韩系 MMO，画面怀旧，重装备和交易，不重操作。"},{"k":"谁在玩","v":"30 岁以上男性为主，情怀党，看重装备和打架。不太看攻略，爱看热闹和名场面。"},{"k":"内容能拍什么","v":"① 经典 IP 角色反差（西游、风云这类）② 情怀回忆 ③ 直播切片二传"}],"basics":[{"q":"要不要会玩？","a":"不用。但要知道「梗在哪」——这个项目的所有内容都是从直播录屏里挑出来的，挑不出梗就没内容。","note":"西游找笑点（唐僧被忽悠去化缘 KPI），风云找热血（港漫台词、神器）。同一个直播，不同方向挑的地方完全不同。"},{"q":"客户是谁、怕什么？","a":"恺英这条线。最怕素材选得不够抓人——内容不差但没梗，等于白做。","note":"客户的硬性要求落在「脚本里要写清画面来源与时间码」，说明他关心的是素材能不能用，不是文案写得多漂亮。"},{"q":"我到底在防什么错？","a":"只有四类：口径说错、事实说错、平台限流、表达难看。","note":"这个项目第五类也要防：版权。外部素材不标来源会出事。"}],"blindspots":[{"t":"拿到几 GB 录屏不知道从哪挑","why":"素材就是一切。谁先把时间码清单做出来，谁就能开工。没清单的人只能一帧帧拖，一天挑不出三条。","fix":"第一件事是做时间码清单：时间点 + 这段发生了什么 + 适合哪个方向。做完再分给达人，不要让他们自己找。"},{"t":"二传做成流水账","why":"把直播从头剪一遍配解说，没人看。二传的价值在「哪一段最有梗」，不在「讲得多全」。","fix":"一条只用一个梗，前 3 秒抛出来。挑不出来就别做这条，换素材。"},{"t":"方向分太细，内容撞车","why":"21 人分 4 个方向，人多的方向（10 人）最容易同质化。方向越多，撞车概率越高。","fix":"方向不超过 4 个。人数最多的那个方向要单独定细分角度，别让 10 个人写同一件事。"},{"t":"外部素材不标来源","why":"从抖音、B站搬素材不标出处，涉及版权。直播原声、画面同样有版权。","fix":"所有外部素材标 cr：原作者；网盘录屏标时间码；能走平台引用机制就走。这是客户的硬性要求。"},{"t":"情怀写成空话","why":"「经典不会褪色」这类话本身没错，但一条内容只有这种话就没有内容。","fix":"落到具体：哪个角色、哪句台词、哪个场景。西游要具体到哪一难，风云要具体到哪句热血台词。"}]},"platforms":[{"name":"抖音","role":"唯一主战场","shapes":["二传段子（20-40s）","情怀回忆（30-60s）","反差整活（20-40s）"],"fit":"全部走水下单。靠头部账号拉量、中腰部铺量，第 6 天上线日集中爆发。","warn":"水下单露出分级；二传素材必须标来源，否则版权风险。"},{"name":"B站","role":"二创源头，也是素材风险点","shapes":["经典 IP 考据与二创","游戏区 up 主的怀旧视频"],"fit":"这个项目不做 B 站投放，但达人的素材经常来自这里——所以要盯来源标注。","warn":"从 B 站搬素材不标出处，是这个项目最常见的问题。"},{"name":"快手","role":"同人群分发","shapes":["与抖音同批内容，标题更直白"],"fit":"30+ 男性人群在快手不少，情怀向内容有分发价值。","warn":"标题别太文艺，直给「装备」「爆装」「打架」这类词更有效。"}],"audit":{"premise":"PM 不写内容，PM 的活是审。这个项目审的第一件事不是文案，是素材——脚本里写的画面，到底在录屏的第几分钟？找不到就是没写。","flow":[{"step":"第一遍：对时间码","desc":"脚本里每一句画面描述，去录屏里找时间点。找不到、写得含糊、或者时间是错的，直接退回。这是这个项目最容易翻车的地方。"},{"step":"第二遍：看有没有梗","desc":"这条内容的核心梗是什么？能不能一句话说出来？说不出来就是流水账，退回。"},{"step":"第三遍：过四类清单","desc":"口径、事实、限流、表达，逐类查。另加版权：外部素材有没有标 cr。"}],"checks":[{"cat":"口径","color":"red","hint":"经典 IP 是情怀党的心头肉，角色和台词不能乱改。","items":[{"rule":"经典角色不丑化","bad":"把唐僧写成纯搞笑角色、把港漫主角写成软弱","good":"反差可以，但底色要尊重原角色","case":"反差向找笑点没错，但笑点要落在情境错位，不是把角色本身写low。情怀党对这个极敏感。"},{"rule":"不把联动讲成蹭 IP","bad":"又一个蹭西游热度的游戏 / 缝合怪","good":"讲述联动怎么把 IP 元素放进游戏世界","case":"把联动讲成蹭热度，等于否定客户这次合作本身。这条踩了要重写。"},{"rule":"港漫向要热血，不要软","bad":"用小清新文案讲风云","good":"热血台词、神器、江湖气（「金麟岂是池中物，一遇风云便化龙」）","case":"风云的人群吃的是港漫的味道。文案调性软了，方向就废了。"}]},{"cat":"事实","color":"purple","hint":"这一类在这个项目上主要是素材能不能溯源。","items":[{"rule":"画面必须写清来源和时间码","bad":"用直播里那段精彩的（没写哪一段）","good":"网盘录屏 00:42:10 起的 30 秒 / 抖音链接 + cr 作者","case":"客户硬性要求：脚本里要写明画面来源与时间码，外部素材标 cr。这是这个项目最好用的一条规矩。"},{"rule":"联动时间点不能错","bad":"西游直播和风云上线混着讲","good":"西游：9.17 直播、9.19 发布；风云：9.26–9.30 预热、10.1 上线","case":"两个项目节奏不同，混着说会让你自己的排期表乱掉。"},{"rule":"游戏信息以官方为准","bad":"按自己对奇迹类游戏的印象写玩法细节","good":"只用官方介绍过的设定","case":"经典 MMO 老玩家对玩法细节很较真，写错会被评论区纠正。"}]},{"cat":"限流","color":"amber","hint":"全部走抖音水下单，且二传内容素材来源杂，限流风险比一般项目高。","items":[{"rule":"水下单露出按账号分级","bad":"字幕打品牌名、口播反复念游戏名","good":"按 `_通用/01-平台敏感点与水下单标准` 核：口播次数、字幕、画面时长、话题词","case":"题词与不题词两套标准。露出超限的后果是限流、下架且不补发。"},{"rule":"直播原声与画面有版权","bad":"整段搬直播原声，不做处理","good":"标明来源，必要时重新配音或改写","case":"直播切片涉及原声、画面版权。用外部素材必须标来源，能走平台引用机制就走。"},{"rule":"极限词规避","bad":"第一 / 最强 / 唯一 / 顶级","good":"换客观描述","case":"平台限流 + 广告法双风险。情怀类尤其爱用「最经典」，要改。"},{"rule":"不做低质拼接","bad":"几段素材硬拼，配个 BGM 就算一条","good":"有一个明确的梗和结构","case":"纯拼接、无信息量的内容会被平台压量，且完播率极低。"}]},{"cat":"表达","color":"blue","hint":"这个项目所有内容都是二传，表达就是核心竞争力——梗找得准不准，前 3 秒抛不抛得出来。","items":[{"rule":"前 3 秒必须抛出梗","bad":"先交代背景：这是一款经典 IP 联动的游戏","good":"第一帧就是最有反差的那一幕","case":"二传内容的观众是在刷，不是在等。前 3 秒不给东西就划走了。"},{"rule":"一条只用一个梗","bad":"一条里塞西游、风云、装备三件事","good":"一条只说一件事，说透","case":"二传时长短，塞多个信息点等于一个都不成立。"},{"rule":"反差向和情怀向不能混","bad":"前半段搞笑、后半段煽情","good":"定一个调，从头到尾一致","case":"两个方向的观众完全不同。混着做，两边都不满意。"},{"rule":"方向不超过 4 个","bad":"21 人分 6 个方向","good":"最多 4 个方向，人多的方向再细分角度","case":"项目复盘结论：方向超过 4 个，同质化和文案撞车的概率明显上升。"}]}]},"client":{"premise":"这个客户的要求几乎全落在素材上：脚本要写清画面来源和时间码，外部素材标 cr。说明他关心的不是文案漂不漂亮，是「这条能不能用」。摸清这一点，沟通效率会高很多。","figure":{"src":"","caption":""},"modes":[{"mode":"素材型","signal":"反馈集中在「素材选得不够抓人」「这段没梗」「来源没标」。","action":"交稿前把每个画面都落到具体时间码，并在心里过一遍：这段有没有梗。找不到就换素材，别硬凑。","risk":"他不否定你的文案，但会否定你的素材判断。这个项目里，选素材的能力就是核心能力。"},{"mode":"口径型","signal":"提醒「经典 IP 不能乱改」「不能讲成蹭热度」「调性不对」。","action":"涉及经典角色的内容，先确认底色对不对，再谈笑点。","risk":"情怀党会较真，客户也懂这一点。角色写偏了，整条废。"},{"mode":"节奏型","signal":"关注预热几天、每天几条、什么时候爆发、冲榜上没上。","action":"预热期每天 3 条连发蓄水，上线日集中爆发。表和主题绑死。","risk":"这个项目靠头部拉量 + 中腰铺量，节奏乱了头部也带不动。"}],"quotes":[{"q":"【执行要求】脚本里要写明画面来源与时间码（网盘时间点 / 抖音链接标来源），外部素材要标 cr","want":"素材必须能溯源，谁都能查到是哪一段","prevent":"做完时间码清单再分给达人，别让他们自己找"},{"q":"【执行要求】按「适配画面的脚本」交付，不是先写文案再找画面","want":"先有素材再有脚本","prevent":"写脚本前先把可用片段列出来，对着片段写"},{"q":"【执行要求】预热期每天 3 位达人连发，上线日集中爆发","want":"节奏决定总量","prevent":"发布表跟主题绑死，不因单条原因调期"},{"q":"【复盘记录】反馈高频问题：素材选得不够抓人","want":"每条都要有一个能一句话说出的梗","prevent":"交稿前自问：这条的核心梗是什么？说不出来就退回"},{"q":"【复盘记录】反馈高频问题：情怀写成空话","want":"具体到角色、台词、场景","prevent":"一条至少给两个具体细节，写不出就说明没内容"},{"q":"【复盘记录】反馈高频问题：方向划分过细导致同质化、文案撞车","want":"方向要少，人多的方向要再细分角度","prevent":"方向不超过 4 个；主力方向单独定细分角度"}],"contact":[{"step":"先做时间码清单，再开工","do":"几 GB 录屏，第一件事是标时间码：时间点 + 发生了什么 + 适合哪个方向。做完分给达人，不要让他们各自拖进度条。"},{"step":"对着画面写脚本，不要对着想象写","do":"客户要的是「适配画面的脚本」。先把片段挑出来，再决定这句话怎么说。反过来做，交上去一定被打回。"},{"step":"方向控制在 4 个以内","do":"方向越多撞车越多。人最多的那个方向，单独定一个细分角度，别让十个人写同一件事。"},{"step":"版权标注当成交付的一部分","do":"外部素材标 cr、录屏标时间码。这不是可选项，是客户明文要求。少标一条，整条脚本都可能退回。"}]}}]}</script>
 <script>
@@ -3999,6 +4325,143 @@ details.sec .sec-body{margin-top:12px}
 
 </script>
 <script>
+/* ===== 电子黄历：农历 / 干支 / 宜忌 / 古风祝福（离线计算，不联网） ===== */
+(function () {
+  'use strict';
+
+  var LUNAR_INFO = [
+    0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0, 0x09ad0, 0x055d2,
+    0x04ae0, 0x0a5b6, 0x0a4d0, 0x0d250, 0x1d255, 0x0b540, 0x0d6a0, 0x0ada2, 0x095b0, 0x14977,
+    0x04970, 0x0a4b0, 0x0b4b5, 0x06a50, 0x06d40, 0x1ab54, 0x02b60, 0x09570, 0x052f2, 0x04970,
+    0x06566, 0x0d4a0, 0x0ea50, 0x06e95, 0x05ad0, 0x02b60, 0x186e3, 0x092e0, 0x1c8d7, 0x0c950,
+    0x0d4a0, 0x1d8a6, 0x0b550, 0x056a0, 0x1a5b4, 0x025d0, 0x092d0, 0x0d2b2, 0x0a950, 0x0b557,
+    0x06ca0, 0x0b550, 0x15355, 0x04da0, 0x0a5b0, 0x14573, 0x052b0, 0x0a9a8, 0x0e950, 0x06aa0,
+    0x0aea6, 0x0ab50, 0x04b60, 0x0aae4, 0x0a570, 0x05260, 0x0f263, 0x0d950, 0x05b57, 0x056a0,
+    0x096d0, 0x04dd5, 0x04ad0, 0x0a4d0, 0x0d4d4, 0x0d250, 0x0d558, 0x0b540, 0x0b6a0, 0x195a6,
+    0x095b0, 0x049b0, 0x0a974, 0x0a4b0, 0x0b27a, 0x06a50, 0x06d40, 0x0af46, 0x0ab60, 0x09570,
+    0x04af5, 0x04970, 0x064b0, 0x074a3, 0x0ea50, 0x06b58, 0x05ac0, 0x0ab60, 0x096d5, 0x092e0,
+    0x0c960, 0x0d954, 0x0d4a0, 0x0da50, 0x07552, 0x056a0, 0x0abb7, 0x025d0, 0x092d0, 0x0cab5,
+    0x0a950, 0x0b4a0, 0x0baa4, 0x0ad50, 0x055d9, 0x04ba0, 0x0a5b0, 0x15176, 0x052b0, 0x0a930,
+    0x07954, 0x06aa0, 0x0ad50, 0x05b52, 0x04b60, 0x0a6e6, 0x0a4e0, 0x0d260, 0x0ea65, 0x0d530,
+    0x05aa0, 0x076a3, 0x096d0, 0x04afb, 0x04ad0, 0x0a4d0, 0x1d0b6, 0x0d250, 0x0d520, 0x0dd45,
+    0x0b5a0, 0x056d0, 0x055b2, 0x049b0, 0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0,
+    0x14b63, 0x09370, 0x049f8, 0x04970, 0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0,
+    0x0a2e0, 0x0d2e3, 0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0, 0x0a6d0, 0x055d4,
+    0x052d0, 0x0a9b8, 0x0a950, 0x0b4a0, 0x0b6a6, 0x0ad50, 0x055a0, 0x0aba4, 0x0a5b0, 0x052b0,
+    0x0b273, 0x06930, 0x07337, 0x06aa0, 0x0ad50, 0x14b55, 0x04b60, 0x0a570, 0x054e4, 0x0d160,
+    0x0e968, 0x0d520, 0x0daa0, 0x16aa6, 0x056d0, 0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252,
+    0x0d520
+  ];
+  var GAN = '甲乙丙丁戊己庚辛壬癸';
+  var ZHI = '子丑寅卯辰巳午未申酉戌亥';
+  var ZODIAC = '鼠牛虎兔龙蛇马羊猴鸡狗猪';
+  var MONTH_CN = ['正', '二', '三', '四', '五', '六', '七', '八', '九', '十', '冬', '腊'];
+  var DAY_CN = ['初一', '初二', '初三', '初四', '初五', '初六', '初七', '初八', '初九', '初十',
+    '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十',
+    '廿一', '廿二', '廿三', '廿四', '廿五', '廿六', '廿七', '廿八', '廿九', '三十'];
+  var WEEK_CN = ['日', '一', '二', '三', '四', '五', '六'];
+
+  function leapMonth(y) { return LUNAR_INFO[y - 1900] & 0xf; }
+  function leapDays(y) {
+    if (!leapMonth(y)) return 0;
+    return (LUNAR_INFO[y - 1900] & 0x10000) ? 30 : 29;
+  }
+  function monthDays(y, m) {
+    return (LUNAR_INFO[y - 1900] & (0x10000 >> m)) ? 30 : 29;
+  }
+  function yearDays(y) {
+    var sum = 348;
+    for (var i = 0x8000; i > 0x8; i >>= 1) sum += (LUNAR_INFO[y - 1900] & i) ? 1 : 0;
+    return sum + leapDays(y);
+  }
+
+  /* 公历 → 农历，基准 1900-01-31（正月初一） */
+  function solarToLunar(y, m, d) {
+    var offset = (Date.UTC(y, m - 1, d) - Date.UTC(1900, 0, 31)) / 86400000;
+    var i, temp = 0;
+    for (i = 1900; i < 2101 && offset > 0; i++) {
+      temp = yearDays(i);
+      offset -= temp;
+    }
+    if (offset < 0) { offset += temp; i--; }
+    var lunarYear = i;
+    var leap = leapMonth(i);
+    var isLeap = false;
+    var j;
+    for (j = 1; j < 13 && offset > 0; j++) {
+      if (leap > 0 && j === leap + 1 && !isLeap) {
+        --j; isLeap = true; temp = leapDays(lunarYear);
+      } else {
+        temp = monthDays(lunarYear, j);
+      }
+      if (isLeap && j === leap + 1) isLeap = false;
+      offset -= temp;
+    }
+    if (offset === 0 && leap > 0 && j === leap + 1) {
+      if (isLeap) { isLeap = false; } else { isLeap = true; --j; }
+    }
+    if (offset < 0) { offset += temp; --j; }
+    var lunarMonth = j;
+    var lunarDay = Math.floor(offset) + 1;
+    return {
+      year: lunarYear,
+      month: lunarMonth,
+      day: lunarDay,
+      isLeap: isLeap,
+      monthName: (isLeap ? '闰' : '') + MONTH_CN[lunarMonth - 1] + '月',
+      dayName: DAY_CN[lunarDay - 1]
+    };
+  }
+
+  function jdn(y, m, d) {
+    var a = Math.floor((14 - m) / 12);
+    var yy = y + 4800 - a;
+    var mm = m + 12 * a - 3;
+    return d + Math.floor((153 * mm + 2) / 5) + 365 * yy +
+      Math.floor(yy / 4) - Math.floor(yy / 100) + Math.floor(yy / 400) - 32045;
+  }
+  function gz(index) { return GAN[index % 10] + ZHI[index % 12]; }
+
+  var YI = ['对稿', '催数', '定口径', '拆需求', '约客户', '提报', '抢热点', '收素材', '审脚本',
+    '复盘', '结案', '排期', '开新项目', '把话说清', '请人帮忙', '早点收工'];
+  var JI = ['临时加需求', '口头承诺', '硬刚客户', '拖到明天', '乱报价', '半夜发稿', '翻旧账',
+    '连轴转', '当面改稿', '越权拍板', '邮件里吵架', '交半成品'];
+  var BLESS = ['案头无滞，笔下生花。', '今日宜静心，稿子一版过。', '诸事顺遂，所托皆成。',
+    '墨到意到，事到功成。', '心闲则明，事缓则圆。', '风物长宜，步步登高。',
+    '一日一念，念必有回。', '稳字当先，慢即是快。', '柳暗花明，转机在望。',
+    '百事从欢，万事胜意。', '千里之行，始于今日。', '事了拂衣去，明日再论功。'];
+
+  /* 按日期轮转取 n 个，保证不重复、不会卡死 */
+  function pick(arr, seed, n) {
+    var len = arr.length, start = ((seed % len) + len) % len, out = [];
+    var want = Math.min(n, len);
+    for (var k = 0; k < want; k++) out.push(arr[(start + k) % len]);
+    return out;
+  }
+
+  function almanac(date) {
+    var d = date || new Date();
+    var y = d.getFullYear(), m = d.getMonth() + 1, day = d.getDate();
+    var l = solarToLunar(y, m, day);
+    var dayIdx = (jdn(y, m, day) + 49) % 60;
+    var yearIdx = ((l.year - 4) % 60 + 60) % 60;
+    var seed = y * 372 + m * 31 + day;
+    return {
+      solar: y + ' 年 ' + m + ' 月 ' + day + ' 日',
+      week: '星期' + WEEK_CN[d.getDay()],
+      lunar: l.monthName + l.dayName,
+      lunarYear: gz(yearIdx) + '年',
+      zodiac: ZODIAC[yearIdx % 12],
+      dayGz: gz(dayIdx) + '日',
+      yi: pick(YI, seed, 3),
+      ji: pick(JI, seed + 17, 2),
+      bless: BLESS[seed % BLESS.length]
+    };
+  }
+
+  window.LUNAR = { almanac: almanac, solarToLunar: solarToLunar };
+})();
+
 /* 导航版块：总览 / 文档台账 / 下单指令 / 结案 / 清单 / 二级切换 */
 (function () {
   'use strict';
@@ -5168,24 +5631,180 @@ details.sec .sec-body{margin-top:12px}
     } catch (e) { return 0; }
   }
 
-  function renderOverview() {
-    var host = $('ovStats');
+  /* ================= 总览：黄历 / 统筹 / 项目流程 ================= */
+  function isInk() { return document.body.classList.contains('ink'); }
+
+  function applyTheme(ink) {
+    document.body.classList.toggle('ink', !!ink);
+    try { localStorage.setItem('wb_theme', ink ? 'ink' : 'gold'); } catch (e) {}
+    var b = $('themeBtn');
+    if (b) b.textContent = ink ? '描金' : '水墨';
+  }
+
+  function loadTheme() {
+    var t = 'gold';
+    try { t = localStorage.getItem('wb_theme') || 'gold'; } catch (e) {}
+    document.body.classList.toggle('ink', t === 'ink');
+  }
+
+  function renderAlmanac() {
+    var host = $('ovAlmanac');
     if (!host) return;
-    var late = num('cntOverdue');
-    var blocked = num('cntBlocked');
-    var todo = num('badge-todo');
-    var proj = num('badge-proj');
-    var cards = [
-      { k: '逾期', v: late, cls: late ? 'danger' : '', u: '条' },
-      { k: '本周到期', v: weekDue(), cls: '', u: '条' },
-      { k: '卡住的项目', v: blocked, cls: blocked ? 'warn' : '', u: '个' },
-      { k: '待办未完成', v: todo, cls: '', u: '条' },
-      { k: '在跑项目', v: proj, cls: '', u: '个' },
-      { k: '台账文档', v: byType('doc').length, cls: '', u: '份' }
-    ];
-    host.innerHTML = cards.map(function (c) {
-      return '<div class="stat ' + c.cls + '"><div class="k">' + c.k + '</div><div class="v">' + c.v + '<small>' + c.u + '</small></div></div>';
-    }).join('');
+    var a = (window.LUNAR && window.LUNAR.almanac) ? window.LUNAR.almanac(new Date()) : null;
+    if (!a) { host.style.display = 'none'; return; }
+    var d = new Date();
+    var day = ('0' + d.getDate()).slice(-2);
+    function tags(arr) {
+      return arr.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
+    }
+    host.innerHTML =
+      '<div class="alm-date"><div class="alm-day">' + day + '</div>' +
+      '<div class="alm-md">' + (d.getMonth() + 1) + ' 月 · ' + a.week + '</div></div>' +
+      '<div class="alm-meta"><div class="alm-lunar">' + a.lunarYear + '　' + a.lunar + '</div>' +
+      '<div class="alm-gz">' + a.dayGz + ' · 属' + a.zodiac + '</div></div>' +
+      '<div class="alm-yiji">' +
+      '<div class="alm-row"><i class="seal yi">宜</i>' + tags(a.yi) + '</div>' +
+      '<div class="alm-row"><i class="seal ji">忌</i>' + tags(a.ji) + '</div></div>' +
+      '<div class="alm-bless"><em>「' + esc(a.bless.replace(/。$/, '')) + '」</em><span>今日一句</span></div>' +
+      '<button class="alm-theme" id="themeBtn">' + (isInk() ? '描金' : '水墨') + '</button>';
+    var tb = $('themeBtn');
+    if (tb) tb.onclick = function () { applyTheme(!isInk()); };
+  }
+
+  function sopStat(name) {
+    var rec = sopRec(name);
+    var done = (rec && rec.done) || {};
+    var out = { groups: [], got: 0, total: 0, current: null, pct: 0 };
+    for (var g = 0; g < SOP.length; g++) {
+      var total = SOP[g].items.length, got = 0, firstUndone = null;
+      for (var i = 0; i < SOP[g].items.length; i++) {
+        var it = SOP[g].items[i];
+        if (done[it.id]) got++;
+        else if (!firstUndone) firstUndone = it;
+      }
+      out.groups.push({ name: SOP[g].name, got: got, total: total, first: firstUndone });
+      out.got += got;
+      out.total += total;
+      if (!out.current && firstUndone) out.current = { stage: SOP[g].name, step: firstUndone.t };
+    }
+    out.pct = out.total ? Math.round(out.got / out.total * 100) : 0;
+    return out;
+  }
+
+  function allProjNames() {
+    var seen = {}, names = [];
+    var list = (window.state && window.state.projects) || [];
+    for (var i = 0; i < list.length; i++) {
+      var n = (list[i]['项目名'] || '').trim();
+      if (n && !seen[n]) { seen[n] = 1; names.push(n); }
+    }
+    var recs = byType('sop');
+    for (var j = 0; j < recs.length; j++) {
+      var p = (recs[j].proj || '').trim();
+      if (p && !seen[p]) { seen[p] = 1; names.push(p); }
+    }
+    return names;
+  }
+
+  function projMeta(name) {
+    var list = (window.state && window.state.projects) || [];
+    for (var i = 0; i < list.length; i++) {
+      if ((list[i]['项目名'] || '').trim() === name) return list[i];
+    }
+    return null;
+  }
+
+  function renderProjects() {
+    var host = $('ovProjects');
+    if (!host) return;
+    var names = allProjNames();
+    if (!names.length) {
+      host.innerHTML = '<div class="empty-state"><b>还没有项目</b>去「项目进度」建一个，这里就会按流程显示它走到哪一步了。</div>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < names.length; i++) {
+      var name = names[i];
+      var st = sopStat(name);
+      var meta = projMeta(name);
+      var segs = '';
+      for (var g = 0; g < st.groups.length; g++) {
+        var gr = st.groups[g];
+        var pct = gr.total ? Math.round(gr.got / gr.total * 100) : 0;
+        var cls = pct === 100 ? 'done' : (gr.got ? 'run' : 'wait');
+        if (gr.first && st.current && st.current.stage === gr.name) cls = 'cur';
+        if (pct === 100) cls = 'done';
+        segs += '<div class="pj-seg ' + cls + '">' +
+          '<div class="pj-l"><span class="pj-n">' + esc(gr.name) + '</span>' +
+          '<em>' + gr.got + '/' + gr.total + '</em></div>' +
+          '<i><b style="width:' + pct + '%"></b></i></div>';
+      }
+      var tail = '';
+      if (st.pct === 100) {
+        tail = '<span class="pj-ok">流程走完，可以写结案</span>';
+      } else if (st.current) {
+        tail = '<span class="pj-now">在 <b>' + esc(st.current.stage) + '</b> · ' + esc(st.current.step) + '</span>';
+      }
+      var block = meta && meta['卡点'] ? '<span class="pj-block">卡：' + esc(meta['卡点']) + '</span>' : '';
+      var client = meta && meta['客户'] ? '<span class="pj-client">' + esc(meta['客户']) + '</span>' : '';
+      html += '<div class="pj" data-proj="' + esc(name) + '">' +
+        '<div class="pj-top"><b>' + esc(name) + '</b>' + client +
+        '<span class="pj-pct">' + st.pct + '%</span></div>' +
+        '<div class="pj-bars">' + segs + '</div>' +
+        '<div class="pj-foot">' + tail + block + '</div></div>';
+    }
+    host.innerHTML = html;
+    host.onclick = function (e) {
+      var el = e.target.closest ? e.target.closest('[data-proj]') : null;
+      if (!el) return;
+      sopProj = el.getAttribute('data-proj');
+      try { localStorage.setItem(SOPKEY, sopProj); } catch (err) {}
+      go('proj');
+      setTimeout(function () { showSub('proj', 'sop'); }, 30);
+    };
+  }
+
+  function renderOverview() {
+    renderAlmanac();
+
+    var names = allProjNames();
+    var stageCount = [0, 0, 0], doneAll = 0, sumPct = 0, blocked = 0;
+    for (var i = 0; i < names.length; i++) {
+      var st = sopStat(names[i]);
+      sumPct += st.pct;
+      if (st.pct === 100) doneAll++;
+      else if (st.current) {
+        var idx = 0;
+        for (var g = 0; g < st.groups.length; g++) if (st.groups[g].name === st.current.stage) idx = g;
+        stageCount[idx]++;
+      }
+      var m = projMeta(names[i]);
+      if (m && m['卡点']) blocked++;
+    }
+    var avg = names.length ? Math.round(sumPct / names.length) : 0;
+    var host = $('ovStats');
+    if (host) {
+      var cards = [
+        { k: '项目总数', v: names.length, u: '个', cls: '' },
+        { k: '项目前期', v: stageCount[0], u: '个', cls: '' },
+        { k: '执行中', v: stageCount[1], u: '个', cls: '' },
+        { k: '项目后期', v: stageCount[2], u: '个', cls: '' },
+        { k: '流程走完', v: doneAll, u: '个', cls: doneAll ? 'ok' : '' },
+        { k: '平均进度', v: avg, u: '%', cls: '' }
+      ];
+      host.innerHTML = cards.map(function (c) {
+        return '<div class="stat ' + c.cls + '"><div class="k">' + c.k + '</div><div class="v">' + c.v +
+          '<small>' + c.u + '</small></div></div>';
+      }).join('');
+    }
+    var lg = $('ovLegend');
+    if (lg) {
+      lg.innerHTML = '<b>流程三段</b>' +
+        SOP.map(function (g) { return '<span>' + esc(g.name) + ' ' + g.items.length + ' 步</span>'; }).join('') +
+        (blocked ? '<span class="warn">卡点 ' + blocked + ' 个项目</span>' : '');
+    }
+
+    renderProjects();
 
     var mods = [
       ['todo', '每日TODO', '今天要干的，逾期的先清'],
@@ -5193,23 +5812,23 @@ details.sec .sec-body{margin-top:12px}
       ['docs', '项目文档管理', '按项目归堆，brief / 脚本 / 执行表'],
       ['tpl', '下单模板', '四类对象，一键出下单指令'],
       ['review', '复盘结案', '填数出结案，CPM/CPE 自动算'],
-      ['hot', '热点资讯', '客户临时问，别空手'],
+      ['ai', 'hello AI', '接上模型，在这儿把活干完'],
       ['phrase', '话术库', '该说什么，照着念也不会错'],
       ['exp', '项目经验积累', '踩过的坑，下次不踩']
     ];
-    var m = $('ovModules');
-    if (m) {
-      m.innerHTML = mods.map(function (x) {
+    var m2 = $('ovModules');
+    if (m2) {
+      m2.innerHTML = mods.map(function (x) {
         return '<button class="ov-mod" data-go="' + x[0] + '"><b>' + x[1] + '</b><span>' + x[2] + '</span></button>';
       }).join('');
-      m.onclick = function (e) {
+      m2.onclick = function (e) {
         var b = e.target.closest ? e.target.closest('[data-go]') : null;
         if (b) go(b.getAttribute('data-go'));
       };
     }
     var cnt = byType('doc').length + byType('tpl').length + byType('phrase').length + byType('hot').length;
     var meta = $('ovMeta');
-    if (meta) meta.textContent = '清单合计 ' + cnt + ' 条';
+    if (meta) meta.textContent = '清单合计 ' + cnt + ' 条 · 待办 ' + num('badge-todo') + ' 条';
     var q = $('ovQuick');
     if (q) {
       q.innerHTML = '<button class="btn sm" data-go="todo">去处理今天的</button>' +
@@ -5332,6 +5951,7 @@ details.sec .sec-body{margin-top:12px}
   }
 
   function boot() {
+    loadTheme();
     seedPhrase();
     moveAlerts();
     buildSubbars();
