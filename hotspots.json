@@ -1,6 +1,6 @@
 {
   "site": "清明的器灵 · 热点周报",
-  "updatedAt": "2026-11-03T15:13:04+08:00",
+  "updatedAt": "2026-11-03T16:31:34+08:00",
   "schedule": "每周一 / 三 / 五 / 日 09:00",
   "boards": [
     "抖音热榜",
@@ -26,7 +26,8 @@
               "desc": "剧集定档是最稳的选题窗口，11.5 开播前后两天做“提前看/名场面预测”最容易吃量。",
               "heat": "775w",
               "rank": 31,
-              "url": "https://www.douyin.com/hot"
+              "url": "https://www.douyin.com/hot",
+              "board": "抖音热榜"
             },
             {
               "plat": "抖音",
@@ -35,7 +36,8 @@
               "desc": "妆造细节被单独拎出来讨论，说明观众在看“够不够真”，仿妆/幕后向二创可跟。",
               "heat": "775w",
               "rank": 32,
-              "url": "https://www.douyin.com/hot"
+              "url": "https://www.douyin.com/hot",
+              "board": "抖音热榜"
             },
             {
               "plat": "微博",
@@ -44,7 +46,8 @@
               "desc": "剧集收官情绪点，热搜第 7，结局向剪辑和台词卡点在双平台都能起量。",
               "heat": "65w",
               "rank": 7,
-              "url": "https://s.weibo.com/top/summary"
+              "url": "https://s.weibo.com/top/summary",
+              "board": "微博热搜榜"
             },
             {
               "plat": "微博",
@@ -53,7 +56,8 @@
               "desc": "同一个剧的剧情向话题两天连着上，说明这部剧正在热搜窗口期，商务号可借势。",
               "heat": "47w",
               "rank": 9,
-              "url": "https://s.weibo.com/top/summary"
+              "url": "https://s.weibo.com/top/summary",
+              "board": "微博热搜榜"
             },
             {
               "plat": "微博",
@@ -62,7 +66,8 @@
               "desc": "时尚刊物销量话题，属性偏“数据可对比”，适合做榜单型图文。",
               "heat": "21w",
               "rank": 43,
-              "url": "https://s.weibo.com/top/summary"
+              "url": "https://s.weibo.com/top/summary",
+              "board": "微博热搜榜"
             }
           ]
         },
@@ -76,7 +81,8 @@
               "desc": "影之刃零在抖音同时占两条（16 / 33），国产武侠动作的世界观解说在短视频端有稳定需求，适合“五分钟看懂”型内容。",
               "heat": "912w",
               "rank": 16,
-              "url": "https://www.douyin.com/hot"
+              "url": "https://www.douyin.com/hot",
+              "board": "抖音热榜"
             },
             {
               "plat": "抖音",
@@ -85,7 +91,8 @@
               "desc": "三角洲新赛季前瞻，赛季节点是攻略/版本解读类内容的固定流量口。",
               "heat": "776w",
               "rank": 29,
-              "url": "https://www.douyin.com/hot"
+              "url": "https://www.douyin.com/hot",
+              "board": "抖音热榜"
             },
             {
               "plat": "抖音",
@@ -94,7 +101,8 @@
               "desc": "同 IP 的第二条，偏美学/画面向，和上一条可以做成“剧情 + 美术”双角度。",
               "heat": "775w",
               "rank": 33,
-              "url": "https://www.douyin.com/hot"
+              "url": "https://www.douyin.com/hot",
+              "board": "抖音热榜"
             },
             {
               "plat": "微博",
@@ -103,7 +111,8 @@
               "desc": "KPL 十周年，赛事周年节点，适合赛事号做回顾/名场面混剪。",
               "heat": "31w",
               "rank": 25,
-              "url": "https://s.weibo.com/top/summary"
+              "url": "https://s.weibo.com/top/summary",
+              "board": "微博热搜榜"
             },
             {
               "plat": "微博",
@@ -112,11 +121,812 @@
               "desc": "电竞与偶像交叉话题，泛娱乐账号可吃的跨界梗。",
               "heat": "21w",
               "rank": 39,
-              "url": "https://s.weibo.com/top/summary"
+              "url": "https://s.weibo.com/top/summary",
+              "board": "微博热搜榜"
             }
           ]
         }
       ]
     }
-  ]
+  ],
+  "live": {
+    "fetchedAt": "2026-11-03T16:31:34+08:00",
+    "boards": {
+      "抖音热榜": {
+        "key": "dy",
+        "plat": "抖音",
+        "name": "抖音热榜",
+        "url": "https://www.douyin.com/hot",
+        "api": "https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/",
+        "count": 50,
+        "note": "",
+        "items": [
+          {
+            "rank": 1,
+            "topic": "刘延东同志遗体在京火化",
+            "heat": "1207.7w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 2,
+            "topic": "2026世界互联网大会乌镇峰会开幕",
+            "heat": "1198.8w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 3,
+            "topic": "今年的进博会有哪些看点",
+            "heat": "1196.7w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 4,
+            "topic": "天禄击败9z取iem北京开门红",
+            "heat": "1138.5w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 5,
+            "topic": "真正好吃的美味在民间",
+            "heat": "1075.5w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 6,
+            "topic": "勇士逆转太阳",
+            "heat": "1053.9w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 7,
+            "topic": "斯诺克国锦赛赵心童晋级16强",
+            "heat": "941.9w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 8,
+            "topic": "影之刃零系列背景解说",
+            "heat": "941.7w",
+            "cat": "游戏",
+            "label": ""
+          },
+          {
+            "rank": 9,
+            "topic": "冬天一秒出门的百搭外套",
+            "heat": "940.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 10,
+            "topic": "来一场热血弹珠PK大赛",
+            "heat": "931.2w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 11,
+            "topic": "赣州通报看演唱会女生低保已取消",
+            "heat": "918.4w",
+            "cat": "娱乐",
+            "label": ""
+          },
+          {
+            "rank": 12,
+            "topic": "美国中期选举今天举行",
+            "heat": "912.6w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 13,
+            "topic": "“举报共治 护企远航”倡议将发布",
+            "heat": "911.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 14,
+            "topic": "小蓝叔对口型演绎大赏",
+            "heat": "910.4w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 15,
+            "topic": "76人战胜公牛获四连胜",
+            "heat": "909.3w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 16,
+            "topic": "美官员称美袭击伊朗格什姆岛",
+            "heat": "907.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 17,
+            "topic": "亚历山大爆砍43分带队胜骑士",
+            "heat": "906.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 18,
+            "topic": "来延吉当朝鲜族公主了",
+            "heat": "892.9w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 19,
+            "topic": "雷霆将退役威少0号球衣",
+            "heat": "877.8w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 20,
+            "topic": "皇冠新材上市首日盘中涨超300%",
+            "heat": "872.3w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 21,
+            "topic": "张百乔小城良方烧伤妆太真了",
+            "heat": "867.7w",
+            "cat": "娱乐",
+            "label": ""
+          },
+          {
+            "rank": 22,
+            "topic": "恋与深空完美仿生人男友上线",
+            "heat": "860.2w",
+            "cat": "游戏",
+            "label": ""
+          },
+          {
+            "rank": 23,
+            "topic": "小猫踏步舞",
+            "heat": "785.7w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 24,
+            "topic": "后会友期为什么会火",
+            "heat": "783.4w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 25,
+            "topic": "魏娆安顿流民赢得民心",
+            "heat": "781.8w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 26,
+            "topic": "我有全世界最好的妈妈",
+            "heat": "779.0w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 27,
+            "topic": "新华社评国乒男队之困",
+            "heat": "778.3w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 28,
+            "topic": "请不要一时兴起闯入我的世界里",
+            "heat": "778.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 29,
+            "topic": "国王战胜独行侠",
+            "heat": "776.6w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 30,
+            "topic": "许飞往这首歌里加了什么",
+            "heat": "776.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 31,
+            "topic": "影之刃零里的中式美学",
+            "heat": "776.0w",
+            "cat": "游戏",
+            "label": ""
+          },
+          {
+            "rank": 32,
+            "topic": "黄景瑜进行曲我先用了",
+            "heat": "775.8w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 33,
+            "topic": "2027亚洲杯官宣延期举办",
+            "heat": "775.1w",
+            "cat": "娱乐",
+            "label": ""
+          },
+          {
+            "rank": 34,
+            "topic": "央行将上调外汇存款准备金率",
+            "heat": "774.3w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 35,
+            "topic": "嫁金钗皇帝演我对我心肝的溺爱",
+            "heat": "774.2w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 36,
+            "topic": "白小纯傲娇人设不倒",
+            "heat": "774.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 37,
+            "topic": "拆眼底的情感测试盲盒别眨眼了",
+            "heat": "773.6w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 38,
+            "topic": "霸王龙舞步转场挑战",
+            "heat": "773.5w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 39,
+            "topic": "电视剧谷雨定档11月5日",
+            "heat": "773.3w",
+            "cat": "娱乐",
+            "label": ""
+          },
+          {
+            "rank": 40,
+            "topic": "宝青坊主cos",
+            "heat": "773.2w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 41,
+            "topic": "秋天的九寨沟色彩斑斓",
+            "heat": "772.3w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 42,
+            "topic": "灌十个鸡蛋的加长版油条",
+            "heat": "772.1w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 43,
+            "topic": "初冬的第一张雪景照我先拍了",
+            "heat": "771.8w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 44,
+            "topic": "上次觉得阳光这么温暖是什么时候",
+            "heat": "771.7w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 45,
+            "topic": "天霸大家庭欢聚五哈嘉年华",
+            "heat": "771.7w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 46,
+            "topic": "都来用墨镜帅大叔跳噜噜舞",
+            "heat": "771.6w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 47,
+            "topic": "超超超详细的学生感穿搭思路",
+            "heat": "771.3w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 48,
+            "topic": "秋冬姐系高智感穿搭",
+            "heat": "771.2w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 49,
+            "topic": "我的北京秋天封神时刻",
+            "heat": "769.9w",
+            "cat": "",
+            "label": ""
+          },
+          {
+            "rank": 50,
+            "topic": "看完后会友期的我belike",
+            "heat": "769.8w",
+            "cat": "",
+            "label": ""
+          }
+        ],
+        "at": "2026-11-03T16:31:34+08:00"
+      },
+      "微博热搜榜": {
+        "key": "wb",
+        "plat": "微博",
+        "name": "微博热搜榜",
+        "url": "https://s.weibo.com/top/summary",
+        "api": "https://weibo.com/ajax/side/hotSearch",
+        "count": 50,
+        "note": "",
+        "items": [
+          {
+            "rank": 1,
+            "topic": "警方通报九寨沟景区游客冲突事件",
+            "heat": "163.2w",
+            "cat": "",
+            "label": "沸",
+            "kind": ""
+          },
+          {
+            "rank": 2,
+            "topic": "魏娆知道红线怀了刘朔孩子的反应",
+            "heat": "88.6w",
+            "cat": "",
+            "label": "热",
+            "kind": ""
+          },
+          {
+            "rank": 3,
+            "topic": "本届乌镇峰会分论坛数量创新高",
+            "heat": "79.6w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 4,
+            "topic": "是我告的密厉娜",
+            "heat": "75.0w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 5,
+            "topic": "我后悔介绍朋友做大体老师",
+            "heat": "58.3w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 6,
+            "topic": "女作家称AI写书赚百万美元",
+            "heat": "52.3w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 7,
+            "topic": "九寨沟2年轻游客遭老年人打伤",
+            "heat": "47.1w",
+            "cat": "",
+            "label": "沸",
+            "kind": ""
+          },
+          {
+            "rank": 8,
+            "topic": "九寨沟打人事件双方已和解",
+            "heat": "45.9w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 9,
+            "topic": "A股集体回调原因找到了",
+            "heat": "37.3w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 10,
+            "topic": "嫁金钗大结局",
+            "heat": "32.2w",
+            "cat": "娱乐",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 11,
+            "topic": "九寨沟打人处罚被指过轻",
+            "heat": "32.1w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 12,
+            "topic": "赴港看演唱会女孩低保已被取消",
+            "heat": "32.0w",
+            "cat": "娱乐",
+            "label": "热",
+            "kind": ""
+          },
+          {
+            "rank": 13,
+            "topic": "九寨沟老人打人",
+            "heat": "31.7w",
+            "cat": "",
+            "label": "沸",
+            "kind": ""
+          },
+          {
+            "rank": 14,
+            "topic": "曝厉娜有重度抑郁",
+            "heat": "31.7w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 15,
+            "topic": "内娱女星杂志销量TOP排行",
+            "heat": "31.6w",
+            "cat": "娱乐",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 16,
+            "topic": "A股易中天跌懵了",
+            "heat": "31.3w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 17,
+            "topic": "我画地为牢汪东城",
+            "heat": "31.2w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 18,
+            "topic": "女生赴港看演出低保被取消亲属发声",
+            "heat": "31.1w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 19,
+            "topic": "广电把肖战放第一位",
+            "heat": "30.9w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 20,
+            "topic": "九寨沟情侣被打伤情",
+            "heat": "30.8w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 21,
+            "topic": "清华留英硕士疑遭电诈失联时间线",
+            "heat": "30.7w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 22,
+            "topic": "九寨沟老人打人视频曝光",
+            "heat": "30.5w",
+            "cat": "",
+            "label": "沸",
+            "kind": ""
+          },
+          {
+            "rank": 23,
+            "topic": "九寨沟打人事件双方都有责任",
+            "heat": "30.4w",
+            "cat": "",
+            "label": "沸",
+            "kind": ""
+          },
+          {
+            "rank": 24,
+            "topic": "孩子不提钱可能慢慢疏远父母",
+            "heat": "30.2w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 25,
+            "topic": "陪你到世界之巅翻红",
+            "heat": "30.1w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 26,
+            "topic": "女子回应用猕猴桃腌牛肉碎成肉渣",
+            "heat": "29.4w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 27,
+            "topic": "iPhoneDuo黄牛亏懵了",
+            "heat": "29.3w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 28,
+            "topic": "华西医院的含金量还在不断上升",
+            "heat": "27.2w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 29,
+            "topic": "玄彬孙艺珍青龙电影节撒糖",
+            "heat": "25.0w",
+            "cat": "娱乐",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 30,
+            "topic": "教育厅长回应高中生每天在校15小时",
+            "heat": "22.6w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 31,
+            "topic": "王子璇白小纯真的甜到上头",
+            "heat": "22.5w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 32,
+            "topic": "刘亦菲用港姐方式挥手",
+            "heat": "22.2w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 33,
+            "topic": "蔡文静的全家福就她是P上去的",
+            "heat": "21.4w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 34,
+            "topic": "KPL十周年",
+            "heat": "21.3w",
+            "cat": "游戏",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 35,
+            "topic": "A股羊字辈集体涨停",
+            "heat": "21.1w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 36,
+            "topic": "倪萍 医美",
+            "heat": "21.0w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 37,
+            "topic": "嫁金钗红线怀孕了",
+            "heat": "19.6w",
+            "cat": "娱乐",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 38,
+            "topic": "TES对战IG预测",
+            "heat": "19.4w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 39,
+            "topic": "183很丑170很帅怎么选",
+            "heat": "18.9w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 40,
+            "topic": "曝王子璇文吉儿吵架片段",
+            "heat": "17.9w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 41,
+            "topic": "霉霉不想别人因自己失去工作机会",
+            "heat": "17.2w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 42,
+            "topic": "湖南烈士公园回应女生穿和服拍照",
+            "heat": "16.7w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 43,
+            "topic": "A股中期向好趋势未改",
+            "heat": "16.1w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 44,
+            "topic": "因太帅爆火的保洁大叔称年轻时被嫌丑",
+            "heat": "15.2w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 45,
+            "topic": "中国警方介入清华留英硕士失联",
+            "heat": "15.0w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 46,
+            "topic": "iG的文案真走心了",
+            "heat": "15.0w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          },
+          {
+            "rank": 47,
+            "topic": "iG迎战TES赛前海报",
+            "heat": "14.8w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 48,
+            "topic": "便宜手机壳和贵手机壳的区别",
+            "heat": "14.3w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 49,
+            "topic": "勇士喜提五连胜",
+            "heat": "14.2w",
+            "cat": "",
+            "label": "",
+            "kind": ""
+          },
+          {
+            "rank": 50,
+            "topic": "黄泽林否认出轨",
+            "heat": "14.1w",
+            "cat": "",
+            "label": "新",
+            "kind": ""
+          }
+        ],
+        "at": "2026-11-03T16:31:34+08:00"
+      }
+    },
+    "shots": [
+      {
+        "key": "dy",
+        "plat": "抖音",
+        "name": "抖音热榜",
+        "at": "2026-11-03T16:31:34+08:00",
+        "file": "shots/snap-dy-20261103-1631.png",
+        "ok": true,
+        "kb": 324
+      },
+      {
+        "key": "wb",
+        "plat": "微博",
+        "name": "微博热搜榜",
+        "at": "2026-11-03T16:31:34+08:00",
+        "file": "shots/snap-wb-20261103-1631.png",
+        "ok": true,
+        "kb": 331
+      }
+    ],
+    "errors": []
+  }
 }
