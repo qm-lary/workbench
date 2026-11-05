@@ -507,6 +507,20 @@ main{padding:26px 32px 60px;max-width:1180px;width:100%;margin:0 auto;min-width:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*==SKILLS_CSS_START==*/
 /* ===== 技能集成：脚本审核 / 游戏项目 ===== */
 textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.8;
@@ -812,6 +826,134 @@ details.sec .sec-body{margin-top:12px}
   .dr-act{opacity:1}
   .dr-act .icon-btn{height:31px;min-width:36px;font-size:11.5px}
   .dr-t{font-size:13px}
+}
+
+/* ===== 新建项目：下单基础信息 ===== */
+.pf-extra {
+  margin: 4px 0 10px; padding: 0 12px;
+  border: 1px dashed var(--line-2); border-radius: 9px;
+  background: rgba(255, 255, 255, .012);
+}
+.pf-extra > summary {
+  cursor: pointer; list-style: none; padding: 10px 2px;
+  font-size: 12.5px; color: var(--ink-3); letter-spacing: .8px;
+}
+.pf-extra > summary::-webkit-details-marker { display: none; }
+.pf-extra > summary:before {
+  content: "＋"; display: inline-block; width: 14px; color: var(--gold);
+}
+.pf-extra[open] > summary:before { content: "－"; }
+.pf-extra > summary:hover { color: var(--gold-b); }
+.pf-extra .sec-body { padding: 2px 0 12px; }
+.pf-extra .form-row { margin-bottom: 8px; }
+
+/* ===== 下单：外显设置 ===== */
+.dis-vis {
+  margin: 0 0 12px; padding: 0 12px;
+  border: 1px solid var(--line-2); border-radius: 10px;
+  background: rgba(255, 255, 255, .016);
+}
+.dis-vis > summary {
+  cursor: pointer; list-style: none; padding: 9px 2px;
+  font-size: 12.5px; color: var(--ink-2); letter-spacing: .6px;
+}
+.dis-vis > summary::-webkit-details-marker { display: none; }
+.dis-vis > summary:before {
+  content: "☰"; margin-right: 7px; color: var(--gold); font-size: 11px;
+}
+.dis-vis > summary:hover { color: var(--gold-b); }
+.vis-tools {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 2px 0 10px; border-bottom: 1px dashed var(--line-2);
+}
+.vis-list {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 10px 0 12px;
+}
+.vis-item {
+  display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid var(--line-2); border-radius: 99px;
+  padding: 4px 10px; font-size: 12px; color: var(--ink-4);
+  cursor: pointer; transition: all .15s; user-select: none;
+}
+.vis-item input { display: none; }
+.vis-item:hover { border-color: rgba(201, 164, 92, .45); color: var(--gold-b); }
+.vis-item.on {
+  border-color: rgba(201, 164, 92, .55); color: var(--gold-b); font-weight: 600;
+  background: rgba(201, 164, 92, .12);
+}
+body.th-qing .vis-item.on {
+  border-color: rgba(127, 214, 195, .5); color: #a6e8db; background: rgba(127, 214, 195, .12);
+}
+body.th-qing .vis-item:hover { color: #a6e8db; border-color: rgba(127, 214, 195, .45); }
+
+.dis-bind .db-fill { font-size: 11.5px; color: var(--teal); letter-spacing: .3px; }
+.dis-bind .db-edit {
+  margin-left: auto; border: 1px solid var(--line); border-radius: 99px;
+  background: rgba(255, 255, 255, .02); color: var(--ink-3);
+  font-size: 11.5px; padding: 4px 10px; cursor: pointer; transition: all .15s;
+}
+.dis-bind .db-edit:hover { border-color: rgba(201, 164, 92, .5); color: var(--gold-b); }
+
+/* ===== 项目卡：下单信息一行 + 编辑面板 ===== */
+.pz-sum {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 5px;
+  margin: 9px 0 0; font-size: 11.5px; line-height: 1.6;
+}
+.pz-sum .k {
+  color: var(--ink-4); letter-spacing: 1px; margin-right: 2px;
+}
+.pz-sum em {
+  font-style: normal; color: var(--ink-2);
+  border: 1px solid var(--line-2); border-radius: 5px;
+  padding: 1px 6px; background: rgba(255, 255, 255, .018);
+}
+.pz-sum i { font-style: normal; color: var(--ink-4); opacity: .6; }
+.pz-sum.off .no { color: var(--ink-4); }
+.icon-btn.edit:hover { border-color: rgba(127, 214, 195, .55); color: var(--teal); background: rgba(127, 214, 195, .1); }
+
+.pze-mask {
+  position: fixed; inset: 0; z-index: 220;
+  background: rgba(4, 3, 8, .74);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 40px 14px 30px; overflow: auto;
+}
+.pze-panel {
+  width: 100%; max-width: 580px; box-sizing: border-box;
+  border-radius: 14px; border: 1px solid var(--line);
+  background: linear-gradient(180deg, #241a32, #150f1f);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .6);
+  padding: 18px 18px 16px; color: var(--ink);
+  display: flex; flex-direction: column;
+  max-height: calc(100vh - 56px);
+}
+.pze-body {
+  overflow: auto; -webkit-overflow-scrolling: touch;
+  min-height: 0; padding-right: 2px;
+}
+body.th-qing .pze-panel { background: linear-gradient(180deg, #0b2a2c, #04181b); }
+.pze-panel h3 {
+  margin: 0 0 4px; font-family: var(--serif); font-size: 16.5px;
+  letter-spacing: 1.4px; color: var(--gold-b);
+}
+.pze-hint { margin: 0 0 10px; font-size: 12px; color: var(--ink-4); line-height: 1.7; }
+.pze-sec {
+  margin: 14px 0 8px; padding-top: 10px; border-top: 1px dashed var(--line-2);
+  font-size: 11.5px; letter-spacing: 1.4px; color: var(--gold); opacity: .9;
+}
+.pze-panel .form-row { margin-bottom: 8px; }
+.pze-panel .field label { font-size: 11.5px; color: var(--ink-4); }
+.pze-panel .field input, .pze-panel .field select { font-size: 13.5px; }
+.pze-btns {
+  display: flex; gap: 8px; flex-wrap: wrap; flex: none;
+  margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-2);
+}
+.pze-btns .btn { flex: 1; min-width: 110px; white-space: nowrap; }
+@media (max-width: 560px) {
+  .pze-mask { padding: 18px 10px 24px; }
+  .pze-panel { padding: 14px 13px 12px; }
+  .pze-panel .field input, .pze-panel .field select { font-size: 16px; }
+  .pze-btns .btn { min-width: 0; }
 }
 
 /* ===== 总览：电子黄历 + 项目统筹 + 流程进度 ===== */
@@ -1388,6 +1530,132 @@ body.th-qing .mz-fab {
 @media (max-width: 900px) {
   .mz-fab { display: flex; }
 }
+
+/* =====================================================================
+   紫微斗数十二宫盘
+   ===================================================================== */
+.zw-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+  padding: 8px 12px; margin: 2px 0 10px;
+  border: 1px solid var(--line-2); border-radius: 9px;
+  background: rgba(255, 255, 255, .016);
+  font-size: 11.8px; color: var(--ink-3);
+}
+.zw-meta span { white-space: nowrap; }
+.zw-meta .zw-ju { color: var(--gold-b); font-weight: 600; letter-spacing: .6px; }
+.zw-meta .zw-cur {
+  margin-left: auto; color: var(--gold-b);
+  border: 1px solid rgba(201, 164, 92, .4); border-radius: 99px; padding: 1px 9px;
+}
+
+.zw-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(112px, auto));
+  gap: 6px;
+  margin: 0 0 4px;
+}
+.zw-cell {
+  display: flex; flex-direction: column; gap: 4px; min-width: 0; min-height: 122px;
+  padding: 7px 8px;
+  border: 1px solid var(--line-2); border-radius: 8px;
+  background: rgba(255, 255, 255, .018);
+  transition: border-color .18s, background .18s;
+}
+.zw-cell.soul { border-color: rgba(201, 164, 92, .5); background: rgba(201, 164, 92, .06); }
+.zw-cell.cur { border-color: rgba(127, 214, 195, .5); background: rgba(127, 214, 195, .06); }
+body.th-mo .zw-cell.soul { border-color: rgba(210, 171, 104, .5); }
+
+.zw-c-h { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.zw-c-h b {
+  font-family: var(--serif); font-size: 13px; letter-spacing: 1.4px;
+  color: var(--gold-b); font-weight: 600;
+}
+.zw-cell.soul .zw-c-h b { font-size: 14px; }
+.zw-c-h span { font-size: 10.5px; color: var(--ink-4); letter-spacing: .6px; }
+.zw-c-h .zw-body {
+  font-style: normal; font-size: 9.5px; color: #0b0d10; background: var(--gold);
+  border-radius: 3px; padding: 0 3px; line-height: 14px; margin-left: auto;
+}
+
+.zw-c-major { display: flex; flex-direction: column; gap: 3px; min-height: 18px; }
+.zw-star { display: flex; align-items: center; gap: 4px; }
+.zw-star b {
+  font-size: 13.5px; color: var(--ink); font-weight: 600; letter-spacing: .8px;
+}
+.zw-bright {
+  font-style: normal; font-size: 9.5px; line-height: 14px; padding: 0 3px; border-radius: 3px;
+  border: 1px solid var(--line-2); color: var(--ink-3);
+}
+.zw-bright.b-庙 { color: #f0d79a; border-color: rgba(240, 215, 154, .38); }
+.zw-bright.b-旺 { color: #e8cf9a; border-color: rgba(232, 207, 154, .3); }
+.zw-bright.b-陷 { color: #9aa3ad; border-color: rgba(154, 163, 173, .3); }
+.zw-bright.b-不 { color: #9aa3ad; border-color: rgba(154, 163, 173, .26); }
+.zw-hua {
+  font-style: normal; font-size: 9.5px; line-height: 14px; padding: 0 3px; border-radius: 3px;
+  background: rgba(255, 255, 255, .08); color: var(--ink-2); letter-spacing: 0;
+}
+.zw-hua.lu { background: rgba(120, 200, 150, .18); color: #8fdcae; }
+.zw-hua.quan { background: rgba(230, 180, 100, .18); color: #f0cb85; }
+.zw-hua.ke { background: rgba(130, 180, 230, .18); color: #a8cbe8; }
+.zw-hua.ji { background: rgba(220, 120, 120, .18); color: #f0a3a3; }
+
+.zw-c-minor {
+  display: flex; flex-wrap: wrap; gap: 3px 7px;
+  font-size: 11px; color: var(--ink-3); letter-spacing: .3px;
+}
+.zw-c-minor span { display: inline-flex; align-items: center; gap: 2px; }
+.zw-empty { color: var(--ink-4); font-size: 12px; }
+
+.zw-c-foot {
+  margin-top: auto; display: flex; justify-content: flex-end;
+  font-size: 10.5px; color: var(--ink-4); font-variant-numeric: tabular-nums;
+}
+
+.zw-center {
+  grid-area: 2 / 2 / 4 / 4;
+  display: flex; flex-direction: column; gap: 5px; min-width: 0;
+  padding: 12px 14px; border: 1px dashed var(--line-2); border-radius: 9px;
+  background: rgba(255, 255, 255, .012);
+}
+.zw-c-t {
+  font-family: var(--serif); font-size: 14px; letter-spacing: 2.4px;
+  color: var(--gold-b); margin-bottom: 2px;
+}
+.zw-c-row { display: flex; gap: 10px; font-size: 12px; line-height: 1.7; }
+.zw-c-row span { flex: none; width: 62px; color: var(--ink-4); letter-spacing: .8px; }
+.zw-c-row b { color: var(--ink-2); font-weight: 500; min-width: 0; word-break: break-word; }
+.zw-c-tip {
+  margin-top: auto; font-size: 11px; line-height: 1.75; color: var(--ink-4);
+  border-top: 1px dashed var(--line-2); padding-top: 7px;
+}
+
+@media (max-width: 900px) {
+  .zw-board { grid-template-rows: repeat(4, minmax(96px, auto)); }
+  .zw-star b { font-size: 12.5px; }
+  .zw-c-minor { font-size: 10.5px; }
+  .zw-c-row span { width: 54px; }
+}
+@media (max-width: 560px) {
+  .zw-board {
+    grid-template-columns: repeat(4, 152px);
+    overflow-x: auto; padding-bottom: 6px;
+  }
+  .zw-c-tip { display: none; }
+  .zw-center { padding: 10px 11px; }
+}
+
+/* 盘面图例 */
+.zw-legend {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin: 8px 0 0; font-size: 11.2px; color: var(--ink-4); line-height: 1.7;
+}
+.zw-legend i {
+  display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--line-2);
+}
+.zw-legend .lg-soul { border-color: rgba(201, 164, 92, .6); background: rgba(201, 164, 92, .18); }
+.zw-legend .lg-cur { border-color: rgba(127, 214, 195, .6); background: rgba(127, 214, 195, .16); margin-left: 6px; }
+.zw-legend span { flex: 1 1 100%; }
 
 /*==THEME_ART==*/
 body.th-qing::before{background:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1600' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='.15' y2='1'%3E%3Cstop offset='0' stop-color='%23f6dfae' stop-opacity='.55'/%3E%3Cstop offset='.22' stop-color='%23dcbc7c' stop-opacity='.38'/%3E%3Cstop offset='.44' stop-color='%239db6a4' stop-opacity='.22'/%3E%3Cstop offset='.60' stop-color='%230d3a3a' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='water' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230a2c2e' stop-opacity='.1'/%3E%3Cstop offset='1' stop-color='%238ed9c9' stop-opacity='.16'/%3E%3C/linearGradient%3E%3CradialGradient id='haze' cx='.5' cy='.5' r='.5'%3E%3Cstop offset='0' stop-color='%23cfe9dd' stop-opacity='.26'/%3E%3Cstop offset='1' stop-color='%23cfe9dd' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='soft'%3E%3CfeGaussianBlur stdDeviation='16'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='1200' height='1600' fill='%23061a1c'/%3E%3Crect width='1200' height='1600' fill='url(%23sky)'/%3E%3Ccircle cx='107' cy='104' r='1.3' fill='%23f7e3b4' opacity='0.25'/%3E%3Ccircle cx='979' cy='35' r='1.4' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='843' cy='73' r='1.9' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='772' cy='115' r='1.6' fill='%23f7e3b4' opacity='0.20'/%3E%3Ccircle cx='408' cy='561' r='1.4' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='89' cy='139' r='2.0' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='438' cy='54' r='1.1' fill='%23f7e3b4' opacity='0.23'/%3E%3Ccircle cx='705' cy='630' r='0.9' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='253' cy='484' r='1.4' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='1171' cy='598' r='3.0' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='199' cy='512' r='2.8' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='606' cy='451' r='1.1' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='725' cy='598' r='1.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='1063' cy='527' r='1.3' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='512' cy='622' r='1.4' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='1054' cy='404' r='2.6' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='1099' cy='457' r='2.2' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='295' cy='45' r='2.4' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='114' cy='78' r='2.5' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='991' cy='438' r='0.9' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='435' cy='345' r='1.5' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='1147' cy='213' r='2.0' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='330' cy='623' r='1.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='638' cy='543' r='3.0' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='207' cy='526' r='1.8' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='816' cy='1' r='1.3' fill='%23f7e3b4' opacity='0.29'/%3E%3Ccircle cx='1127' cy='486' r='2.3' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='274' cy='636' r='2.4' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='235' cy='620' r='1.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='461' cy='392' r='2.2' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='782' cy='106' r='2.1' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='859' cy='610' r='3.2' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='598' cy='187' r='1.2' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='612' cy='518' r='2.3' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='1016' cy='360' r='1.4' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='357' cy='531' r='2.1' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='1173' cy='607' r='0.8' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='554' cy='494' r='2.9' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='726' cy='541' r='1.1' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='676' cy='47' r='3.2' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='533' cy='70' r='2.3' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='750' cy='203' r='2.5' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='220' cy='482' r='2.4' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='708' cy='225' r='2.6' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='392' cy='166' r='2.5' fill='%23f7e3b4' opacity='0.20'/%3E%3Ccircle cx='943' cy='312' r='1.3' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='869' cy='344' r='2.6' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='556' cy='561' r='2.5' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='679' cy='331' r='3.0' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='675' cy='441' r='2.9' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='828' cy='262' r='3.1' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='1017' cy='163' r='1.5' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='125' cy='277' r='2.8' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='624' cy='506' r='3.1' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='469' cy='535' r='2.9' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='958' cy='617' r='2.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='1138' cy='113' r='2.5' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='814' cy='107' r='1.5' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='981' cy='618' r='2.8' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='953' cy='206' r='3.1' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='87' cy='604' r='0.9' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='993' cy='335' r='2.2' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='202' cy='300' r='1.3' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='167' cy='265' r='1.8' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='386' cy='587' r='2.4' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='826' cy='367' r='2.3' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='957' cy='447' r='2.2' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='772' cy='79' r='1.2' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='642' cy='225' r='3.1' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='902' cy='519' r='3.0' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='870' cy='26' r='1.3' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='766' cy='299' r='2.7' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='1055' cy='144' r='2.4' fill='%23f7e3b4' opacity='0.21'/%3E%3Ccircle cx='750' cy='403' r='2.9' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='670' cy='104' r='3.2' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='871' cy='452' r='1.7' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='414' cy='514' r='1.6' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='629' cy='285' r='2.8' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='860' cy='430' r='1.2' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='299' cy='599' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='410' cy='621' r='2.0' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='423' cy='151' r='1.3' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='684' cy='335' r='3.1' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='981' cy='53' r='1.2' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='122' cy='131' r='1.3' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='913' cy='461' r='1.3' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='538' cy='522' r='1.8' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='468' cy='97' r='2.3' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='1026' cy='633' r='2.5' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='486' cy='241' r='2.7' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='766' cy='407' r='1.4' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='714' cy='124' r='2.3' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='739' cy='214' r='1.6' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='560' cy='143' r='2.3' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='736' cy='229' r='2.6' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='585' cy='623' r='2.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='899' cy='486' r='1.7' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='219' cy='43' r='1.8' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='228' cy='388' r='1.9' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='742' cy='579' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='611' cy='626' r='2.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='953' cy='505' r='2.3' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='19' cy='353' r='2.8' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='731' cy='186' r='2.0' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='354' cy='424' r='2.5' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='876' cy='236' r='1.3' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='735' cy='451' r='2.3' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='419' cy='463' r='1.5' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='216' cy='156' r='1.1' fill='%23f7e3b4' opacity='0.24'/%3E%3Ccircle cx='225' cy='540' r='2.3' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='727' cy='67' r='2.3' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='630' cy='90' r='0.9' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='877' cy='564' r='2.5' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='598' cy='362' r='1.6' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='67' cy='47' r='1.1' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='697' cy='2' r='2.0' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='437' cy='323' r='0.9' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='402' cy='245' r='2.3' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='210' cy='278' r='1.6' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='339' cy='66' r='2.7' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='643' cy='33' r='2.7' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='365' cy='503' r='1.3' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='465' cy='187' r='1.9' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='750' cy='153' r='1.1' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='1170' cy='321' r='1.4' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='1173' cy='257' r='1.5' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='89' cy='31' r='2.6' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='733' cy='249' r='2.3' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='1022' cy='501' r='2.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='1180' cy='272' r='2.9' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='788' cy='499' r='1.5' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='215' cy='103' r='1.2' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='97' cy='175' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='601' cy='257' r='1.3' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='1004' cy='336' r='2.6' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='275' cy='68' r='2.1' fill='%23f7e3b4' opacity='0.26'/%3E%3Ccircle cx='887' cy='403' r='3.0' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='100' cy='394' r='0.8' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='496' cy='596' r='1.8' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='1182' cy='165' r='2.6' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='130' cy='458' r='2.3' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='991' cy='369' r='2.5' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='816' cy='252' r='2.3' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='474' cy='5' r='1.8' fill='%23f7e3b4' opacity='0.21'/%3E%3Ccircle cx='54' cy='399' r='1.8' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='898' cy='96' r='1.4' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='236' cy='308' r='1.3' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='1199' cy='137' r='2.9' fill='%23f7e3b4' opacity='0.20'/%3E%3Ccircle cx='320' cy='444' r='1.6' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='719' cy='316' r='1.6' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='548' cy='172' r='3.0' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='359' cy='445' r='0.8' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='72' cy='237' r='1.0' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='811' cy='128' r='2.6' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='480' cy='57' r='1.6' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='1043' cy='392' r='0.9' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='39' cy='210' r='2.6' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='929' cy='451' r='1.4' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='550' cy='317' r='2.1' fill='%23f7e3b4' opacity='0.16'/%3E%3Ccircle cx='363' cy='228' r='1.0' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='208' cy='48' r='1.9' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='589' cy='468' r='1.7' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='902' cy='53' r='2.7' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='820' cy='515' r='2.5' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='3' cy='255' r='1.7' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='874' cy='313' r='3.0' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='611' cy='229' r='2.5' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='990' cy='358' r='1.6' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='126' cy='135' r='2.0' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='180' cy='212' r='2.5' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='862' cy='27' r='2.4' fill='%23f7e3b4' opacity='0.25'/%3E%3Ccircle cx='1169' cy='504' r='2.4' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='299' cy='626' r='0.9' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='166' cy='626' r='1.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='671' cy='350' r='2.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='984' cy='417' r='0.9' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='689' cy='421' r='1.5' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='284' cy='353' r='2.3' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='141' cy='459' r='1.1' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='951' cy='17' r='3.0' fill='%23f7e3b4' opacity='0.28'/%3E%3Ccircle cx='464' cy='482' r='3.2' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='64' cy='99' r='2.5' fill='%23f7e3b4' opacity='0.21'/%3E%3Ccircle cx='193' cy='160' r='2.8' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='565' cy='490' r='1.9' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='149' cy='617' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='178' cy='291' r='3.2' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='209' cy='150' r='3.0' fill='%23f7e3b4' opacity='0.16'/%3E%3Ccircle cx='77' cy='37' r='1.2' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='893' cy='23' r='2.4' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='900' cy='261' r='1.1' fill='%23f7e3b4' opacity='0.18'/%3E%3Cpath d='M0,660 L182,530 L268,582 L378,421 L463,622 L505,405 L591,619 L638,549 L723,620 L826,381 L912,592 L1003,423 L1089,623 L1200,644 L1200,1600 L0,1600 Z' fill='%237fa79b' opacity='.22' stroke='%23e6cea0' stroke-width='1' stroke-opacity='.16'/%3E%3Cellipse cx='540' cy='690' rx='760' ry='200' fill='url(%23haze)'/%3E%3Cpath d='M0,860 L251,698 L351,840 L372,622 L472,829 L569,692 L669,838 L748,691 L848,818 L1045,721 L1145,818 L1200,806 L1200,1600 L0,1600 Z' fill='%233f7269' opacity='.36' stroke='%23e2c893' stroke-width='1' stroke-opacity='.16'/%3E%3Cpath d='M0,1060 L119,834 L194,1003 L330,843 L405,974 L426,938 L501,983 L619,949 L694,1025 L710,842 L785,980 L922,928 L997,996 L1024,842 L1099,1043 L1200,985 L1200,1600 L0,1600 Z' fill='%231d4a48' opacity='.52' stroke='%23d9bd86' stroke-width='1' stroke-opacity='.16'/%3E%3Cpath d='M1165,779 L1143,801 L1187,801 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1165,793 L1146,815 L1184,815 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1165,807 L1149,829 L1181,829 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1165,821 L1152,843 L1178,843 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Crect x='1164' y='831' width='2.2' height='22' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,740 L956,767 L1011,767 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,758 L960,785 L1007,785 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,775 L963,803 L1003,803 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,793 L967,821 L999,821 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Crect x='982' y='806' width='2.7' height='27' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1150,856 L1126,881 L1175,881 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1150,872 L1129,897 L1172,897 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1150,888 L1132,913 L1168,913 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1150,904 L1136,929 L1165,929 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Crect x='1149' y='915' width='2.5' height='25' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M178,929 L160,946 L195,946 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M178,940 L162,958 L193,958 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M178,952 L165,969 L190,969 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M178,963 L167,981 L188,981 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Crect x='177' y='971' width='1.8' height='18' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M578,996 L563,1011 L593,1011 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M578,1006 L565,1021 L591,1021 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M578,1016 L567,1031 L589,1031 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M578,1026 L569,1041 L587,1041 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Crect x='577' y='1032' width='1.5' height='15' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1180,841 L1157,864 L1203,864 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1180,856 L1160,879 L1200,879 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1180,871 L1163,894 L1197,894 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1180,886 L1166,909 L1194,909 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Crect x='1179' y='896' width='2.3' height='23' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1096,913 L1076,933 L1116,933 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1096,926 L1079,946 L1114,946 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1096,939 L1082,959 L1111,959 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1096,952 L1085,972 L1108,972 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='1095' y='961' width='2.0' height='20' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M955,920 L938,938 L972,938 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M955,932 L940,949 L970,949 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M955,943 L942,960 L968,960 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M955,954 L945,971 L965,971 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Crect x='954' y='962' width='1.7' height='17' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M253,763 L227,789 L280,789 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M253,779 L231,806 L276,806 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M253,796 L234,823 L272,823 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M253,813 L238,840 L269,840 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='252' y='825' width='2.6' height='26' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M994,930 L979,945 L1008,945 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M994,940 L981,954 L1006,954 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M994,949 L983,964 L1004,964 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M994,959 L985,973 L1002,973 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Crect x='993' y='965' width='1.5' height='15' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M761,962 L742,981 L780,981 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M761,974 L745,993 L777,993 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M761,986 L747,1005 L774,1005 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M761,999 L750,1017 L772,1017 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='760' y='1007' width='1.9' height='19' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1177,900 L1153,923 L1200,923 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M1177,915 L1157,938 L1197,938 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M1177,930 L1160,953 L1193,953 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M1177,945 L1163,968 L1190,968 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Crect x='1175' y='955' width='2.3' height='23' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M802,849 L782,869 L823,869 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M802,862 L784,883 L820,883 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M802,876 L787,896 L817,896 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M802,889 L790,910 L815,910 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Crect x='801' y='899' width='2.1' height='21' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M672,870 L651,891 L693,891 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M672,884 L654,905 L691,905 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M672,897 L657,919 L688,919 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M672,911 L660,932 L685,932 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Crect x='671' y='921' width='2.1' height='21' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M296,937 L277,957 L316,957 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M296,950 L280,969 L313,969 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M296,962 L282,982 L310,982 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M296,975 L285,994 L308,994 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='295' y='984' width='1.9' height='19' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1148,975 L1131,992 L1165,992 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1148,986 L1134,1003 L1163,1003 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1148,997 L1136,1014 L1161,1014 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1148,1008 L1138,1025 L1158,1025 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Crect x='1147' y='1015' width='1.7' height='17' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1170,950 L1145,974 L1194,974 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M1170,966 L1149,990 L1191,990 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M1170,982 L1152,1006 L1187,1006 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M1170,997 L1155,1022 L1184,1022 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='1168' y='1008' width='2.4' height='24' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M195,892 L176,910 L213,910 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M195,904 L179,922 L210,922 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M195,916 L181,934 L208,934 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M195,928 L184,946 L205,946 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Crect x='194' y='936' width='1.8' height='18' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M346,895 L323,918 L369,918 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M346,910 L326,933 L365,933 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M346,925 L329,948 L362,948 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M346,939 L332,962 L359,962 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Crect x='344' y='950' width='2.3' height='23' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M148,965 L126,986 L169,986 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M148,979 L129,1000 L166,1000 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M148,993 L132,1014 L163,1014 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M148,1007 L135,1028 L160,1028 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Crect x='147' y='1016' width='2.1' height='21' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M639,904 L618,925 L660,925 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M639,918 L621,938 L657,938 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M639,931 L624,952 L654,952 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M639,945 L627,966 L652,966 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Crect x='638' y='954' width='2.1' height='21' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M290,798 L265,824 L316,824 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M290,815 L268,840 L312,840 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M290,831 L272,857 L309,857 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M290,848 L275,873 L305,873 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Crect x='289' y='859' width='2.6' height='26' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M727,788 L708,808 L747,808 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M727,801 L711,820 L744,820 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M727,813 L713,833 L741,833 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M727,826 L716,845 L739,845 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Crect x='727' y='835' width='1.9' height='19' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M-26,830 L-51,855 L-2,855 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M-26,846 L-48,871 L-5,871 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M-26,862 L-44,887 L-8,887 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M-26,878 L-41,903 L-12,903 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='-28' y='889' width='2.5' height='25' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M796,805 L769,832 L823,832 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M796,823 L773,850 L819,850 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M796,840 L776,867 L816,867 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M796,858 L780,885 L812,885 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Crect x='795' y='870' width='2.7' height='27' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M981,938 L954,965 L1009,965 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M981,955 L957,983 L1005,983 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M981,973 L961,1001 L1001,1001 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M981,991 L965,1019 L997,1019 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Crect x='980' y='1004' width='2.8' height='28' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M350,775 L324,802 L377,802 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M350,793 L327,820 L373,820 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M350,810 L331,837 L370,837 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M350,828 L335,854 L366,854 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Crect x='349' y='840' width='2.7' height='27' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M1217,898 L1201,913 L1232,913 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1217,908 L1203,923 L1230,923 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1217,918 L1205,933 L1228,933 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1217,928 L1208,943 L1226,943 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Crect x='1216' y='935' width='1.5' height='15' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M32,939 L5,967 L59,967 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M32,957 L9,984 L56,984 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M32,975 L12,1002 L52,1002 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M32,993 L16,1020 L48,1020 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='31' y='1005' width='2.7' height='27' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M120,804 L107,818 L134,818 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M120,813 L109,827 L132,827 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M120,822 L111,835 L130,835 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M120,831 L113,844 L128,844 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Crect x='120' y='837' width='1.4' height='14' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M283,811 L256,838 L310,838 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M283,829 L260,855 L306,855 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M283,846 L264,873 L303,873 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M283,863 L267,890 L299,890 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Crect x='282' y='875' width='2.7' height='27' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M648,917 L621,944 L675,944 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M648,935 L625,961 L671,961 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M648,952 L629,979 L668,979 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M648,969 L632,996 L664,996 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Crect x='647' y='981' width='2.7' height='27' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M154,777 L135,796 L174,796 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M154,790 L138,809 L171,809 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M154,802 L140,821 L168,821 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M154,815 L143,834 L166,834 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Crect x='153' y='823' width='1.9' height='19' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M809,862 L797,874 L822,874 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M809,870 L799,882 L820,882 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M809,878 L801,890 L818,890 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M809,886 L802,898 L817,898 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='809' y='891' width='1.2' height='12' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M923,968 L901,990 L945,990 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M923,982 L904,1004 L942,1004 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M923,997 L907,1019 L939,1019 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M923,1011 L910,1033 L936,1033 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Crect x='922' y='1021' width='2.2' height='22' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1157,807 L1142,822 L1172,822 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1157,817 L1144,831 L1170,831 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1157,826 L1146,841 L1168,841 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1157,836 L1148,851 L1165,851 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='1156' y='842' width='1.5' height='15' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M538,835 L521,852 L555,852 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M538,846 L523,864 L553,864 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M538,858 L525,875 L551,875 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M538,869 L528,886 L548,886 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Crect x='537' y='877' width='1.7' height='17' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M300,965 L280,985 L321,985 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M300,978 L283,998 L318,998 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M300,991 L286,1011 L315,1011 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M300,1004 L289,1025 L312,1025 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Crect x='299' y='1013' width='2.0' height='20' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M1179,857 L1165,871 L1193,871 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1179,866 L1167,880 L1191,880 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1179,875 L1169,889 L1189,889 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1179,884 L1171,898 L1187,898 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Crect x='1179' y='891' width='1.4' height='14' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1081,906 L1064,922 L1097,922 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M1081,917 L1067,933 L1095,933 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M1081,927 L1069,944 L1092,944 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M1081,938 L1071,954 L1090,954 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Crect x='1080' y='945' width='1.6' height='16' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M0,1240 L113,1090 L180,1228 L296,1136 L363,1192 L421,1094 L488,1213 L566,1065 L633,1211 L666,1110 L733,1226 L790,1047 L857,1194 L952,1048 L1019,1184 L1066,1148 L1133,1208 L1200,1224 L1200,1600 L0,1600 Z' fill='%230f2b2b' opacity='.7'/%3E%3Crect x='0' y='1250' width='1200' height='350' fill='url(%23water)'/%3E%3Crect x='125' y='1253' width='256' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Crect x='851' y='1270' width='344' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Crect x='436' y='1279' width='322' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.13'/%3E%3Crect x='-48' y='1297' width='426' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.10'/%3E%3Crect x='661' y='1306' width='197' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.13'/%3E%3Crect x='231' y='1317' width='277' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='603' y='1334' width='187' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.18'/%3E%3Crect x='713' y='1345' width='342' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.20'/%3E%3Crect x='336' y='1360' width='362' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Crect x='93' y='1371' width='497' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.07'/%3E%3Crect x='352' y='1384' width='370' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='478' y='1399' width='284' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.05'/%3E%3Crect x='219' y='1408' width='351' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.19'/%3E%3Crect x='497' y='1422' width='130' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.12'/%3E%3Crect x='281' y='1438' width='216' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.14'/%3E%3Crect x='601' y='1449' width='518' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.07'/%3E%3Crect x='584' y='1463' width='479' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='475' y='1479' width='338' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.10'/%3E%3Crect x='98' y='1489' width='496' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.11'/%3E%3Crect x='833' y='1501' width='233' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='721' y='1513' width='409' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.07'/%3E%3Crect x='938' y='1531' width='154' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.19'/%3E%3Crect x='323' y='1539' width='410' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.16'/%3E%3Crect x='751' y='1553' width='316' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.20'/%3E%3Crect x='66' y='1569' width='415' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.12'/%3E%3Crect x='181' y='1581' width='413' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Cdefs%3E%3ClinearGradient id='scrim' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2303100f' stop-opacity='.86'/%3E%3Cstop offset='.34' stop-color='%2303100f' stop-opacity='.66'/%3E%3Cstop offset='.62' stop-color='%2303100f' stop-opacity='.46'/%3E%3Cstop offset='1' stop-color='%2303100f' stop-opacity='.34'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='1600' fill='url(%23scrim)'/%3E%3C/svg%3E") center/cover no-repeat !important;background-attachment:fixed !important}
@@ -2170,6 +2438,34 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
             <input type="text" id="projBlock" name="proj_block" placeholder="例如：官方物料还没下发" autocomplete="off">
           </div>
         </div>
+
+        <details class="pf-extra">
+          <summary>下单基础信息（可选 · 下单时会自动带出）</summary>
+          <div class="sec-body">
+            <div class="form-row">
+              <div class="field"><label>商务</label><input id="pzBiz" placeholder="例如：谢子瑶" autocomplete="off"></div>
+              <div class="field"><label>客户组 / PM</label><input id="pzPm" placeholder="例如：游戏组-清明" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>客户等级</label><input id="pzLevel" placeholder="例如：s3" autocomplete="off"></div>
+              <div class="field"><label>平台</label><input id="pzPlat" placeholder="例如：抖音" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>平台金额</label><input id="pzAmt" placeholder="例如：抖音10w" autocomplete="off"></div>
+              <div class="field"><label>策划费占比</label><input id="pzRate" placeholder="例如：8%" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>发布时间 / 执行日期</label><input id="pzPub" placeholder="例如：11.4" autocomplete="off"></div>
+              <div class="field"><label>要几个方向</label><input id="pzDirN" placeholder="3-5" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>含星图？</label><select id="pzXingtu"><option value="">未定</option><option value="是">是</option><option value="否">否</option></select></div>
+              <div class="field"><label>账号数量</label><input id="pzNum" placeholder="例如：20 / 越多越好" autocomplete="off"></div>
+            </div>
+            <div class="field"><label>项目内容链接</label><input id="pzLink" placeholder="腾讯文档 / 飞书链接" autocomplete="off"></div>
+            <p class="note" style="margin:2px 0 0">填了这些，去「下单模板」选这个项目时会自动带出来；不填也不影响建项目。</p>
+          </div>
+        </details>
         <div class="btn-row"><button class="btn" id="btnAddProj">添加项目</button></div>
       </div>
 
@@ -2224,6 +2520,20 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
       </div>
     </section>
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2512,7 +2822,7 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
           </svg>
           <div class="mz-head-txt">
             <b>命理与卦象</b>
-            <p>本机三个技能的计算口径都搬进来了：四柱排盘、梅花起卦、六十四卦卦辞爻辞、术语词典、答案卡。全部在本机算，不联网、不上传。<br>
+            <p>本机三个技能的计算口径都搬进来了：四柱八字、紫微斗数十二宫、梅花起卦、六十四卦卦辞爻辞、术语词典、答案卡。全部在本机算，不联网、不上传。<br>
             只作传统文化研习与写作素材，不作预测断言，也不替代医疗、投资、法律意见。</p>
           </div>
           <span class="mz-flash" id="mzFlash"></span>
@@ -2605,6 +2915,20 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 <!--SKILLS_SEC_END-->
 </main>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3353,7 +3677,14 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 
   var db = (window.__GH && window.__GH.isConfigured()) ? window.__GH.makeDB() : makeResilientDB();
 
-  var SCHEMA_OPTIONS = {};
+  /* 默认选项：本机与云同步模式没有 schema，靠这套兜底 */
+  var SCHEMA_OPTIONS = {
+    "当前阶段": [{"id":"项目前期","text":"项目前期"},{"id":"项目执行中","text":"项目执行中"},{"id":"项目后期","text":"项目后期"}],
+    "状态": [{"id":"进行中","text":"进行中"},{"id":"已完结","text":"已完结"},{"id":"暂停","text":"暂停"}],
+    "优先级": [{"id":"紧急","text":"紧急"},{"id":"高","text":"高"},{"id":"中","text":"中"},{"id":"低","text":"低"}]
+  };
+
+  window.__opts = function (f) { return (SCHEMA_OPTIONS[f] || []).slice(); };
 
   var state = window.state = {
     todos: [],
@@ -3553,6 +3884,17 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
       下一步: r['下一步'] || '',
       卡点: r['卡点'] || '',
       更新时间: dateOnly(r['更新时间']),
+      商务: r['商务'] || '',
+      PM: r['PM'] || '',
+      客户等级: r['客户等级'] || '',
+      平台: r['平台'] || '',
+      平台金额: r['平台金额'] || '',
+      策划费占比: r['策划费占比'] || '',
+      发布时间: r['发布时间'] || '',
+      方向数: r['方向数'] || '',
+      含星图: r['含星图'] || '',
+      账号数量: r['账号数量'] || '',
+      内容链接: r['内容链接'] || '',
       _demo: false
     };
   }
@@ -4288,6 +4630,15 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
     properties['状态'] = { select: optId('状态', status ? optText('状态', status) : '进行中') };
     if (next) properties['下一步'] = { text: next };
     if (block) properties['卡点'] = { text: block };
+    var PZ_MAP = { pzBiz: '商务', pzPm: 'PM', pzLevel: '客户等级', pzPlat: '平台',
+      pzAmt: '平台金额', pzRate: '策划费占比', pzPub: '发布时间', pzDirN: '方向数',
+      pzXingtu: '含星图', pzNum: '账号数量', pzLink: '内容链接' };
+    Object.keys(PZ_MAP).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var v = (el.value || '').trim();
+      if (v) properties[PZ_MAP[id]] = { text: v };
+    });
 
     db.addRecord({ databaseId: 'PqqNGskZCoAtaysv5nGOxz', properties: properties }).then(function () {
       btn.disabled = false; btn.textContent = '添加项目';
@@ -4304,6 +4655,15 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
       toast('保存失败，重试一次', 'err');
     });
   }
+
+  /* 编辑项目（下单信息 / 阶段 / 状态）：改完写回同一条记录，再重新拉一次列表，
+     这样项目卡、下单模板、总览看到的是同一份。 */
+  window.__projSave = function (id, props) {
+    if (guardDemo()) return Promise.reject(new Error('示例内容不能改'));
+    props['更新时间'] = { date: todayStr() };
+    return db.updateRecord({ databaseId: 'PqqNGskZCoAtaysv5nGOxz', recordId: id, properties: props })
+      .then(function () { loadAll(false); return true; });
+  };
 
   function delProject(id) {
     if (guardDemo()) return;
@@ -4607,6 +4967,20 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
   }
 })();
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6151,6 +6525,18 @@ window.__MZBA=module.exports;})();
   }
 
   /* ================= 项目文档管理：按项目归堆 ================= */
+  /* 项目名合集：本机项目 + 流程清单里的项目 + 文档里出现过的归属 */
+  function projUnion() {
+    var out = [], seen = {};
+    function add(n) {
+      n = String(n || '').trim();
+      if (n && !seen[n]) { seen[n] = 1; out.push(n); }
+    }
+    projNames().forEach(add);
+    allProjNames().forEach(add);
+    return out;
+  }
+
   function projNames() {
     var out = [], seen = {};
     function add(n) {
@@ -6179,12 +6565,25 @@ window.__MZBA=module.exports;})();
     var html = '<div class="mod-form" data-type="doc">';
     html += '<div class="field"><input data-f="t" placeholder="文档名，例如：无畏契约上海站 brief" value="' + esc(ed ? ed.t : '') + '"></div>';
     html += '<div class="form-row">';
-    html += '<div class="field"><input data-f="k" list="docKinds" placeholder="类型（brief / 脚本 / 执行表 / 规范 / 合同 / 账号）" value="' + esc(ed ? ed.k : '') + '">' +
-      '<datalist id="docKinds">' +
-      ['brief', '策划', '脚本', '执行表', '结案', '报价', '规范', '合同', '账号'].map(function (x) { return '<option>' + x + '</option>'; }).join('') +
-      '</datalist></div>';
-    html += '<div class="field"><input data-f="p" list="docProjs" placeholder="所属项目（留空＝通用）" value="' + esc(ed ? ed.p : '') + '">' +
-      '<datalist id="docProjs">' + opts.map(function (x) { return '<option>' + esc(x) + '</option>'; }).join('') + '</datalist></div>';
+    /* 都改成原生下拉：安卓 WebView 里 datalist 不弹候选，选不了项目 */
+    var kinds = ['brief', '策划', '脚本', '执行表', '结案', '报价', '规范', '合同', '账号', '其他'];
+    var curK = ed ? String(ed.k || '') : '';
+    if (curK && kinds.indexOf(curK) < 0) kinds.unshift(curK);
+    html += '<div class="field"><label>类型</label><select data-f="k">' +
+      kinds.map(function (x) {
+        return '<option value="' + esc(x) + '"' + (x === curK ? ' selected' : '') + '>' + esc(x) + '</option>';
+      }).join('') + '</select></div>';
+
+    var names = projUnion();
+    var curP = ed ? String(ed.p || '') : ((docFilter && docFilter !== '__none') ? docFilter : '');
+    if (curP && names.indexOf(curP) < 0) names.unshift(curP);
+    html += '<div class="field"><label>所属项目</label><select data-f="p">' +
+      '<option value=""' + (curP ? '' : ' selected') + '>通用（不属于某个项目）</option>' +
+      names.map(function (n) {
+        return '<option value="' + esc(n) + '"' + (n === curP ? ' selected' : '') + '>' + esc(n) + '</option>';
+      }).join('') +
+      '<option value="__new">＋ 新建一个项目…</option>' +
+      '</select></div>';
     html += '</div>';
     html += '<div class="field"><input data-f="u" placeholder="链接（腾讯文档 / 飞书 / 网盘）" value="' + esc(ed ? ed.u : '') + '"></div>';
     html += '<div class="btn-row"><button class="btn sm" data-act="save">' + (ed ? '保存修改' : '归档这份文档') + '</button>' +
@@ -6424,6 +6823,21 @@ window.__MZBA=module.exports;})();
       step();
     };
 
+    /* 所属项目：选「＋ 新建一个项目…」就地起一个名字 */
+    var psel = form.querySelector('[data-f="p"]');
+    if (psel) psel.onchange = function () {
+      if (this.value !== '__new') return;
+      var name = (window.prompt('新项目叫什么？（这个名字会作为文档的归属，也会出现在项目进度的下拉里）', '') || '').trim();
+      var back = this.querySelector('option[value="__new"]');
+      if (!name) { this.value = ''; return; }
+      var opt = document.createElement('option');
+      opt.value = name;
+      opt.textContent = name;
+      this.insertBefore(opt, back);
+      this.value = name;
+      flash('已用「' + name + '」，保存后归到这一组');
+    };
+
     var pick = form.querySelector('[data-act="pick"]');
     var fileEl = form.querySelector('#docFile');
     if (pick && fileEl) {
@@ -6434,7 +6848,8 @@ window.__MZBA=module.exports;})();
       if (!files || !files.length) return;
       if (!window.__DOC) { flash('这个浏览器不支持本地解析'); return; }
       var arr = Array.prototype.slice.call(files);
-      var projName = (docFilter && docFilter !== '__none') ? docFilter : '';
+      var pv = (form.querySelector('[data-f="p"]') || {}).value || '';
+      var projName = (pv && pv !== '__new') ? pv : ((docFilter && docFilter !== '__none') ? docFilter : '');
       var used = 0;
       byType('doc').forEach(function (d) { used += bodyLenOf(d); });
       if (used > 300000) { flash('本地文档正文已经存了 ' + Math.round(used / 1000) + 'k 字，快满了；先删几份旧的再传'); return; }
@@ -6476,6 +6891,7 @@ window.__MZBA=module.exports;})();
       var inputs = form.querySelectorAll('[data-f]');
       for (var i = 0; i < inputs.length; i++) item[inputs[i].getAttribute('data-f')] = inputs[i].value.trim();
       if (!item.t) { flash('先把文档名写上'); return; }
+      if (item.p === '__new') { flash('所属项目还没选，先选一个'); return; }
       if (editing.type === 'doc' && editing.id) {
         item.id = editing.id;
         /* 改名字 / 改归属时，别把本机正文和原始文件名丢了 */
@@ -6633,6 +7049,30 @@ window.__MZBA=module.exports;})();
   var DIS_ORDER = ['ch', 'acc', 'ad', 'mid'];
   var LASTKEY = 'wb_dis_last_v1';
 
+  /* ---------- 项目的下单基础信息（新建、编辑、下单带出共用一张表） ----------
+     k 是表单里的 id 后缀，p 是存进项目记录里的属性名。 */
+  var PZ_FIELDS = [
+    { k: 'pzBiz', p: '商务', l: '商务', ph: '谢子瑶' },
+    { k: 'pzPm', p: 'PM', l: '客户组 / PM', ph: '游戏组-清明' },
+    { k: 'pzLevel', p: '客户等级', l: '客户等级', ph: 's3' },
+    { k: 'pzPlat', p: '平台', l: '平台', ph: '抖音' },
+    { k: 'pzAmt', p: '平台金额', l: '平台金额', ph: '抖音10w' },
+    { k: 'pzRate', p: '策划费占比', l: '策划费占比', ph: '8%' },
+    { k: 'pzPub', p: '发布时间', l: '发布时间 / 执行日期', ph: '11.4' },
+    { k: 'pzDirN', p: '方向数', l: '要几个方向', ph: '3-5' },
+    { k: 'pzXingtu', p: '含星图', l: '含星图？', opts: ['是', '否'] },
+    { k: 'pzNum', p: '账号数量', l: '账号数量', ph: '20 / 越多越好' },
+    { k: 'pzLink', p: '内容链接', l: '项目内容链接', ph: '腾讯文档 / 飞书链接', full: 1 }
+  ];
+  var K_OF = {};        /* 属性名 → 表单 id 后缀 */
+  PZ_FIELDS.forEach(function (f) { K_OF[f.p] = f.k; });
+  /* 下单指令里的字段 ← 项目里存的属性名 */
+  var PMAP = {
+    name: '项目名', biz: '商务', pm: 'PM', level: '客户等级', plat: '平台',
+    amt: '平台金额', rate: '策划费占比', pub: '发布时间', dirN: '方向数',
+    xingtu: '含星图', num: '账号数量', link: '内容链接'
+  };
+
   function lastVals() {
     try { return JSON.parse(localStorage.getItem(LASTKEY) || '{}'); } catch (e) { return {}; }
   }
@@ -6644,69 +7084,85 @@ window.__MZBA=module.exports;})();
   function vv(x) { return String(x === null || x === undefined ? '' : x).trim(); }
   function or(x) { var s = vv(x); return s || '/'; }
 
-  function buildCh(o) {
+  function buildCh(o, vis) {
+    function ok(k) { return !vis || vis[k] !== 0; }
     var L = ['给到策划：'];
-    L.push('【项目名称】' + or(o.name));
-    L.push('【执行日期】' + or(o.date));
-    L.push('【商务大名】' + or(o.biz));
-    L.push('【客户组-花名】' + or(o.pm));
-    L.push('【是否确认执行】' + or(o.confirm));
-    L.push('【客户等级】' + or(o.level));
-    L.push('【平台金额】' + or(o.amt));
-    L.push('【策划费占比】' + or(o.rate));
-    L.push('【提交时间】' + or(o.due));
-    L.push('【项目内容】');
-    L.push(or(o.link) + (/^(否|不|no|n)$/i.test(vv(o.secret)) ? '' : '（需保密）'));
-    if (/^(是|y|yes|有)$/i.test(vv(o.xingtu))) L.push('【资源说明】水下加星图');
-    L.push('【需求】');
-    L.push('给简单的方向（' + (vv(o.dirN) || '3-5') + '个）+ 话题词建议');
-    L.push('先给几个话题词 + 几句话方向，后续详细内容来了再细化');
-    var extra = vv(o.extra).split(/\n+/).filter(function (s) { return s.trim(); });
-    for (var i = 0; i < extra.length; i++) L.push('注意：' + extra[i].trim());
-    var n = parseFloat(vv(o.dirN)) || 3;
-    n = Math.min(Math.max(Math.round(n), 1), 8);
-    L.push('参考⬇️');
-    for (var d = 1; d <= n; d++) {
-      L.push('');
-      L.push('方向' + d);
-      L.push('话题词：');
-      L.push('方向阐述：');
-      L.push('资源组成：' + (vv(o.res) || '娱乐号/游戏号'));
+    if (ok('name')) L.push('【项目名称】' + or(o.name));
+    if (ok('date')) L.push('【执行日期】' + or(o.date));
+    if (ok('biz')) L.push('【商务大名】' + or(o.biz));
+    if (ok('pm')) L.push('【客户组-花名】' + or(o.pm));
+    if (ok('confirm')) L.push('【是否确认执行】' + or(o.confirm));
+    if (ok('level')) L.push('【客户等级】' + or(o.level));
+    if (ok('amt')) L.push('【平台金额】' + or(o.amt));
+    if (ok('rate')) L.push('【策划费占比】' + or(o.rate));
+    if (ok('due')) L.push('【提交时间】' + or(o.due));
+    if (ok('link') || ok('secret')) {
+      L.push('【项目内容】');
+      var mark = (ok('secret') && !/^(否|不|no|n)$/i.test(vv(o.secret))) ? '（需保密）' : '';
+      L.push((ok('link') ? or(o.link) : '') + mark);
+    }
+    if (ok('xingtu') && /^(是|y|yes|有)$/i.test(vv(o.xingtu))) L.push('【资源说明】水下加星图');
+    if (ok('dirN') || ok('extra') || ok('res')) {
+      L.push('【需求】');
+      if (ok('dirN')) {
+        L.push('给简单的方向（' + (vv(o.dirN) || '3-5') + '个）+ 话题词建议');
+        L.push('先给几个话题词 + 几句话方向，后续详细内容来了再细化');
+      }
+      if (ok('extra')) {
+        var extra = vv(o.extra).split(/\n+/).filter(function (x) { return x.trim(); });
+        for (var e = 0; e < extra.length; e++) L.push('注意：' + extra[e].trim());
+      }
+      var n = parseFloat(vv(o.dirN)) || 3;
+      n = Math.min(Math.max(Math.round(n), 1), 8);
+      L.push('参考⬇️');
+      for (var d = 1; d <= n; d++) {
+        L.push('');
+        L.push('方向' + d);
+        L.push('话题词：');
+        L.push('方向阐述：');
+        if (ok('res')) L.push('资源组成：' + (vv(o.res) || '娱乐号/游戏号'));
+      }
     }
     return L.join('\n');
   }
 
-  function buildAcc(o) {
+  function buildAcc(o, vis) {
+    function ok(k) { return !vis || vis[k] !== 0; }
     var L = ['给到账号：'];
-    L.push('【项目/品牌名】' + or(o.name));
-    L.push('【商务】' + or(o.biz));
-    L.push('【投放平台】' + or(o.plat));
-    L.push('【投放形式】' + or(o.form));
-    L.push('【投放账号】');
-    var accs = vv(o.accs).split(/\n+/).filter(function (s) { return s.trim(); });
-    if (!accs.length) L.push('/');
-    for (var i = 0; i < accs.length; i++) L.push(accs[i].trim());
-    L.push('【发布时间】' + or(o.pub));
-    L.push('【话题词】' + or(o.topic));
-    L.push('【视频时长】' + or(o.dur));
-    L.push('【素材链接】' + or(o.mat));
-    L.push('【素材是否有版权/获得授权】' + or(o.auth));
-    L.push('【注意事项】');
-    var notes = vv(o.notes).split(/\n+/).filter(function (s) { return s.trim(); });
-    if (!notes.length) L.push('/');
-    for (var j = 0; j < notes.length; j++) {
-      var t = notes[j].trim();
-      if (!/^[‼️⚠️❗️❕!]/.test(t)) t = '⚠️' + t;
-      L.push(t);
+    if (ok('name')) L.push('【项目/品牌名】' + or(o.name));
+    if (ok('biz')) L.push('【商务】' + or(o.biz));
+    if (ok('plat')) L.push('【投放平台】' + or(o.plat));
+    if (ok('form')) L.push('【投放形式】' + or(o.form));
+    if (ok('accs')) {
+      L.push('【投放账号】');
+      var accs = vv(o.accs).split(/\n+/).filter(function (x) { return x.trim(); });
+      if (!accs.length) L.push('/');
+      for (var i = 0; i < accs.length; i++) L.push(accs[i].trim());
     }
-    L.push('【指令】' + or(o.cmd));
+    if (ok('pub')) L.push('【发布时间】' + or(o.pub));
+    if (ok('topic')) L.push('【话题词】' + or(o.topic));
+    if (ok('dur')) L.push('【视频时长】' + or(o.dur));
+    if (ok('mat')) L.push('【素材链接】' + or(o.mat));
+    if (ok('auth')) L.push('【素材是否有版权/获得授权】' + or(o.auth));
+    if (ok('notes')) {
+      L.push('【注意事项】');
+      var notes = vv(o.notes).split(/\n+/).filter(function (x) { return x.trim(); });
+      if (!notes.length) L.push('/');
+      for (var j = 0; j < notes.length; j++) {
+        var t = notes[j].trim();
+        if (!/^[‼️⚠️❗️❕!]/.test(t)) t = '⚠️' + t;
+        L.push(t);
+      }
+    }
+    if (ok('cmd')) L.push('【指令】' + or(o.cmd));
     return L.join('\n');
   }
 
-  function buildKV(cfg, o, head) {
+  function buildKV(cfg, o, head, vis) {
     var L = [head];
     for (var i = 0; i < cfg.fields.length; i++) {
       var f = cfg.fields[i];
+      if (vis && vis[f.k] === 0) continue;
       var val = vv(o[f.k]);
       if (f.k === 'note' || f.k === 'notes') {
         var lines = val.split(/\n+/).filter(function (s) { return s.trim(); });
@@ -6725,11 +7181,46 @@ window.__MZBA=module.exports;})();
     return L.join('\n');
   }
 
-  function buildDispatch(key, vals) {
-    if (key === 'ch') return buildCh(vals);
-    if (key === 'acc') return buildAcc(vals);
-    if (key === 'ad') return buildKV(CFG.ad, vals, '给到投流：');
-    return buildKV(CFG.mid, vals, '给到媒介：');
+  function buildDispatch(key, vals, vis) {
+    vis = vis || curVis(key);
+    if (key === 'ch') return buildCh(vals, vis);
+    if (key === 'acc') return buildAcc(vals, vis);
+    if (key === 'ad') return buildKV(CFG.ad, vals, '给到投流：', vis);
+    return buildKV(CFG.mid, vals, '给到媒介：', vis);
+  }
+
+  /* ---------- 外显设置：只把勾上的项写进指令 ---------- */
+  var VISKEY = 'wb_dis_vis_v1';
+  var VIS_CORE = {
+    ch: ['name', 'date', 'biz', 'pm', 'amt', 'rate', 'dirN', 'link', 'extra'],
+    acc: ['name', 'biz', 'plat', 'pub', 'accs', 'notes', 'cmd'],
+    ad: ['owner', 'biz', 'type', 'name', 'cat', 'note'],
+    mid: ['date', 'biz', 'pm', 'name', 'plat', 'form', 'num', 'note']
+  };
+
+  function visAllMap() {
+    try { return JSON.parse(localStorage.getItem(VISKEY) || '{}'); } catch (e) { return {}; }
+  }
+  function curVis(tab) {
+    var t = tab || disTab;
+    var v = visAllMap()[t];
+    if (!v) return null;                    /* 没设置过 = 全显 */
+    var on = 0, fields = CFG[t].fields;
+    for (var i = 0; i < fields.length; i++) if (v[fields[i].k] !== 0) on++;
+    return on ? v : null;                   /* 一个都没勾 = 还是全出，别给出空指令 */
+  }
+  function setVis(tab, obj) {
+    var all = visAllMap();
+    if (!obj) delete all[tab]; else all[tab] = obj;
+    try { localStorage.setItem(VISKEY, JSON.stringify(all)); } catch (e) {}
+  }
+  function visCount(tab) {
+    var v = curVis(tab);
+    var fields = CFG[tab].fields;
+    if (!v) return fields.length;
+    var n = 0;
+    for (var i = 0; i < fields.length; i++) if (v[fields[i].k] !== 0) n++;
+    return n;
   }
 
   var BINDKEY = 'wb_dis_proj_v1';
@@ -6763,6 +7254,19 @@ window.__MZBA=module.exports;})();
     var stage = bp ? bindStage(bp) : '';
     var rec = bp ? (DIS_REC[stage] || []) : [];
 
+    /* 从绑定项目里带出下单基础信息（只做兜底，不覆盖你手填的） */
+    var pmeta = bp ? projMeta(bp) : null;
+    var pfill = {};
+    if (pmeta) {
+      for (var pk in PMAP) {
+        if (!Object.prototype.hasOwnProperty.call(PMAP, pk)) continue;
+        var pv0 = String(pmeta[PMAP[pk]] || '').trim();
+        if (pv0) pfill[pk] = pv0;
+      }
+    }
+    var pfillN = 0;
+    cfg.fields.forEach(function (f) { if (pfill[f.k]) pfillN++; });
+
     var html = '<div class="dis-bind">' +
       '<span class="db-h">这单挂在</span>' +
       '<select id="disProj"><option value="">不绑定项目</option>' +
@@ -6770,7 +7274,9 @@ window.__MZBA=module.exports;})();
         return '<option value="' + esc(p) + '"' + (p === bp ? ' selected' : '') + '>' + esc(p) + '</option>';
       }).join('') + '</select>' +
       (bp ? '<span class="chip p3">' + esc(stage) + '</span>' +
-        (st && st.current ? '<span class="db-now">' + esc(st.current.step) + '</span>' : '') : '') +
+        (st && st.current ? '<span class="db-now">' + esc(st.current.step) + '</span>' : '') +
+        (pfillN ? '<span class="db-fill">已带出 ' + pfillN + ' 项项目信息</span>' : '') +
+        '<button class="db-edit" data-pzedit="' + esc(bp) + '">改项目信息</button>' : '') +
       '</div>';
 
     html += '<div class="subtabs dis-tabs">' + DIS_ORDER.map(function (k) {
@@ -6780,11 +7286,30 @@ window.__MZBA=module.exports;})();
     html += '<p class="note" style="margin:2px 0 12px">' + esc(cfg.hint) +
       (bp ? '。这个项目现在在「' + esc(stage) + '」，' + (rec.length ? '带 ★ 的' + rec.map(function (k) { return CFG[k].name; }).join(' / ') + '通常先发。' : '这一阶段主要是收尾，先看结案。') : '。填过的字段会记住，下次只改项目名和日期。') + '</p>';
 
+    /* 外显设置：勾上的才写进指令 */
+    var vmap = curVis(disTab) || {};
+    var vn = visCount(disTab);
+    html += '<details class="dis-vis"' + (curVis(disTab) ? ' open' : '') + '>' +
+      '<summary>外显设置 · 这份指令出 ' + vn + ' / ' + cfg.fields.length + ' 项</summary>' +
+      '<div class="vis-tools">' +
+      '<button class="btn ghost sm" data-vis="all">全选</button>' +
+      '<button class="btn ghost sm" data-vis="core">只留常用</button>' +
+      '<button class="btn ghost sm" data-vis="none">全不选</button>' +
+      '<span class="note" style="margin:0">只输出勾上的项；一项都不勾时按全部输出。</span>' +
+      '</div>' +
+      '<div class="vis-list">' + cfg.fields.map(function (f) {
+        var on = vmap[f.k] !== 0;
+        return '<label class="vis-item' + (on ? ' on' : '') + '">' +
+          '<input type="checkbox" data-visk="' + f.k + '"' + (on ? ' checked' : '') + '>' +
+          esc(f.l) + '</label>';
+      }).join('') + '</div>' +
+      '</details>';
+
     html += '<div class="mod-form dis-form">';
     var buf = '';
     for (var i = 0; i < cfg.fields.length; i++) {
       var f = cfg.fields[i];
-      var val = last[disTab + '.' + f.k] || '';
+      var val = last[disTab + '.' + f.k] || pfill[f.k] || '';
       if (f.w === 'area') {
         if (buf) { html += '<div class="form-row">' + buf + '</div>'; buf = ''; }
         html += '<div class="field"><label>' + esc(f.l) + '</label><textarea data-f="' + f.k + '" rows="' + (f.k === 'accs' || f.k === 'notes' ? 5 : 3) + '" placeholder="' + esc(f.ph) + '">' + esc(val) + '</textarea></div>';
@@ -6874,6 +7399,41 @@ window.__MZBA=module.exports;})();
     var form = host.querySelector('.dis-form');
     var outWrap = $('disOutWrap');
     var out = $('disOut');
+
+    /* 改外显要重渲染，先把已经敲进去的值存下来，别丢 */
+    function snapshot() {
+      if (!form) return;
+      var vals = readForm(form), save = {};
+      for (var k in vals) if (Object.prototype.hasOwnProperty.call(vals, k)) save[disTab + '.' + k] = vals[k];
+      saveLast(save);
+    }
+
+    var visBox = host.querySelector('.dis-vis');
+    if (visBox) {
+      visBox.querySelectorAll('[data-visk]').forEach(function (cb) {
+        cb.onchange = function () {
+          var m = curVis(disTab) || {};
+          m[cb.getAttribute('data-visk')] = cb.checked ? 1 : 0;
+          setVis(disTab, m);
+          snapshot();
+          renderDispatch();
+        };
+      });
+      visBox.querySelectorAll('[data-vis]').forEach(function (b) {
+        b.onclick = function () {
+          var mode = b.getAttribute('data-vis');
+          var m = {};
+          CFG[disTab].fields.forEach(function (f) {
+            if (mode === 'all') m[f.k] = 1;
+            else if (mode === 'none') m[f.k] = 0;
+            else m[f.k] = (VIS_CORE[disTab] || []).indexOf(f.k) > -1 ? 1 : 0;
+          });
+          setVis(disTab, m);
+          snapshot();
+          renderDispatch();
+        };
+      });
+    }
 
     form.querySelector('[data-act="gen"]').onclick = function () {
       var vals = readForm(form);
@@ -7672,6 +8232,217 @@ window.__MZBA=module.exports;})();
     return null;
   }
 
+  /* ================= 编辑项目：下单信息 / 阶段 / 状态 ================= */
+  /* 在跑的项目改了下单信息，下单模板选它时立刻生效，不用删了重建。 */
+  var pzCur = null;
+
+  /* 阶段 / 状态的下拉选项：优先用页面 schema，没有就用内置那套 */
+  function pzOpts(field, cur) {
+    var src = (window.__opts && window.__opts(field)) || [];
+    var out = [];
+    var i;
+    if (src.length) {
+      for (i = 0; i < src.length; i++) out.push({ id: src[i].id, text: src[i].text });
+    } else {
+      var base = field === '状态' ? ['进行中', '已完结', '暂停'] : ['项目前期', '项目执行中', '项目后期'];
+      for (i = 0; i < base.length; i++) out.push({ id: base[i], text: base[i] });
+    }
+    cur = String(cur || '').trim();
+    if (cur) {
+      var hit = false;
+      for (i = 0; i < out.length; i++) if (out[i].id === cur || out[i].text === cur) hit = true;
+      if (!hit) out.unshift({ id: cur, text: cur });   /* 线上表自定义过阶段名，别让它凭空消失 */
+    }
+    return out;
+  }
+
+  /* 项目卡上那行下单摘要 */
+  function pzInfo(name) {
+    var m = projMeta(name);
+    if (!m) return [];
+    var out = [];
+    function add(x) { x = String(x || '').trim(); if (x) out.push(x); }
+    add(m['平台']);
+    add(m['平台金额']);
+    add(m['策划费占比'] ? '策划费 ' + m['策划费占比'] : '');
+    add(m['发布时间'] ? '发布 ' + m['发布时间'] : '');
+    add(m['方向数'] ? m['方向数'] + ' 个方向' : '');
+    add(m['账号数量'] ? m['账号数量'] + ' 个账号' : '');
+    if (/^(是|y|yes|有)$/i.test(String(m['含星图'] || ''))) add('含星图');
+    if (String(m['内容链接'] || '').trim()) add('有内容链接');
+    return out;
+  }
+
+  function closePz(mask) {
+    if (mask && mask.parentNode) mask.parentNode.removeChild(mask);
+    pzCur = null;
+  }
+
+  function openProjEdit(name) {
+    var m = projMeta(name);
+    if (!m || !m.id) {
+      flash('这个项目只有流程记录，先去「添加项目」建一张项目卡');
+      return;
+    }
+    var oldMask = document.querySelector('.pze-mask');
+    if (oldMask && oldMask.parentNode) oldMask.parentNode.removeChild(oldMask);
+    pzCur = { id: m.id, name: name };
+
+    function val(k) { return String(m[k] === null || m[k] === undefined ? '' : m[k]); }
+    function sel(field, key) {
+      var cur = val(field), opts = pzOpts(field, cur);
+      var h = '<select data-pz="' + key + '"><option value="">未设</option>';
+      for (var i = 0; i < opts.length; i++) {
+        h += '<option value="' + esc(opts[i].id) + '"' +
+          ((opts[i].id === cur || opts[i].text === cur) ? ' selected' : '') + '>' + esc(opts[i].text) + '</option>';
+      }
+      return h + '</select>';
+    }
+    function inp(f) {
+      var v = val(f.p);
+      if (f.opts) {
+        var h = '<select data-pz="' + f.k + '"><option value="">未定</option>';
+        for (var i = 0; i < f.opts.length; i++) {
+          h += '<option value="' + esc(f.opts[i]) + '"' + (f.opts[i] === v ? ' selected' : '') + '>' + esc(f.opts[i]) + '</option>';
+        }
+        return h + '</select>';
+      }
+      return '<input data-pz="' + f.k + '" placeholder="' + esc(f.ph || '') + '" value="' + esc(v) + '">';
+    }
+
+    var rows = '', buf = '';
+    for (var i = 0; i < PZ_FIELDS.length; i++) {
+      var f = PZ_FIELDS[i];
+      if (f.full) {
+        if (buf) { rows += '<div class="form-row">' + buf + '</div>'; buf = ''; }
+        rows += '<div class="field"><label>' + esc(f.l) + '</label>' + inp(f) + '</div>';
+      } else {
+        buf += '<div class="field"><label>' + esc(f.l) + '</label>' + inp(f) + '</div>';
+        if (buf.split('<div class="field">').length > 2) {
+          rows += '<div class="form-row">' + buf + '</div>';
+          buf = '';
+        }
+      }
+    }
+    if (buf) rows += '<div class="form-row">' + buf + '</div>';
+
+    var mask = document.createElement('div');
+    mask.className = 'pze-mask';
+    mask.innerHTML =
+      '<div class="pze-panel">' +
+      '<h3>项目信息 · ' + esc(name) + '</h3>' +
+      '<div class="pze-body">' +
+      '<p class="note pze-hint">改完保存，下单模板选这个项目就会带出新的值；阶段和状态也在这里改。</p>' +
+      '<div class="pze-sec">项目</div>' +
+      '<div class="form-row">' +
+      '<div class="field"><label>项目名</label><input data-pz="pzName" value="' + esc(val('项目名')) + '"></div>' +
+      '<div class="field"><label>客户</label><input data-pz="pzClient" placeholder="例如：腾讯游戏" value="' + esc(val('客户')) + '"></div>' +
+      '</div>' +
+      '<div class="form-row">' +
+      '<div class="field"><label>当前阶段</label>' + sel('当前阶段', 'pzStage') + '</div>' +
+      '<div class="field"><label>状态</label>' + sel('状态', 'pzStatus') + '</div>' +
+      '</div>' +
+      '<div class="form-row">' +
+      '<div class="field"><label>下一步</label><input data-pz="pzNext" value="' + esc(val('下一步')) + '"></div>' +
+      '<div class="field"><label>卡在哪儿</label><input data-pz="pzBlock" value="' + esc(val('卡点')) + '"></div>' +
+      '</div>' +
+      '<div class="pze-sec">下单基础信息</div>' +
+      rows +
+      '</div>' +
+      '<div class="pze-btns">' +
+      '<button class="btn sm" data-pze="save">保存</button>' +
+      '<button class="btn ghost sm" data-pze="tpl" title="保存后带着这些信息去下单模板">存并下单</button>' +
+      '<button class="btn ghost sm" data-pze="close">取消</button>' +
+      '</div>' +
+      '</div>';
+    document.body.appendChild(mask);
+
+    mask.addEventListener('click', function (e) {
+      if (e.target === mask) closePz(mask);
+    });
+    mask.querySelector('[data-pze="close"]').onclick = function () { closePz(mask); };
+    mask.querySelector('[data-pze="save"]').onclick = function () { pzSave(mask, false); };
+    mask.querySelector('[data-pze="tpl"]').onclick = function () { pzSave(mask, true); };
+    var first = mask.querySelector('[data-pz="pzName"]');
+    if (first) setTimeout(function () { first.focus(); }, 60);
+  }
+
+  function pzSave(mask, thenTpl) {
+    if (!pzCur) return;
+    var v = {};
+    var els = mask.querySelectorAll('[data-pz]');
+    for (var i = 0; i < els.length; i++) v[els[i].getAttribute('data-pz')] = String(els[i].value || '').trim();
+    if (!v.pzName) { flash('项目名不能空'); return; }
+
+    var props = {
+      '项目名': { text: v.pzName },
+      '客户': { text: v.pzClient || '' },
+      '当前阶段': { select: v.pzStage || '' },
+      '状态': { select: v.pzStatus || '' },
+      '下一步': { text: v.pzNext || '' },
+      '卡点': { text: v.pzBlock || '' }
+    };
+    for (var j = 0; j < PZ_FIELDS.length; j++) {
+      props[PZ_FIELDS[j].p] = { text: v[PZ_FIELDS[j].k] || '' };
+    }
+
+    var save = window.__projSave;
+    if (!save) { flash('页面版本旧了，刷新一次再试'); return; }
+    var btns = mask.querySelectorAll('[data-pze]');
+    for (var b = 0; b < btns.length; b++) {
+      if (btns[b].getAttribute('data-pze') !== 'close') btns[b].disabled = true;
+    }
+    var oldName = pzCur.name, id = pzCur.id;
+
+    save(id, props).then(function () {
+      /* 改名了：流程记录、绑定项目跟着搬，否则两边对不上 */
+      if (v.pzName !== oldName) {
+        var recs = byType('sop');
+        for (var r = 0; r < recs.length; r++) {
+          if ((recs[r].proj || '') === oldName) { recs[r].proj = v.pzName; upsert(recs[r]); }
+        }
+        try {
+          if (boundProj() === oldName) localStorage.setItem(BINDKEY, v.pzName);
+          if ((localStorage.getItem(SOPKEY) || '') === oldName) localStorage.setItem(SOPKEY, v.pzName);
+        } catch (e0) {}
+      }
+      closePz(mask);
+      flash('「' + v.pzName + '」已更新');
+
+      if (thenTpl) {
+        var all = lastVals();
+        DIS_ORDER.forEach(function (k) { all[k + '.name'] = v.pzName; });
+        DIS_ORDER.forEach(function (k) {
+          for (var fk in PMAP) {
+            if (!Object.prototype.hasOwnProperty.call(PMAP, fk) || fk === 'name') continue;
+            var sv = v[K_OF[PMAP[fk]]];
+            if (sv) all[k + '.' + fk] = sv;
+          }
+        });
+        try {
+          localStorage.setItem(LASTKEY, JSON.stringify(all));
+          localStorage.setItem(BINDKEY, v.pzName);
+        } catch (e2) {}
+        go('tpl');
+        setTimeout(function () { renderDispatch(); }, 30);
+      }
+      var act = document.querySelector('.view.on');
+      if (act && act.id === 'view-overview') renderOverview();
+    }).catch(function (err) {
+      for (var b2 = 0; b2 < btns.length; b2++) btns[b2].disabled = false;
+      flash('保存失败：' + ((err && err.message) || '重试一次'));
+    });
+  }
+
+  /* 项目卡右上角的铅笔 / 下单条上的「改项目信息」都走这里 */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-pzedit]') : null;
+    if (!b) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openProjEdit(b.getAttribute('data-pzedit'));
+  }, true);
+
   /* ---------- 项目卡上的动作 ---------- */
   function actsInner() {
     return '<button class="primary" data-pact="adv">推进一步</button>' +
@@ -7825,6 +8596,34 @@ window.__MZBA=module.exports;})();
       acts.innerHTML = actsInner();
       c.appendChild(sop);
       c.appendChild(acts);
+
+      /* 右上角一支笔：在跑的项目随时改下单信息，不用删了重建 */
+      var right = c.querySelector('.proj-h .right');
+      if (right && !right.querySelector('[data-pzedit]')) {
+        var eb = document.createElement('button');
+        eb.className = 'icon-btn edit';
+        eb.setAttribute('data-pzedit', name);
+        eb.setAttribute('title', '编辑项目 / 下单信息');
+        eb.innerHTML = '<svg viewBox="0 0 16 16" width="13" height="13" fill="none">' +
+          '<path d="M11.1 2.4l2.5 2.5-7.3 7.3-3.1.6.6-3.1 7.3-7.3z" stroke="currentColor" ' +
+          'stroke-width="1.3" stroke-linejoin="round"/></svg>';
+        right.insertBefore(eb, right.firstChild);
+      }
+
+      /* 有下单信息就在卡片上露一行，一眼看出这单配齐了没 */
+      if (!c.querySelector('.pz-sum')) {
+        var info = pzInfo(name);
+        var sum = document.createElement('div');
+        sum.className = 'pz-sum' + (info.length ? '' : ' off');
+        sum.innerHTML = info.length
+          ? '<span class="k">下单</span>' + info.map(function (x) {
+            return '<em>' + esc(x) + '</em>';
+          }).join('<i>·</i>')
+          : '<span class="k">下单</span><span class="no">还没填下单信息，点右上角铅笔补上</span>';
+        var grid = c.querySelector('.pgrid');
+        if (grid && grid.nextSibling) c.insertBefore(sum, grid.nextSibling);
+        else c.appendChild(sum);
+      }
     }
 
     /* 只在流程清单里存在的项目（没建项目卡）也补一张，避免两边对不上 */
@@ -8724,6 +9523,229 @@ window.__MZBA=module.exports;})();
 })();
 
 /* =====================================================================
+   紫微斗数排盘引擎（纯计算，离线，不联网）
+   - 规则按通行紫微斗数安星法实现
+   - 已与 iztro（MIT）逐盘对照 3,336 张盘：命宫/身宫/五行局/十四主星/
+     左辅右弼文昌文曲天魁天钺禄存擎羊陀罗火星铃星地空地劫天马/十二宫名/
+     宫干/四化/大限 全部一致（含闰月、晚子时、春节换年边界）
+   - 亮度表取自 iztro 的星曜数据（MIT），仅作数据引用
+   ===================================================================== */
+(function (root) {
+  'use strict';
+
+  var GAN = '甲乙丙丁戊己庚辛壬癸';
+  var ZHI = '子丑寅卯辰巳午未申酉戌亥';
+  var YIN = 2;                    /* 寅 在「子=0」体系里的下标 */
+
+  function fix(x, n) { n = n || 12; return ((x % n) + n) % n; }
+
+  var TIGER = { 甲: '丙', 己: '丙', 乙: '戊', 庚: '戊', 丙: '庚', 辛: '庚', 丁: '壬', 壬: '壬', 戊: '甲', 癸: '甲' };
+  var FIVE = [3, 4, 2, 6, 5];     /* 木三 金四 水二 火六 土五 */
+  var JU_NAME = { 2: '水二局', 3: '木三局', 4: '金四局', 5: '土五局', 6: '火六局' };
+  var LU = { 甲: '寅', 乙: '卯', 丙: '巳', 丁: '午', 戊: '巳', 己: '午', 庚: '申', 辛: '酉', 壬: '亥', 癸: '子' };
+  var KUI = {
+    甲: ['丑', '未'], 戊: ['丑', '未'], 庚: ['丑', '未'],
+    乙: ['子', '申'], 己: ['子', '申'], 辛: ['午', '寅'],
+    丙: ['亥', '酉'], 丁: ['亥', '酉'], 壬: ['卯', '巳'], 癸: ['卯', '巳']
+  };
+  var SIHUA = {
+    甲: ['廉贞', '破军', '武曲', '太阳'],
+    乙: ['天机', '天梁', '紫微', '太阴'],
+    丙: ['天同', '天机', '文昌', '廉贞'],
+    丁: ['太阴', '天同', '天机', '巨门'],
+    戊: ['贪狼', '太阴', '右弼', '天机'],
+    己: ['武曲', '贪狼', '天梁', '文曲'],
+    庚: ['太阳', '武曲', '太阴', '天同'],
+    辛: ['巨门', '太阳', '文曲', '文昌'],
+    壬: ['天梁', '紫微', '左辅', '武曲'],
+    癸: ['破军', '巨门', '太阴', '贪狼']
+  };
+  var HUA = ['禄', '权', '科', '忌'];
+
+  /* 亮度：从寅宫起，十二宫依次（数据取自 iztro） */
+  var BRIGHT = {
+    紫微: ['旺', '旺', '得', '旺', '庙', '庙', '旺', '旺', '得', '旺', '平', '庙'],
+    天机: ['得', '旺', '利', '平', '庙', '陷', '得', '旺', '利', '平', '庙', '陷'],
+    太阳: ['旺', '庙', '旺', '旺', '旺', '得', '得', '平', '不', '陷', '陷', '不'],
+    武曲: ['得', '利', '庙', '平', '旺', '庙', '得', '利', '庙', '平', '旺', '庙'],
+    天同: ['利', '平', '平', '庙', '陷', '不', '旺', '平', '平', '庙', '旺', '不'],
+    廉贞: ['庙', '平', '利', '陷', '平', '利', '庙', '平', '利', '陷', '平', '利'],
+    天府: ['庙', '得', '庙', '得', '旺', '庙', '得', '旺', '庙', '得', '庙', '庙'],
+    太阴: ['旺', '陷', '陷', '陷', '不', '不', '利', '旺', '旺', '庙', '庙', '庙'],
+    贪狼: ['平', '利', '庙', '陷', '旺', '庙', '平', '利', '庙', '陷', '旺', '庙'],
+    巨门: ['庙', '庙', '陷', '旺', '旺', '不', '庙', '庙', '陷', '旺', '旺', '不'],
+    天相: ['庙', '陷', '得', '得', '庙', '得', '庙', '陷', '得', '得', '庙', '庙'],
+    天梁: ['庙', '庙', '庙', '陷', '庙', '旺', '陷', '得', '庙', '陷', '庙', '旺'],
+    七杀: ['庙', '旺', '庙', '平', '旺', '庙', '庙', '旺', '庙', '平', '旺', '庙'],
+    破军: ['得', '陷', '旺', '平', '庙', '旺', '得', '陷', '旺', '平', '庙', '旺']
+  };
+  var MAJOR = ['紫微', '天机', '太阳', '武曲', '天同', '廉贞', '天府', '太阴', '贪狼', '巨门', '天相', '天梁', '七杀', '破军'];
+
+  function triGroup(zhi) {
+    var i = ZHI.indexOf(zhi);
+    if ([2, 6, 10].indexOf(i) > -1) return 0;      /* 寅午戌 */
+    if ([8, 0, 4].indexOf(i) > -1) return 1;       /* 申子辰 */
+    if ([5, 9, 1].indexOf(i) > -1) return 2;       /* 巳酉丑 */
+    return 3;                                      /* 亥卯未 */
+  }
+  var MA = ['申', '寅', '亥', '巳'];
+  var HUO = ['丑', '寅', '卯', '酉'];
+  var LING = ['卯', '戌', '戌', '戌'];
+  var PNAME = ['命宫', '兄弟', '夫妻', '子女', '财帛', '疾厄', '迁移', '仆役', '官禄', '田宅', '福德', '父母'];
+
+  /* 主入口：农历生日 + 时辰序号（子=0）+ 性别 */
+  function chart(o) {
+    var lunarYear = o.lunarYear, lunarMonth = o.lunarMonth, lunarDay = o.lunarDay;
+    var isLeap = !!o.isLeap, fixLeap = o.fixLeap !== false;
+    var tI = o.timeIndex;
+    var yearGan = GAN[fix(lunarYear - 4, 10)];
+    var yearZhi = ZHI[fix(lunarYear - 4, 12)];
+
+    /* 农历月（寅=0），闰月十五之后算下一个月 */
+    var monthI = fix((lunarMonth - 1) + (isLeap && fixLeap && lunarDay > 15 ? 1 : 0));
+    var soulI = fix(monthI - tI);
+    var bodyI = fix(monthI + tI);
+
+    var stemOfYin = GAN.indexOf(TIGER[yearGan]);
+    function stemAt(i) { return GAN[(stemOfYin + i) % 10]; }
+    var soulStem = stemAt(soulI), soulBranch = ZHI[fix(soulI + YIN)];
+
+    /* 五行局：命宫纳音 */
+    var gN = Math.floor(GAN.indexOf(soulStem) / 2) + 1;
+    var bN = Math.floor(fix(ZHI.indexOf(soulBranch), 6) / 2) + 1;
+    var fi = gN + bN;
+    while (fi > 5) fi -= 5;
+    var juNum = FIVE[fi - 1];
+
+    /* 紫微：局数除日数，余数不为零就加日子继续除 */
+    var remainder = -1, quotient = 0, offset = -1;
+    do {
+      offset++;
+      var divisor = lunarDay + offset;
+      quotient = Math.floor(divisor / juNum);
+      remainder = divisor % juNum;
+    } while (remainder !== 0);
+    quotient %= 12;
+    var zw = quotient - 1;
+    zw = fix(offset % 2 === 0 ? zw + offset : zw - offset);
+    var tf = fix(12 - zw);
+
+    var pos = {};
+    pos['紫微'] = zw;
+    pos['天机'] = fix(zw - 1);
+    pos['太阳'] = fix(zw - 3);
+    pos['武曲'] = fix(zw - 4);
+    pos['天同'] = fix(zw - 5);
+    pos['廉贞'] = fix(zw - 8);
+    pos['天府'] = tf;
+    pos['太阴'] = fix(tf + 1);
+    pos['贪狼'] = fix(tf + 2);
+    pos['巨门'] = fix(tf + 3);
+    pos['天相'] = fix(tf + 4);
+    pos['天梁'] = fix(tf + 5);
+    pos['七杀'] = fix(tf + 6);
+    pos['破军'] = fix(tf + 10);
+
+    var mS = monthI + 1;
+    pos['左辅'] = fix(2 + (mS - 1));        /* 辰（寅=0 → 2）起正月顺行 */
+    pos['右弼'] = fix(8 - (mS - 1));        /* 戌起正月逆行 */
+    pos['文昌'] = fix(8 - tI);              /* 戌起子时逆行 */
+    pos['文曲'] = fix(2 + tI);              /* 辰起子时顺行 */
+    pos['天魁'] = fix(ZHI.indexOf(KUI[yearGan][0]) - YIN);
+    pos['天钺'] = fix(ZHI.indexOf(KUI[yearGan][1]) - YIN);
+
+    var lu = fix(ZHI.indexOf(LU[yearGan]) - YIN);
+    pos['禄存'] = lu;
+    pos['擎羊'] = fix(lu + 1);
+    pos['陀罗'] = fix(lu - 1);
+
+    var tg = triGroup(yearZhi);
+    pos['火星'] = fix(ZHI.indexOf(HUO[tg]) - YIN + tI);
+    pos['铃星'] = fix(ZHI.indexOf(LING[tg]) - YIN + tI);
+    pos['地空'] = fix(9 - tI);              /* 亥起子时逆行 */
+    pos['地劫'] = fix(9 + tI);
+    pos['天马'] = fix(ZHI.indexOf(MA[tg]) - YIN);
+
+    var hua = {};
+    SIHUA[yearGan].forEach(function (star, k) { hua[star] = HUA[k]; });
+
+    var yang = GAN.indexOf(yearGan) % 2 === 0;
+    var male = o.gender === 'male';
+    var forward = (yang && male) || (!yang && !male);
+
+    var palaces = [];
+    for (var i = 0; i < 12; i++) {
+      var rel = fix(i - soulI);
+      var step = forward ? fix(i - soulI) : fix(soulI - i);
+      var startAge = juNum + step * 10;
+      var stars = [];
+      for (var s in pos) if (pos[s] === i) stars.push(s);
+      stars.sort(function (a, b) {
+        var ai = MAJOR.indexOf(a), bi = MAJOR.indexOf(b);
+        if (ai > -1 && bi > -1) return ai - bi;
+        if (ai > -1) return -1;
+        if (bi > -1) return 1;
+        return 0;
+      });
+      palaces.push({
+        idx: i,
+        branch: ZHI[fix(i + YIN)],
+        stem: stemAt(i),
+        name: PNAME[fix(-rel)],
+        isBody: i === bodyI,
+        isSoul: i === soulI,
+        stars: stars,
+        decadal: [startAge, startAge + 9]
+      });
+    }
+
+    return {
+      lunarYear: lunarYear, lunarMonth: lunarMonth, lunarDay: lunarDay, isLeap: isLeap,
+      yearGan: yearGan, yearZhi: yearZhi,
+      juName: JU_NAME[juNum], juNum: juNum,
+      soulBranch: soulBranch, bodyBranch: ZHI[fix(bodyI + YIN)],
+      ziwei: ZHI[fix(zw + YIN)], tianfu: ZHI[fix(tf + YIN)],
+      palaces: palaces, pos: pos, hua: hua,
+      dir: forward ? '顺行' : '逆行',
+      timeIndex: tI
+    };
+  }
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  /* 公历 → 盘；用页面里的 LUNAR 转农历，23 点后归次日 */
+  function fromSolar(y, m, d, hour, gender) {
+    var hi = hour == null ? 12 : hour;
+    var tI = hi === 23 ? 0 : Math.floor((hi + 1) / 2) % 12;
+    var yy = y, mm = m, dd = d;
+    if (hi === 23) {
+      var nd = new Date(y, m - 1, d);
+      nd.setDate(nd.getDate() + 1);
+      yy = nd.getFullYear(); mm = nd.getMonth() + 1; dd = nd.getDate();
+    }
+    var L = root.LUNAR;
+    if (!L || !L.solarToLunar) return { error: '农历模块没加载' };
+    var l = L.solarToLunar(yy, mm, dd);
+    var c = chart({
+      lunarYear: l.year, lunarMonth: l.month, lunarDay: l.day, isLeap: l.isLeap,
+      timeIndex: tI, gender: gender
+    });
+    c.solar = y + '-' + pad(m) + '-' + pad(d) + ' ' + pad(hi) + ':00';
+    c.lunarText = (l.isLeap ? '闰' : '') + l.monthName + l.dayName;
+    if (hi === 23) c.lateZi = true;
+    return c;
+  }
+
+  function brightOf(star, branch) {
+    var arr = BRIGHT[star];
+    if (!arr) return '';
+    return arr[fix(ZHI.indexOf(branch) - YIN)] || '';
+  }
+
+  root.__ZWE = { chart: chart, fromSolar: fromSolar, brightOf: brightOf, MAJOR: MAJOR, BRIGHT: BRIGHT };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+/* =====================================================================
    玄学板块 · 玩法来自本机三个技能（玩占 / 术数玄学全书 / 八字命理）
    - 排盘与起卦都在本机算，不联网、不上传
    - 卦辞爻辞、术语、知识卡由 build.py 从技能参考文件里抽出来内嵌
@@ -9089,7 +10111,7 @@ window.__MZBA=module.exports;})();
 
   /* ---------------- 渲染 ---------------- */
   var doc = root.document;
-  var S = { tab: 'bazi', bazi: null, gua: null, libView: 'hex', hexN: 1, q: '', k: '', cardQ: '' };
+  var S = { tab: 'bazi', bazi: null, gua: null, zw: null, libView: 'hex', hexN: 1, q: '', k: '', cardQ: '' };
   var BKEY = 'wb_mz_birth';
 
   function $(id) { return doc.getElementById(id); }
@@ -9132,6 +10154,7 @@ window.__MZBA=module.exports;})();
     if (!host) return;
     host.innerHTML = tabs() +
       (S.tab === 'bazi' ? baziHtml() : '') +
+      (S.tab === 'zw' ? zwHtml() : '') +
       (S.tab === 'gua' ? guaHtml() : '') +
       (S.tab === 'lib' ? libHtml() : '') +
       (S.tab === 'card' ? cardHtml() : '');
@@ -9139,7 +10162,7 @@ window.__MZBA=module.exports;})();
   }
 
   function tabs() {
-    var items = [['bazi', '排盘'], ['gua', '起卦'], ['lib', '查典'], ['card', '知识卡']];
+    var items = [['bazi', '八字'], ['zw', '紫微'], ['gua', '起卦'], ['lib', '查典'], ['card', '知识卡']];
     return '<div class="subtabs mz-tabs">' + items.map(function (t) {
       return '<button data-mzt="' + t[0] + '"' + (S.tab === t[0] ? ' class="on"' : '') + '>' + t[1] + '</button>';
     }).join('') + '</div>';
@@ -9250,6 +10273,131 @@ window.__MZBA=module.exports;})();
       l.push('【强弱】' + [st.旺衰 || st.强弱等级, st.总分 != null ? st.总分 + ' 分' : ''].filter(Boolean).join(' · '));
       l.push('【格局】' + [ys.格局 ? ys.格局 + '格' : '', ys.说明].filter(Boolean).join(' · '));
     }
+    return l.join('\n');
+  }
+
+  /* ---------- 紫微斗数 ---------- */
+  var ZW_CELL = {
+    巳: [1, 1], 午: [1, 2], 未: [1, 3], 申: [1, 4],
+    辰: [2, 1], 酉: [2, 4],
+    卯: [3, 1], 戌: [3, 4],
+    寅: [4, 1], 丑: [4, 2], 子: [4, 3], 亥: [4, 4]
+  };
+  var HUA_CLS = { 禄: 'lu', 权: 'quan', 科: 'ke', 忌: 'ji' };
+
+  function isMajor(name) {
+    var z = root.__ZWE;
+    return !!(z && z.MAJOR && z.MAJOR.indexOf(name) > -1);
+  }
+  function brightOf(star, branch) {
+    var z = root.__ZWE;
+    return z ? z.brightOf(star, branch) : '';
+  }
+
+  function zwHtml() {
+    var b = loadBirth();
+    var html = '<div class="mz-form">' +
+      '<div class="field"><label>出生日期</label><input id="zwDate" type="date" value="' + esc(b.date || '1995-06-15') + '"></div>' +
+      '<div class="field"><label>出生时间（23 点后归次日）</label><input id="zwTime" type="time" value="' + esc(b.time || '08:30') + '"></div>' +
+      '<div class="field"><label>性别（定大限顺逆）</label><select id="zwSex">' +
+      '<option value="male"' + (b.sex === 'male' ? ' selected' : '') + '>男</option>' +
+      '<option value="female"' + (b.sex === 'female' ? ' selected' : '') + '>女</option></select></div>' +
+      '</div>' +
+      '<div class="btn-row"><button class="btn sm" id="zwRun">排紫微盘</button>' +
+      '<button class="btn ghost sm" id="zwNow">用今天</button>' +
+      '<span class="note" style="margin:0">口径：农历月按闰月过十五算下月，23 点后归次日；主星、辅星、四化、大限都在本机算。</span></div>';
+    html += '<div id="zwOut">' + (S.zw ? zwOut(S.zw) : '<p class="note">点「排紫微盘」，出十二宫盘：主星带庙旺平陷，四化标禄权科忌，底下是大限年龄段。</p>') + '</div>';
+    return html;
+  }
+
+  function curAge(c) {
+    var now = new Date();
+    var lunarNow = now.getFullYear();
+    return lunarNow - c.lunarYear + 1;      /* 虚岁粗算，够用来标当前大限 */
+  }
+
+  function zwOut(c) {
+    if (c.error) return '<p class="mz-warn">' + esc(c.error) + '</p>';
+    var age = curAge(c);
+    var cur = null;
+    c.palaces.forEach(function (p) { if (age >= p.decadal[0] && age <= p.decadal[1]) cur = p; });
+
+    var h = '<div class="zw-meta">' +
+      '<span>' + esc(c.solar) + '</span>' +
+      '<span>农历 ' + esc(c.lunarText || '') + '</span>' +
+      '<span>' + esc(c.yearGan + c.yearZhi) + '年</span>' +
+      '<span class="zw-ju">' + esc(c.juName) + '</span>' +
+      '<span>命宫 ' + esc(c.soulBranch) + ' · 身宫 ' + esc(c.bodyBranch) + '</span>' +
+      '<span>大限 ' + esc(c.dir) + '</span>' +
+      (cur ? '<span class="zw-cur">当前 ' + esc(cur.name) + ' ' + cur.decadal[0] + '–' + cur.decadal[1] + ' 岁</span>' : '') +
+      '</div>';
+
+    h += '<div class="zw-board">';
+    c.palaces.forEach(function (p) {
+      var pos = ZW_CELL[p.branch] || [1, 1];
+      var cls = 'zw-cell' + (p.isSoul ? ' soul' : '') + (cur && cur.branch === p.branch ? ' cur' : '');
+      h += '<div class="' + cls + '" style="grid-area:' + pos[0] + '/' + pos[1] + '">';
+      h += '<div class="zw-c-h"><b>' + esc(p.name) + '</b>' +
+        '<span>' + esc(p.stem + p.branch) + '</span>' +
+        (p.isBody ? '<em class="zw-body">身</em>' : '') + '</div>';
+      var majors = p.stars.filter(isMajor);
+      var minors = p.stars.filter(function (x) { return !isMajor(x); });
+      h += '<div class="zw-c-major">' + (majors.length ? majors.map(function (st) {
+        var br = brightOf(st, p.branch);
+        var hu = c.hua[st];
+        return '<span class="zw-star"><b>' + esc(st) + '</b>' +
+          (br ? '<i class="zw-bright b-' + esc(br) + '">' + esc(br) + '</i>' : '') +
+          (hu ? '<i class="zw-hua ' + (HUA_CLS[hu] || '') + '">' + hu + '</i>' : '') + '</span>';
+      }).join('') : '<span class="zw-empty">—</span>') + '</div>';
+      if (minors.length) {
+        h += '<div class="zw-c-minor">' + minors.map(function (st) {
+          var hu = c.hua[st];
+          return '<span>' + esc(st) + (hu ? '<i class="zw-hua ' + (HUA_CLS[hu] || '') + '">' + hu + '</i>' : '') + '</span>';
+        }).join('') + '</div>';
+      }
+      h += '<div class="zw-c-foot"><span>' + p.decadal[0] + '–' + p.decadal[1] + '</span></div>';
+      h += '</div>';
+    });
+    h += '<div class="zw-center">' +
+      '<div class="zw-c-t">紫微斗数 · 十二宫</div>' +
+      '<div class="zw-c-row"><span>阳历</span><b>' + esc(c.solar) + '</b></div>' +
+      '<div class="zw-c-row"><span>农历</span><b>' + esc(c.lunarText || '') + '</b></div>' +
+      '<div class="zw-c-row"><span>年干支</span><b>' + esc(c.yearGan + c.yearZhi) + '</b></div>' +
+      '<div class="zw-c-row"><span>五行局</span><b>' + esc(c.juName) + '</b></div>' +
+      '<div class="zw-c-row"><span>命 / 身</span><b>' + esc(c.soulBranch) + ' / ' + esc(c.bodyBranch) + '</b></div>' +
+      '<div class="zw-c-row"><span>紫微·天府</span><b>' + esc(c.ziwei) + ' · ' + esc(c.tianfu) + '</b></div>' +
+      '<div class="zw-c-row"><span>大限</span><b>' + esc(c.dir) + (cur ? '，在' + esc(cur.name) : '') + '</b></div>' +
+      '<div class="zw-c-tip">命宫为自身，三方四正看对宫与三合；四化禄权科忌是这盘的重点。</div>' +
+      '</div>';
+    h += '</div>';
+
+    h += '<p class="zw-legend"><i class="lg-soul"></i>命宫　<i class="lg-cur"></i>当前大限　' +
+      '<span>宫名下方是宫干支，格内大字号为主星（带庙旺平陷与四化），小字为辅星，右下为该宫大限岁数。</span></p>';
+    h += '<div class="btn-row" style="margin-top:10px">' +
+      '<button class="btn ghost sm" data-mzact="ask-zw">让 AI 解读这张盘</button>' +
+      '<button class="btn ghost sm" data-mzact="copy-zw">复制盘面</button>' +
+      '<span class="note" style="margin:0">盘只是结构，断事还得看具体问题；此处只作文化研习。</span></div>';
+    return h;
+  }
+
+  function zwText(c) {
+    var l = [];
+    l.push('【阳历】' + c.solar + '　【农历】' + (c.lunarText || ''));
+    l.push('【年干支】' + c.yearGan + c.yearZhi + '　【五行局】' + c.juName);
+    l.push('【命宫】' + c.soulBranch + '　【身宫】' + c.bodyBranch + '　【大限】' + c.dir);
+    l.push('【十二宫】');
+    var order = ['命宫', '兄弟', '夫妻', '子女', '财帛', '疾厄', '迁移', '仆役', '官禄', '田宅', '福德', '父母'];
+    order.forEach(function (nm) {
+      var p = null;
+      c.palaces.forEach(function (x) { if (x.name === nm) p = x; });
+      if (!p) return;
+      var st = p.stars.map(function (s) {
+        var br = brightOf(s, p.branch);
+        var hu = c.hua[s];
+        return s + (br ? '（' + br + '）' : '') + (hu ? '化' + hu : '');
+      }).join('、') || '空宫';
+      l.push(nm + '（' + p.stem + p.branch + '｜' + p.decadal[0] + '–' + p.decadal[1] + '）：' + st);
+    });
     return l.join('\n');
   }
 
@@ -9411,6 +10559,15 @@ window.__MZBA=module.exports;})();
 
     var run = $('mzRun');
     if (run) run.onclick = doPlan;
+    var zr = $('zwRun');
+    if (zr) zr.onclick = doZw;
+    var zn = $('zwNow');
+    if (zn) zn.onclick = function () {
+      var t = new Date();
+      $('zwDate').value = t.getFullYear() + '-' + pad(t.getMonth() + 1) + '-' + pad(t.getDate());
+      $('zwTime').value = pad(t.getHours()) + ':' + pad(t.getMinutes());
+      flash('已填成此刻');
+    };
     var now = $('mzNow');
     if (now) now.onclick = function () {
       var t = new Date();
@@ -9483,6 +10640,25 @@ window.__MZBA=module.exports;})();
     }
   }
 
+  function doZw() {
+    var d = ($('zwDate') || {}).value || '';
+    var t = ($('zwTime') || {}).value || '';
+    var sex = ($('zwSex') || {}).value || 'male';
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+    if (!m) { flash('先选出生日期'); return; }
+    var hh = 12;
+    var tm = /^(\d{1,2}):(\d{2})$/.exec(t);
+    if (tm) hh = +tm[1];
+    if (!root.__ZWE) { flash('紫微引擎没加载上'); return; }
+    S.zw = root.__ZWE.fromSolar(+m[1], +m[2], +m[3], hh, sex);
+    var prev = loadBirth();
+    saveBirth({ date: d, time: t, sex: sex, zi: prev.zi || 'next' });
+    var out = $('zwOut');
+    if (out) out.innerHTML = zwOut(S.zw);
+    var host = $('mzBody');
+    if (host) bind(host);
+  }
+
   function act(a) {
     if (a === 'cast-time') {
       var t = new Date();
@@ -9528,6 +10704,14 @@ window.__MZBA=module.exports;})();
         '不要用「必定」「一定会」这类断言；不要给医疗、投资、法律结论；结尾附一句：以上只为传统文化研习，不作决策依据。');
     }
     if (a === 'copy-bazi') if (S.bazi) copy(baziText(S.bazi), '盘面已复制');
+    if (a === 'ask-zw') {
+      if (!S.zw || S.zw.error) { flash('先排一张紫微盘'); return; }
+      askAI('【已排好的紫微斗数盘】\n' + zwText(S.zw) +
+        '\n\n请按紫微斗数的常规读法解读：先看命宫与身宫的主星与四化，再看命宫三方四正（对宫、三合）的组合，' +
+        '然后逐个讲与我关心的事项相关的宫位（可以用事业、财运、感情做示例），最后结合当前大限说明这段十年的重点。' +
+        '措辞用「传统紫微斗数认为」，不做确定性断言，不给医疗、投资、法律结论；结尾说明这是传统文化研习，不作决策依据。');
+    }
+    if (a === 'copy-zw') if (S.zw && !S.zw.error) copy(zwText(S.zw), '盘面已复制');
     if (a === 'ask-gua') {
       if (!S.gua) { flash('先起一卦'); return; }
       askAI('【已起好的卦】\n' + guaText(S.gua) +
