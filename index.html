@@ -513,6 +513,10 @@ main{padding:26px 32px 60px;max-width:1180px;width:100%;margin:0 auto;min-width:
 
 
 
+
+
+
+
 /*==SKILLS_CSS_START==*/
 /* ===== 技能集成：脚本审核 / 游戏项目 ===== */
 textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.8;
@@ -819,6 +823,67 @@ details.sec .sec-body{margin-top:12px}
   .dr-act .icon-btn{height:31px;min-width:36px;font-size:11.5px}
   .dr-t{font-size:13px}
 }
+
+/* ===== 新建项目：下单基础信息 ===== */
+.pf-extra {
+  margin: 4px 0 10px; padding: 0 12px;
+  border: 1px dashed var(--line-2); border-radius: 9px;
+  background: rgba(255, 255, 255, .012);
+}
+.pf-extra > summary {
+  cursor: pointer; list-style: none; padding: 10px 2px;
+  font-size: 12.5px; color: var(--ink-3); letter-spacing: .8px;
+}
+.pf-extra > summary::-webkit-details-marker { display: none; }
+.pf-extra > summary:before {
+  content: "＋"; display: inline-block; width: 14px; color: var(--gold);
+}
+.pf-extra[open] > summary:before { content: "－"; }
+.pf-extra > summary:hover { color: var(--gold-b); }
+.pf-extra .sec-body { padding: 2px 0 12px; }
+.pf-extra .form-row { margin-bottom: 8px; }
+
+/* ===== 下单：外显设置 ===== */
+.dis-vis {
+  margin: 0 0 12px; padding: 0 12px;
+  border: 1px solid var(--line-2); border-radius: 10px;
+  background: rgba(255, 255, 255, .016);
+}
+.dis-vis > summary {
+  cursor: pointer; list-style: none; padding: 9px 2px;
+  font-size: 12.5px; color: var(--ink-2); letter-spacing: .6px;
+}
+.dis-vis > summary::-webkit-details-marker { display: none; }
+.dis-vis > summary:before {
+  content: "☰"; margin-right: 7px; color: var(--gold); font-size: 11px;
+}
+.dis-vis > summary:hover { color: var(--gold-b); }
+.vis-tools {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 2px 0 10px; border-bottom: 1px dashed var(--line-2);
+}
+.vis-list {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 10px 0 12px;
+}
+.vis-item {
+  display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid var(--line-2); border-radius: 99px;
+  padding: 4px 10px; font-size: 12px; color: var(--ink-4);
+  cursor: pointer; transition: all .15s; user-select: none;
+}
+.vis-item input { display: none; }
+.vis-item:hover { border-color: rgba(201, 164, 92, .45); color: var(--gold-b); }
+.vis-item.on {
+  border-color: rgba(201, 164, 92, .55); color: var(--gold-b); font-weight: 600;
+  background: rgba(201, 164, 92, .12);
+}
+body.th-qing .vis-item.on {
+  border-color: rgba(127, 214, 195, .5); color: #a6e8db; background: rgba(127, 214, 195, .12);
+}
+body.th-qing .vis-item:hover { color: #a6e8db; border-color: rgba(127, 214, 195, .45); }
+
+.dis-bind .db-fill { font-size: 11.5px; color: var(--teal); letter-spacing: .3px; }
 
 /* ===== 总览：电子黄历 + 项目统筹 + 流程进度 ===== */
 .alm{
@@ -2302,6 +2367,34 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
             <input type="text" id="projBlock" name="proj_block" placeholder="例如：官方物料还没下发" autocomplete="off">
           </div>
         </div>
+
+        <details class="pf-extra">
+          <summary>下单基础信息（可选 · 下单时会自动带出）</summary>
+          <div class="sec-body">
+            <div class="form-row">
+              <div class="field"><label>商务</label><input id="pzBiz" placeholder="例如：谢子瑶" autocomplete="off"></div>
+              <div class="field"><label>客户组 / PM</label><input id="pzPm" placeholder="例如：游戏组-清明" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>客户等级</label><input id="pzLevel" placeholder="例如：s3" autocomplete="off"></div>
+              <div class="field"><label>平台</label><input id="pzPlat" placeholder="例如：抖音" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>平台金额</label><input id="pzAmt" placeholder="例如：抖音10w" autocomplete="off"></div>
+              <div class="field"><label>策划费占比</label><input id="pzRate" placeholder="例如：8%" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>发布时间 / 执行日期</label><input id="pzPub" placeholder="例如：11.4" autocomplete="off"></div>
+              <div class="field"><label>要几个方向</label><input id="pzDirN" placeholder="3-5" autocomplete="off"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>含星图？</label><select id="pzXingtu"><option value="">未定</option><option value="是">是</option><option value="否">否</option></select></div>
+              <div class="field"><label>账号数量</label><input id="pzNum" placeholder="例如：20 / 越多越好" autocomplete="off"></div>
+            </div>
+            <div class="field"><label>项目内容链接</label><input id="pzLink" placeholder="腾讯文档 / 飞书链接" autocomplete="off"></div>
+            <p class="note" style="margin:2px 0 0">填了这些，去「下单模板」选这个项目时会自动带出来；不填也不影响建项目。</p>
+          </div>
+        </details>
         <div class="btn-row"><button class="btn" id="btnAddProj">添加项目</button></div>
       </div>
 
@@ -2356,6 +2449,10 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
       </div>
     </section>
   
+
+
+
+
 
 
 
@@ -2743,6 +2840,10 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 <!--SKILLS_SEC_END-->
 </main>
 </div>
+
+
+
+
 
 
 
@@ -3702,6 +3803,17 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
       下一步: r['下一步'] || '',
       卡点: r['卡点'] || '',
       更新时间: dateOnly(r['更新时间']),
+      商务: r['商务'] || '',
+      PM: r['PM'] || '',
+      客户等级: r['客户等级'] || '',
+      平台: r['平台'] || '',
+      平台金额: r['平台金额'] || '',
+      策划费占比: r['策划费占比'] || '',
+      发布时间: r['发布时间'] || '',
+      方向数: r['方向数'] || '',
+      含星图: r['含星图'] || '',
+      账号数量: r['账号数量'] || '',
+      内容链接: r['内容链接'] || '',
       _demo: false
     };
   }
@@ -4437,6 +4549,15 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
     properties['状态'] = { select: optId('状态', status ? optText('状态', status) : '进行中') };
     if (next) properties['下一步'] = { text: next };
     if (block) properties['卡点'] = { text: block };
+    var PZ_MAP = { pzBiz: '商务', pzPm: 'PM', pzLevel: '客户等级', pzPlat: '平台',
+      pzAmt: '平台金额', pzRate: '策划费占比', pzPub: '发布时间', pzDirN: '方向数',
+      pzXingtu: '含星图', pzNum: '账号数量', pzLink: '内容链接' };
+    Object.keys(PZ_MAP).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var v = (el.value || '').trim();
+      if (v) properties[PZ_MAP[id]] = { text: v };
+    });
 
     db.addRecord({ databaseId: 'PqqNGskZCoAtaysv5nGOxz', properties: properties }).then(function () {
       btn.disabled = false; btn.textContent = '添加项目';
@@ -4756,6 +4877,10 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
   }
 })();
 </script>
+
+
+
+
 
 
 
@@ -6841,69 +6966,84 @@ window.__MZBA=module.exports;})();
   function vv(x) { return String(x === null || x === undefined ? '' : x).trim(); }
   function or(x) { var s = vv(x); return s || '/'; }
 
-  function buildCh(o) {
+  function buildCh(o, vis) {
+    function ok(k) { return !vis || vis[k] !== 0; }
     var L = ['给到策划：'];
-    L.push('【项目名称】' + or(o.name));
-    L.push('【执行日期】' + or(o.date));
-    L.push('【商务大名】' + or(o.biz));
-    L.push('【客户组-花名】' + or(o.pm));
-    L.push('【是否确认执行】' + or(o.confirm));
-    L.push('【客户等级】' + or(o.level));
-    L.push('【平台金额】' + or(o.amt));
-    L.push('【策划费占比】' + or(o.rate));
-    L.push('【提交时间】' + or(o.due));
-    L.push('【项目内容】');
-    L.push(or(o.link) + (/^(否|不|no|n)$/i.test(vv(o.secret)) ? '' : '（需保密）'));
-    if (/^(是|y|yes|有)$/i.test(vv(o.xingtu))) L.push('【资源说明】水下加星图');
-    L.push('【需求】');
-    L.push('给简单的方向（' + (vv(o.dirN) || '3-5') + '个）+ 话题词建议');
-    L.push('先给几个话题词 + 几句话方向，后续详细内容来了再细化');
-    var extra = vv(o.extra).split(/\n+/).filter(function (s) { return s.trim(); });
-    for (var i = 0; i < extra.length; i++) L.push('注意：' + extra[i].trim());
-    var n = parseFloat(vv(o.dirN)) || 3;
-    n = Math.min(Math.max(Math.round(n), 1), 8);
-    L.push('参考⬇️');
-    for (var d = 1; d <= n; d++) {
-      L.push('');
-      L.push('方向' + d);
-      L.push('话题词：');
-      L.push('方向阐述：');
-      L.push('资源组成：' + (vv(o.res) || '娱乐号/游戏号'));
+    if (ok('name')) L.push('【项目名称】' + or(o.name));
+    if (ok('date')) L.push('【执行日期】' + or(o.date));
+    if (ok('biz')) L.push('【商务大名】' + or(o.biz));
+    if (ok('pm')) L.push('【客户组-花名】' + or(o.pm));
+    if (ok('confirm')) L.push('【是否确认执行】' + or(o.confirm));
+    if (ok('level')) L.push('【客户等级】' + or(o.level));
+    if (ok('amt')) L.push('【平台金额】' + or(o.amt));
+    if (ok('rate')) L.push('【策划费占比】' + or(o.rate));
+    if (ok('due')) L.push('【提交时间】' + or(o.due));
+    if (ok('link') || ok('secret')) {
+      L.push('【项目内容】');
+      L.push(or(o.link) + (/^(否|不|no|n)$/i.test(vv(o.secret)) ? '' : '（需保密）'));
+    }
+    if (ok('xingtu') && /^(是|y|yes|有)$/i.test(vv(o.xingtu))) L.push('【资源说明】水下加星图');
+    if (ok('dirN') || ok('extra') || ok('res')) {
+      L.push('【需求】');
+      if (ok('dirN')) {
+        L.push('给简单的方向（' + (vv(o.dirN) || '3-5') + '个）+ 话题词建议');
+        L.push('先给几个话题词 + 几句话方向，后续详细内容来了再细化');
+      }
+      if (ok('extra')) {
+        var extra = vv(o.extra).split(/\n+/).filter(function (x) { return x.trim(); });
+        for (var e = 0; e < extra.length; e++) L.push('注意：' + extra[e].trim());
+      }
+      var n = parseFloat(vv(o.dirN)) || 3;
+      n = Math.min(Math.max(Math.round(n), 1), 8);
+      L.push('参考⬇️');
+      for (var d = 1; d <= n; d++) {
+        L.push('');
+        L.push('方向' + d);
+        L.push('话题词：');
+        L.push('方向阐述：');
+        if (ok('res')) L.push('资源组成：' + (vv(o.res) || '娱乐号/游戏号'));
+      }
     }
     return L.join('\n');
   }
 
-  function buildAcc(o) {
+  function buildAcc(o, vis) {
+    function ok(k) { return !vis || vis[k] !== 0; }
     var L = ['给到账号：'];
-    L.push('【项目/品牌名】' + or(o.name));
-    L.push('【商务】' + or(o.biz));
-    L.push('【投放平台】' + or(o.plat));
-    L.push('【投放形式】' + or(o.form));
-    L.push('【投放账号】');
-    var accs = vv(o.accs).split(/\n+/).filter(function (s) { return s.trim(); });
-    if (!accs.length) L.push('/');
-    for (var i = 0; i < accs.length; i++) L.push(accs[i].trim());
-    L.push('【发布时间】' + or(o.pub));
-    L.push('【话题词】' + or(o.topic));
-    L.push('【视频时长】' + or(o.dur));
-    L.push('【素材链接】' + or(o.mat));
-    L.push('【素材是否有版权/获得授权】' + or(o.auth));
-    L.push('【注意事项】');
-    var notes = vv(o.notes).split(/\n+/).filter(function (s) { return s.trim(); });
-    if (!notes.length) L.push('/');
-    for (var j = 0; j < notes.length; j++) {
-      var t = notes[j].trim();
-      if (!/^[‼️⚠️❗️❕!]/.test(t)) t = '⚠️' + t;
-      L.push(t);
+    if (ok('name')) L.push('【项目/品牌名】' + or(o.name));
+    if (ok('biz')) L.push('【商务】' + or(o.biz));
+    if (ok('plat')) L.push('【投放平台】' + or(o.plat));
+    if (ok('form')) L.push('【投放形式】' + or(o.form));
+    if (ok('accs')) {
+      L.push('【投放账号】');
+      var accs = vv(o.accs).split(/\n+/).filter(function (x) { return x.trim(); });
+      if (!accs.length) L.push('/');
+      for (var i = 0; i < accs.length; i++) L.push(accs[i].trim());
     }
-    L.push('【指令】' + or(o.cmd));
+    if (ok('pub')) L.push('【发布时间】' + or(o.pub));
+    if (ok('topic')) L.push('【话题词】' + or(o.topic));
+    if (ok('dur')) L.push('【视频时长】' + or(o.dur));
+    if (ok('mat')) L.push('【素材链接】' + or(o.mat));
+    if (ok('auth')) L.push('【素材是否有版权/获得授权】' + or(o.auth));
+    if (ok('notes')) {
+      L.push('【注意事项】');
+      var notes = vv(o.notes).split(/\n+/).filter(function (x) { return x.trim(); });
+      if (!notes.length) L.push('/');
+      for (var j = 0; j < notes.length; j++) {
+        var t = notes[j].trim();
+        if (!/^[‼️⚠️❗️❕!]/.test(t)) t = '⚠️' + t;
+        L.push(t);
+      }
+    }
+    if (ok('cmd')) L.push('【指令】' + or(o.cmd));
     return L.join('\n');
   }
 
-  function buildKV(cfg, o, head) {
+  function buildKV(cfg, o, head, vis) {
     var L = [head];
     for (var i = 0; i < cfg.fields.length; i++) {
       var f = cfg.fields[i];
+      if (vis && vis[f.k] === 0) continue;
       var val = vv(o[f.k]);
       if (f.k === 'note' || f.k === 'notes') {
         var lines = val.split(/\n+/).filter(function (s) { return s.trim(); });
@@ -6922,11 +7062,46 @@ window.__MZBA=module.exports;})();
     return L.join('\n');
   }
 
-  function buildDispatch(key, vals) {
-    if (key === 'ch') return buildCh(vals);
-    if (key === 'acc') return buildAcc(vals);
-    if (key === 'ad') return buildKV(CFG.ad, vals, '给到投流：');
-    return buildKV(CFG.mid, vals, '给到媒介：');
+  function buildDispatch(key, vals, vis) {
+    vis = vis || curVis(key);
+    if (key === 'ch') return buildCh(vals, vis);
+    if (key === 'acc') return buildAcc(vals, vis);
+    if (key === 'ad') return buildKV(CFG.ad, vals, '给到投流：', vis);
+    return buildKV(CFG.mid, vals, '给到媒介：', vis);
+  }
+
+  /* ---------- 外显设置：只把勾上的项写进指令 ---------- */
+  var VISKEY = 'wb_dis_vis_v1';
+  var VIS_CORE = {
+    ch: ['name', 'date', 'biz', 'pm', 'amt', 'rate', 'dirN', 'link', 'extra'],
+    acc: ['name', 'biz', 'plat', 'pub', 'accs', 'notes', 'cmd'],
+    ad: ['owner', 'biz', 'type', 'name', 'cat', 'note'],
+    mid: ['date', 'biz', 'pm', 'name', 'plat', 'form', 'num', 'note']
+  };
+
+  function visAllMap() {
+    try { return JSON.parse(localStorage.getItem(VISKEY) || '{}'); } catch (e) { return {}; }
+  }
+  function curVis(tab) {
+    var t = tab || disTab;
+    var v = visAllMap()[t];
+    if (!v) return null;                    /* 没设置过 = 全显 */
+    var on = 0, fields = CFG[t].fields;
+    for (var i = 0; i < fields.length; i++) if (v[fields[i].k] !== 0) on++;
+    return on ? v : null;                   /* 一个都没勾 = 还是全出，别给出空指令 */
+  }
+  function setVis(tab, obj) {
+    var all = visAllMap();
+    if (!obj) delete all[tab]; else all[tab] = obj;
+    try { localStorage.setItem(VISKEY, JSON.stringify(all)); } catch (e) {}
+  }
+  function visCount(tab) {
+    var v = curVis(tab);
+    var fields = CFG[tab].fields;
+    if (!v) return fields.length;
+    var n = 0;
+    for (var i = 0; i < fields.length; i++) if (v[fields[i].k] !== 0) n++;
+    return n;
   }
 
   var BINDKEY = 'wb_dis_proj_v1';
@@ -6960,6 +7135,24 @@ window.__MZBA=module.exports;})();
     var stage = bp ? bindStage(bp) : '';
     var rec = bp ? (DIS_REC[stage] || []) : [];
 
+    /* 从绑定项目里带出下单基础信息（只做兜底，不覆盖你手填的） */
+    var pmeta = bp ? projMeta(bp) : null;
+    var pfill = {};
+    if (pmeta) {
+      var PMAP = {
+        name: '项目名', biz: '商务', pm: 'PM', level: '客户等级', plat: '平台',
+        amt: '平台金额', rate: '策划费占比', pub: '发布时间', dirN: '方向数',
+        xingtu: '含星图', num: '账号数量', link: '内容链接'
+      };
+      for (var pk in PMAP) {
+        if (!Object.prototype.hasOwnProperty.call(PMAP, pk)) continue;
+        var pv0 = String(pmeta[PMAP[pk]] || '').trim();
+        if (pv0) pfill[pk] = pv0;
+      }
+    }
+    var pfillN = 0;
+    cfg.fields.forEach(function (f) { if (pfill[f.k]) pfillN++; });
+
     var html = '<div class="dis-bind">' +
       '<span class="db-h">这单挂在</span>' +
       '<select id="disProj"><option value="">不绑定项目</option>' +
@@ -6967,7 +7160,8 @@ window.__MZBA=module.exports;})();
         return '<option value="' + esc(p) + '"' + (p === bp ? ' selected' : '') + '>' + esc(p) + '</option>';
       }).join('') + '</select>' +
       (bp ? '<span class="chip p3">' + esc(stage) + '</span>' +
-        (st && st.current ? '<span class="db-now">' + esc(st.current.step) + '</span>' : '') : '') +
+        (st && st.current ? '<span class="db-now">' + esc(st.current.step) + '</span>' : '') +
+        (pfillN ? '<span class="db-fill">已带出 ' + pfillN + ' 项项目信息</span>' : '') : '') +
       '</div>';
 
     html += '<div class="subtabs dis-tabs">' + DIS_ORDER.map(function (k) {
@@ -6977,11 +7171,30 @@ window.__MZBA=module.exports;})();
     html += '<p class="note" style="margin:2px 0 12px">' + esc(cfg.hint) +
       (bp ? '。这个项目现在在「' + esc(stage) + '」，' + (rec.length ? '带 ★ 的' + rec.map(function (k) { return CFG[k].name; }).join(' / ') + '通常先发。' : '这一阶段主要是收尾，先看结案。') : '。填过的字段会记住，下次只改项目名和日期。') + '</p>';
 
+    /* 外显设置：勾上的才写进指令 */
+    var vmap = curVis(disTab) || {};
+    var vn = visCount(disTab);
+    html += '<details class="dis-vis"' + (curVis(disTab) ? ' open' : '') + '>' +
+      '<summary>外显设置 · 这份指令出 ' + vn + ' / ' + cfg.fields.length + ' 项</summary>' +
+      '<div class="vis-tools">' +
+      '<button class="btn ghost sm" data-vis="all">全选</button>' +
+      '<button class="btn ghost sm" data-vis="core">只留常用</button>' +
+      '<button class="btn ghost sm" data-vis="none">全不选</button>' +
+      '<span class="note" style="margin:0">只输出勾上的项；一项都不勾时按全部输出。</span>' +
+      '</div>' +
+      '<div class="vis-list">' + cfg.fields.map(function (f) {
+        var on = vmap[f.k] !== 0;
+        return '<label class="vis-item' + (on ? ' on' : '') + '">' +
+          '<input type="checkbox" data-visk="' + f.k + '"' + (on ? ' checked' : '') + '>' +
+          esc(f.l) + '</label>';
+      }).join('') + '</div>' +
+      '</details>';
+
     html += '<div class="mod-form dis-form">';
     var buf = '';
     for (var i = 0; i < cfg.fields.length; i++) {
       var f = cfg.fields[i];
-      var val = last[disTab + '.' + f.k] || '';
+      var val = last[disTab + '.' + f.k] || pfill[f.k] || '';
       if (f.w === 'area') {
         if (buf) { html += '<div class="form-row">' + buf + '</div>'; buf = ''; }
         html += '<div class="field"><label>' + esc(f.l) + '</label><textarea data-f="' + f.k + '" rows="' + (f.k === 'accs' || f.k === 'notes' ? 5 : 3) + '" placeholder="' + esc(f.ph) + '">' + esc(val) + '</textarea></div>';
@@ -7071,6 +7284,41 @@ window.__MZBA=module.exports;})();
     var form = host.querySelector('.dis-form');
     var outWrap = $('disOutWrap');
     var out = $('disOut');
+
+    /* 改外显要重渲染，先把已经敲进去的值存下来，别丢 */
+    function snapshot() {
+      if (!form) return;
+      var vals = readForm(form), save = {};
+      for (var k in vals) if (Object.prototype.hasOwnProperty.call(vals, k)) save[disTab + '.' + k] = vals[k];
+      saveLast(save);
+    }
+
+    var visBox = host.querySelector('.dis-vis');
+    if (visBox) {
+      visBox.querySelectorAll('[data-visk]').forEach(function (cb) {
+        cb.onchange = function () {
+          var m = curVis(disTab) || {};
+          m[cb.getAttribute('data-visk')] = cb.checked ? 1 : 0;
+          setVis(disTab, m);
+          snapshot();
+          renderDispatch();
+        };
+      });
+      visBox.querySelectorAll('[data-vis]').forEach(function (b) {
+        b.onclick = function () {
+          var mode = b.getAttribute('data-vis');
+          var m = {};
+          CFG[disTab].fields.forEach(function (f) {
+            if (mode === 'all') m[f.k] = 1;
+            else if (mode === 'none') m[f.k] = 0;
+            else m[f.k] = (VIS_CORE[disTab] || []).indexOf(f.k) > -1 ? 1 : 0;
+          });
+          setVis(disTab, m);
+          snapshot();
+          renderDispatch();
+        };
+      });
+    }
 
     form.querySelector('[data-act="gen"]').onclick = function () {
       var vals = readForm(form);
