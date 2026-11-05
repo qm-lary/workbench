@@ -511,6 +511,8 @@ main{padding:26px 32px 60px;max-width:1180px;width:100%;margin:0 auto;min-width:
 
 
 
+
+
 /*==SKILLS_CSS_START==*/
 /* ===== 技能集成：脚本审核 / 游戏项目 ===== */
 textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.8;
@@ -2433,6 +2435,8 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 
 
 
+
+
 <!--SKILLS_SEC_START-->
     <!-- ======== 总览 ======== -->
     <section class="view on" id="view-overview">
@@ -2739,6 +2743,8 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 <!--SKILLS_SEC_END-->
 </main>
 </div>
+
+
 
 
 
@@ -3491,7 +3497,12 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 
   var db = (window.__GH && window.__GH.isConfigured()) ? window.__GH.makeDB() : makeResilientDB();
 
-  var SCHEMA_OPTIONS = {};
+  /* 默认选项：本机与云同步模式没有 schema，靠这套兜底 */
+  var SCHEMA_OPTIONS = {
+    "当前阶段": [{"id":"项目前期","text":"项目前期"},{"id":"项目执行中","text":"项目执行中"},{"id":"项目后期","text":"项目后期"}],
+    "状态": [{"id":"进行中","text":"进行中"},{"id":"已完结","text":"已完结"},{"id":"暂停","text":"暂停"}],
+    "优先级": [{"id":"紧急","text":"紧急"},{"id":"高","text":"高"},{"id":"中","text":"中"},{"id":"低","text":"低"}]
+  };
 
   var state = window.state = {
     todos: [],
@@ -4745,6 +4756,8 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
   }
 })();
 </script>
+
+
 
 
 
@@ -6293,6 +6306,18 @@ window.__MZBA=module.exports;})();
   }
 
   /* ================= 项目文档管理：按项目归堆 ================= */
+  /* 项目名合集：本机项目 + 流程清单里的项目 + 文档里出现过的归属 */
+  function projUnion() {
+    var out = [], seen = {};
+    function add(n) {
+      n = String(n || '').trim();
+      if (n && !seen[n]) { seen[n] = 1; out.push(n); }
+    }
+    projNames().forEach(add);
+    allProjNames().forEach(add);
+    return out;
+  }
+
   function projNames() {
     var out = [], seen = {};
     function add(n) {
@@ -6321,12 +6346,25 @@ window.__MZBA=module.exports;})();
     var html = '<div class="mod-form" data-type="doc">';
     html += '<div class="field"><input data-f="t" placeholder="文档名，例如：无畏契约上海站 brief" value="' + esc(ed ? ed.t : '') + '"></div>';
     html += '<div class="form-row">';
-    html += '<div class="field"><input data-f="k" list="docKinds" placeholder="类型（brief / 脚本 / 执行表 / 规范 / 合同 / 账号）" value="' + esc(ed ? ed.k : '') + '">' +
-      '<datalist id="docKinds">' +
-      ['brief', '策划', '脚本', '执行表', '结案', '报价', '规范', '合同', '账号'].map(function (x) { return '<option>' + x + '</option>'; }).join('') +
-      '</datalist></div>';
-    html += '<div class="field"><input data-f="p" list="docProjs" placeholder="所属项目（留空＝通用）" value="' + esc(ed ? ed.p : '') + '">' +
-      '<datalist id="docProjs">' + opts.map(function (x) { return '<option>' + esc(x) + '</option>'; }).join('') + '</datalist></div>';
+    /* 都改成原生下拉：安卓 WebView 里 datalist 不弹候选，选不了项目 */
+    var kinds = ['brief', '策划', '脚本', '执行表', '结案', '报价', '规范', '合同', '账号', '其他'];
+    var curK = ed ? String(ed.k || '') : '';
+    if (curK && kinds.indexOf(curK) < 0) kinds.unshift(curK);
+    html += '<div class="field"><label>类型</label><select data-f="k">' +
+      kinds.map(function (x) {
+        return '<option value="' + esc(x) + '"' + (x === curK ? ' selected' : '') + '>' + esc(x) + '</option>';
+      }).join('') + '</select></div>';
+
+    var names = projUnion();
+    var curP = ed ? String(ed.p || '') : ((docFilter && docFilter !== '__none') ? docFilter : '');
+    if (curP && names.indexOf(curP) < 0) names.unshift(curP);
+    html += '<div class="field"><label>所属项目</label><select data-f="p">' +
+      '<option value=""' + (curP ? '' : ' selected') + '>通用（不属于某个项目）</option>' +
+      names.map(function (n) {
+        return '<option value="' + esc(n) + '"' + (n === curP ? ' selected' : '') + '>' + esc(n) + '</option>';
+      }).join('') +
+      '<option value="__new">＋ 新建一个项目…</option>' +
+      '</select></div>';
     html += '</div>';
     html += '<div class="field"><input data-f="u" placeholder="链接（腾讯文档 / 飞书 / 网盘）" value="' + esc(ed ? ed.u : '') + '"></div>';
     html += '<div class="btn-row"><button class="btn sm" data-act="save">' + (ed ? '保存修改' : '归档这份文档') + '</button>' +
@@ -6566,6 +6604,21 @@ window.__MZBA=module.exports;})();
       step();
     };
 
+    /* 所属项目：选「＋ 新建一个项目…」就地起一个名字 */
+    var psel = form.querySelector('[data-f="p"]');
+    if (psel) psel.onchange = function () {
+      if (this.value !== '__new') return;
+      var name = (window.prompt('新项目叫什么？（这个名字会作为文档的归属，也会出现在项目进度的下拉里）', '') || '').trim();
+      var back = this.querySelector('option[value="__new"]');
+      if (!name) { this.value = ''; return; }
+      var opt = document.createElement('option');
+      opt.value = name;
+      opt.textContent = name;
+      this.insertBefore(opt, back);
+      this.value = name;
+      flash('已用「' + name + '」，保存后归到这一组');
+    };
+
     var pick = form.querySelector('[data-act="pick"]');
     var fileEl = form.querySelector('#docFile');
     if (pick && fileEl) {
@@ -6576,7 +6629,8 @@ window.__MZBA=module.exports;})();
       if (!files || !files.length) return;
       if (!window.__DOC) { flash('这个浏览器不支持本地解析'); return; }
       var arr = Array.prototype.slice.call(files);
-      var projName = (docFilter && docFilter !== '__none') ? docFilter : '';
+      var pv = (form.querySelector('[data-f="p"]') || {}).value || '';
+      var projName = (pv && pv !== '__new') ? pv : ((docFilter && docFilter !== '__none') ? docFilter : '');
       var used = 0;
       byType('doc').forEach(function (d) { used += bodyLenOf(d); });
       if (used > 300000) { flash('本地文档正文已经存了 ' + Math.round(used / 1000) + 'k 字，快满了；先删几份旧的再传'); return; }
@@ -6618,6 +6672,7 @@ window.__MZBA=module.exports;})();
       var inputs = form.querySelectorAll('[data-f]');
       for (var i = 0; i < inputs.length; i++) item[inputs[i].getAttribute('data-f')] = inputs[i].value.trim();
       if (!item.t) { flash('先把文档名写上'); return; }
+      if (item.p === '__new') { flash('所属项目还没选，先选一个'); return; }
       if (editing.type === 'doc' && editing.id) {
         item.id = editing.id;
         /* 改名字 / 改归属时，别把本机正文和原始文件名丢了 */
