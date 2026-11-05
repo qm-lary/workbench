@@ -507,6 +507,10 @@ main{padding:26px 32px 60px;max-width:1180px;width:100%;margin:0 auto;min-width:
 
 
 
+
+
+
+
 /*==SKILLS_CSS_START==*/
 /* ===== 技能集成：脚本审核 / 游戏项目 ===== */
 textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.8;
@@ -1388,6 +1392,132 @@ body.th-qing .mz-fab {
 @media (max-width: 900px) {
   .mz-fab { display: flex; }
 }
+
+/* =====================================================================
+   紫微斗数十二宫盘
+   ===================================================================== */
+.zw-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+  padding: 8px 12px; margin: 2px 0 10px;
+  border: 1px solid var(--line-2); border-radius: 9px;
+  background: rgba(255, 255, 255, .016);
+  font-size: 11.8px; color: var(--ink-3);
+}
+.zw-meta span { white-space: nowrap; }
+.zw-meta .zw-ju { color: var(--gold-b); font-weight: 600; letter-spacing: .6px; }
+.zw-meta .zw-cur {
+  margin-left: auto; color: var(--gold-b);
+  border: 1px solid rgba(201, 164, 92, .4); border-radius: 99px; padding: 1px 9px;
+}
+
+.zw-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(112px, auto));
+  gap: 6px;
+  margin: 0 0 4px;
+}
+.zw-cell {
+  display: flex; flex-direction: column; gap: 4px; min-width: 0; min-height: 122px;
+  padding: 7px 8px;
+  border: 1px solid var(--line-2); border-radius: 8px;
+  background: rgba(255, 255, 255, .018);
+  transition: border-color .18s, background .18s;
+}
+.zw-cell.soul { border-color: rgba(201, 164, 92, .5); background: rgba(201, 164, 92, .06); }
+.zw-cell.cur { border-color: rgba(127, 214, 195, .5); background: rgba(127, 214, 195, .06); }
+body.th-mo .zw-cell.soul { border-color: rgba(210, 171, 104, .5); }
+
+.zw-c-h { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.zw-c-h b {
+  font-family: var(--serif); font-size: 13px; letter-spacing: 1.4px;
+  color: var(--gold-b); font-weight: 600;
+}
+.zw-cell.soul .zw-c-h b { font-size: 14px; }
+.zw-c-h span { font-size: 10.5px; color: var(--ink-4); letter-spacing: .6px; }
+.zw-c-h .zw-body {
+  font-style: normal; font-size: 9.5px; color: #0b0d10; background: var(--gold);
+  border-radius: 3px; padding: 0 3px; line-height: 14px; margin-left: auto;
+}
+
+.zw-c-major { display: flex; flex-direction: column; gap: 3px; min-height: 18px; }
+.zw-star { display: flex; align-items: center; gap: 4px; }
+.zw-star b {
+  font-size: 13.5px; color: var(--ink); font-weight: 600; letter-spacing: .8px;
+}
+.zw-bright {
+  font-style: normal; font-size: 9.5px; line-height: 14px; padding: 0 3px; border-radius: 3px;
+  border: 1px solid var(--line-2); color: var(--ink-3);
+}
+.zw-bright.b-庙 { color: #f0d79a; border-color: rgba(240, 215, 154, .38); }
+.zw-bright.b-旺 { color: #e8cf9a; border-color: rgba(232, 207, 154, .3); }
+.zw-bright.b-陷 { color: #9aa3ad; border-color: rgba(154, 163, 173, .3); }
+.zw-bright.b-不 { color: #9aa3ad; border-color: rgba(154, 163, 173, .26); }
+.zw-hua {
+  font-style: normal; font-size: 9.5px; line-height: 14px; padding: 0 3px; border-radius: 3px;
+  background: rgba(255, 255, 255, .08); color: var(--ink-2); letter-spacing: 0;
+}
+.zw-hua.lu { background: rgba(120, 200, 150, .18); color: #8fdcae; }
+.zw-hua.quan { background: rgba(230, 180, 100, .18); color: #f0cb85; }
+.zw-hua.ke { background: rgba(130, 180, 230, .18); color: #a8cbe8; }
+.zw-hua.ji { background: rgba(220, 120, 120, .18); color: #f0a3a3; }
+
+.zw-c-minor {
+  display: flex; flex-wrap: wrap; gap: 3px 7px;
+  font-size: 11px; color: var(--ink-3); letter-spacing: .3px;
+}
+.zw-c-minor span { display: inline-flex; align-items: center; gap: 2px; }
+.zw-empty { color: var(--ink-4); font-size: 12px; }
+
+.zw-c-foot {
+  margin-top: auto; display: flex; justify-content: flex-end;
+  font-size: 10.5px; color: var(--ink-4); font-variant-numeric: tabular-nums;
+}
+
+.zw-center {
+  grid-area: 2 / 2 / 4 / 4;
+  display: flex; flex-direction: column; gap: 5px; min-width: 0;
+  padding: 12px 14px; border: 1px dashed var(--line-2); border-radius: 9px;
+  background: rgba(255, 255, 255, .012);
+}
+.zw-c-t {
+  font-family: var(--serif); font-size: 14px; letter-spacing: 2.4px;
+  color: var(--gold-b); margin-bottom: 2px;
+}
+.zw-c-row { display: flex; gap: 10px; font-size: 12px; line-height: 1.7; }
+.zw-c-row span { flex: none; width: 62px; color: var(--ink-4); letter-spacing: .8px; }
+.zw-c-row b { color: var(--ink-2); font-weight: 500; min-width: 0; word-break: break-word; }
+.zw-c-tip {
+  margin-top: auto; font-size: 11px; line-height: 1.75; color: var(--ink-4);
+  border-top: 1px dashed var(--line-2); padding-top: 7px;
+}
+
+@media (max-width: 900px) {
+  .zw-board { grid-template-rows: repeat(4, minmax(96px, auto)); }
+  .zw-star b { font-size: 12.5px; }
+  .zw-c-minor { font-size: 10.5px; }
+  .zw-c-row span { width: 54px; }
+}
+@media (max-width: 560px) {
+  .zw-board {
+    grid-template-columns: repeat(4, 152px);
+    overflow-x: auto; padding-bottom: 6px;
+  }
+  .zw-c-tip { display: none; }
+  .zw-center { padding: 10px 11px; }
+}
+
+/* 盘面图例 */
+.zw-legend {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin: 8px 0 0; font-size: 11.2px; color: var(--ink-4); line-height: 1.7;
+}
+.zw-legend i {
+  display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--line-2);
+}
+.zw-legend .lg-soul { border-color: rgba(201, 164, 92, .6); background: rgba(201, 164, 92, .18); }
+.zw-legend .lg-cur { border-color: rgba(127, 214, 195, .6); background: rgba(127, 214, 195, .16); margin-left: 6px; }
+.zw-legend span { flex: 1 1 100%; }
 
 /*==THEME_ART==*/
 body.th-qing::before{background:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1600' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='.15' y2='1'%3E%3Cstop offset='0' stop-color='%23f6dfae' stop-opacity='.55'/%3E%3Cstop offset='.22' stop-color='%23dcbc7c' stop-opacity='.38'/%3E%3Cstop offset='.44' stop-color='%239db6a4' stop-opacity='.22'/%3E%3Cstop offset='.60' stop-color='%230d3a3a' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='water' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230a2c2e' stop-opacity='.1'/%3E%3Cstop offset='1' stop-color='%238ed9c9' stop-opacity='.16'/%3E%3C/linearGradient%3E%3CradialGradient id='haze' cx='.5' cy='.5' r='.5'%3E%3Cstop offset='0' stop-color='%23cfe9dd' stop-opacity='.26'/%3E%3Cstop offset='1' stop-color='%23cfe9dd' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='soft'%3E%3CfeGaussianBlur stdDeviation='16'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='1200' height='1600' fill='%23061a1c'/%3E%3Crect width='1200' height='1600' fill='url(%23sky)'/%3E%3Ccircle cx='107' cy='104' r='1.3' fill='%23f7e3b4' opacity='0.25'/%3E%3Ccircle cx='979' cy='35' r='1.4' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='843' cy='73' r='1.9' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='772' cy='115' r='1.6' fill='%23f7e3b4' opacity='0.20'/%3E%3Ccircle cx='408' cy='561' r='1.4' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='89' cy='139' r='2.0' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='438' cy='54' r='1.1' fill='%23f7e3b4' opacity='0.23'/%3E%3Ccircle cx='705' cy='630' r='0.9' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='253' cy='484' r='1.4' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='1171' cy='598' r='3.0' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='199' cy='512' r='2.8' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='606' cy='451' r='1.1' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='725' cy='598' r='1.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='1063' cy='527' r='1.3' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='512' cy='622' r='1.4' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='1054' cy='404' r='2.6' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='1099' cy='457' r='2.2' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='295' cy='45' r='2.4' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='114' cy='78' r='2.5' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='991' cy='438' r='0.9' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='435' cy='345' r='1.5' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='1147' cy='213' r='2.0' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='330' cy='623' r='1.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='638' cy='543' r='3.0' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='207' cy='526' r='1.8' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='816' cy='1' r='1.3' fill='%23f7e3b4' opacity='0.29'/%3E%3Ccircle cx='1127' cy='486' r='2.3' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='274' cy='636' r='2.4' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='235' cy='620' r='1.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='461' cy='392' r='2.2' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='782' cy='106' r='2.1' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='859' cy='610' r='3.2' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='598' cy='187' r='1.2' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='612' cy='518' r='2.3' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='1016' cy='360' r='1.4' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='357' cy='531' r='2.1' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='1173' cy='607' r='0.8' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='554' cy='494' r='2.9' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='726' cy='541' r='1.1' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='676' cy='47' r='3.2' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='533' cy='70' r='2.3' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='750' cy='203' r='2.5' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='220' cy='482' r='2.4' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='708' cy='225' r='2.6' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='392' cy='166' r='2.5' fill='%23f7e3b4' opacity='0.20'/%3E%3Ccircle cx='943' cy='312' r='1.3' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='869' cy='344' r='2.6' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='556' cy='561' r='2.5' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='679' cy='331' r='3.0' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='675' cy='441' r='2.9' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='828' cy='262' r='3.1' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='1017' cy='163' r='1.5' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='125' cy='277' r='2.8' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='624' cy='506' r='3.1' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='469' cy='535' r='2.9' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='958' cy='617' r='2.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='1138' cy='113' r='2.5' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='814' cy='107' r='1.5' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='981' cy='618' r='2.8' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='953' cy='206' r='3.1' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='87' cy='604' r='0.9' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='993' cy='335' r='2.2' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='202' cy='300' r='1.3' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='167' cy='265' r='1.8' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='386' cy='587' r='2.4' fill='%23f7e3b4' opacity='0.01'/%3E%3Ccircle cx='826' cy='367' r='2.3' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='957' cy='447' r='2.2' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='772' cy='79' r='1.2' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='642' cy='225' r='3.1' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='902' cy='519' r='3.0' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='870' cy='26' r='1.3' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='766' cy='299' r='2.7' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='1055' cy='144' r='2.4' fill='%23f7e3b4' opacity='0.21'/%3E%3Ccircle cx='750' cy='403' r='2.9' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='670' cy='104' r='3.2' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='871' cy='452' r='1.7' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='414' cy='514' r='1.6' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='629' cy='285' r='2.8' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='860' cy='430' r='1.2' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='299' cy='599' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='410' cy='621' r='2.0' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='423' cy='151' r='1.3' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='684' cy='335' r='3.1' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='981' cy='53' r='1.2' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='122' cy='131' r='1.3' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='913' cy='461' r='1.3' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='538' cy='522' r='1.8' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='468' cy='97' r='2.3' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='1026' cy='633' r='2.5' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='486' cy='241' r='2.7' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='766' cy='407' r='1.4' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='714' cy='124' r='2.3' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='739' cy='214' r='1.6' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='560' cy='143' r='2.3' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='736' cy='229' r='2.6' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='585' cy='623' r='2.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='899' cy='486' r='1.7' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='219' cy='43' r='1.8' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='228' cy='388' r='1.9' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='742' cy='579' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='611' cy='626' r='2.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='953' cy='505' r='2.3' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='19' cy='353' r='2.8' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='731' cy='186' r='2.0' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='354' cy='424' r='2.5' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='876' cy='236' r='1.3' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='735' cy='451' r='2.3' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='419' cy='463' r='1.5' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='216' cy='156' r='1.1' fill='%23f7e3b4' opacity='0.24'/%3E%3Ccircle cx='225' cy='540' r='2.3' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='727' cy='67' r='2.3' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='630' cy='90' r='0.9' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='877' cy='564' r='2.5' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='598' cy='362' r='1.6' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='67' cy='47' r='1.1' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='697' cy='2' r='2.0' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='437' cy='323' r='0.9' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='402' cy='245' r='2.3' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='210' cy='278' r='1.6' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='339' cy='66' r='2.7' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='643' cy='33' r='2.7' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='365' cy='503' r='1.3' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='465' cy='187' r='1.9' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='750' cy='153' r='1.1' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='1170' cy='321' r='1.4' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='1173' cy='257' r='1.5' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='89' cy='31' r='2.6' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='733' cy='249' r='2.3' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='1022' cy='501' r='2.7' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='1180' cy='272' r='2.9' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='788' cy='499' r='1.5' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='215' cy='103' r='1.2' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='97' cy='175' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='601' cy='257' r='1.3' fill='%23f7e3b4' opacity='0.18'/%3E%3Ccircle cx='1004' cy='336' r='2.6' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='275' cy='68' r='2.1' fill='%23f7e3b4' opacity='0.26'/%3E%3Ccircle cx='887' cy='403' r='3.0' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='100' cy='394' r='0.8' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='496' cy='596' r='1.8' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='1182' cy='165' r='2.6' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='130' cy='458' r='2.3' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='991' cy='369' r='2.5' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='816' cy='252' r='2.3' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='474' cy='5' r='1.8' fill='%23f7e3b4' opacity='0.21'/%3E%3Ccircle cx='54' cy='399' r='1.8' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='898' cy='96' r='1.4' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='236' cy='308' r='1.3' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='1199' cy='137' r='2.9' fill='%23f7e3b4' opacity='0.20'/%3E%3Ccircle cx='320' cy='444' r='1.6' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='719' cy='316' r='1.6' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='548' cy='172' r='3.0' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='359' cy='445' r='0.8' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='72' cy='237' r='1.0' fill='%23f7e3b4' opacity='0.13'/%3E%3Ccircle cx='811' cy='128' r='2.6' fill='%23f7e3b4' opacity='0.15'/%3E%3Ccircle cx='480' cy='57' r='1.6' fill='%23f7e3b4' opacity='0.11'/%3E%3Ccircle cx='1043' cy='392' r='0.9' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='39' cy='210' r='2.6' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='929' cy='451' r='1.4' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='550' cy='317' r='2.1' fill='%23f7e3b4' opacity='0.16'/%3E%3Ccircle cx='363' cy='228' r='1.0' fill='%23f7e3b4' opacity='0.08'/%3E%3Ccircle cx='208' cy='48' r='1.9' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='589' cy='468' r='1.7' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='902' cy='53' r='2.7' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='820' cy='515' r='2.5' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='3' cy='255' r='1.7' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='874' cy='313' r='3.0' fill='%23f7e3b4' opacity='0.14'/%3E%3Ccircle cx='611' cy='229' r='2.5' fill='%23f7e3b4' opacity='0.17'/%3E%3Ccircle cx='990' cy='358' r='1.6' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='126' cy='135' r='2.0' fill='%23f7e3b4' opacity='0.22'/%3E%3Ccircle cx='180' cy='212' r='2.5' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='862' cy='27' r='2.4' fill='%23f7e3b4' opacity='0.25'/%3E%3Ccircle cx='1169' cy='504' r='2.4' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='299' cy='626' r='0.9' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='166' cy='626' r='1.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='671' cy='350' r='2.6' fill='%23f7e3b4' opacity='0.03'/%3E%3Ccircle cx='984' cy='417' r='0.9' fill='%23f7e3b4' opacity='0.09'/%3E%3Ccircle cx='689' cy='421' r='1.5' fill='%23f7e3b4' opacity='0.12'/%3E%3Ccircle cx='284' cy='353' r='2.3' fill='%23f7e3b4' opacity='0.10'/%3E%3Ccircle cx='141' cy='459' r='1.1' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='951' cy='17' r='3.0' fill='%23f7e3b4' opacity='0.28'/%3E%3Ccircle cx='464' cy='482' r='3.2' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='64' cy='99' r='2.5' fill='%23f7e3b4' opacity='0.21'/%3E%3Ccircle cx='193' cy='160' r='2.8' fill='%23f7e3b4' opacity='0.05'/%3E%3Ccircle cx='565' cy='490' r='1.9' fill='%23f7e3b4' opacity='0.02'/%3E%3Ccircle cx='149' cy='617' r='3.1' fill='%23f7e3b4' opacity='0.04'/%3E%3Ccircle cx='178' cy='291' r='3.2' fill='%23f7e3b4' opacity='0.07'/%3E%3Ccircle cx='209' cy='150' r='3.0' fill='%23f7e3b4' opacity='0.16'/%3E%3Ccircle cx='77' cy='37' r='1.2' fill='%23f7e3b4' opacity='0.19'/%3E%3Ccircle cx='893' cy='23' r='2.4' fill='%23f7e3b4' opacity='0.06'/%3E%3Ccircle cx='900' cy='261' r='1.1' fill='%23f7e3b4' opacity='0.18'/%3E%3Cpath d='M0,660 L182,530 L268,582 L378,421 L463,622 L505,405 L591,619 L638,549 L723,620 L826,381 L912,592 L1003,423 L1089,623 L1200,644 L1200,1600 L0,1600 Z' fill='%237fa79b' opacity='.22' stroke='%23e6cea0' stroke-width='1' stroke-opacity='.16'/%3E%3Cellipse cx='540' cy='690' rx='760' ry='200' fill='url(%23haze)'/%3E%3Cpath d='M0,860 L251,698 L351,840 L372,622 L472,829 L569,692 L669,838 L748,691 L848,818 L1045,721 L1145,818 L1200,806 L1200,1600 L0,1600 Z' fill='%233f7269' opacity='.36' stroke='%23e2c893' stroke-width='1' stroke-opacity='.16'/%3E%3Cpath d='M0,1060 L119,834 L194,1003 L330,843 L405,974 L426,938 L501,983 L619,949 L694,1025 L710,842 L785,980 L922,928 L997,996 L1024,842 L1099,1043 L1200,985 L1200,1600 L0,1600 Z' fill='%231d4a48' opacity='.52' stroke='%23d9bd86' stroke-width='1' stroke-opacity='.16'/%3E%3Cpath d='M1165,779 L1143,801 L1187,801 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1165,793 L1146,815 L1184,815 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1165,807 L1149,829 L1181,829 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1165,821 L1152,843 L1178,843 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Crect x='1164' y='831' width='2.2' height='22' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,740 L956,767 L1011,767 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,758 L960,785 L1007,785 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,775 L963,803 L1003,803 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M983,793 L967,821 L999,821 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Crect x='982' y='806' width='2.7' height='27' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1150,856 L1126,881 L1175,881 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1150,872 L1129,897 L1172,897 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1150,888 L1132,913 L1168,913 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1150,904 L1136,929 L1165,929 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Crect x='1149' y='915' width='2.5' height='25' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M178,929 L160,946 L195,946 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M178,940 L162,958 L193,958 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M178,952 L165,969 L190,969 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M178,963 L167,981 L188,981 Z' fill='%230b2b2a' opacity='0.16'/%3E%3Crect x='177' y='971' width='1.8' height='18' fill='%230b2b2a' opacity='0.16'/%3E%3Cpath d='M578,996 L563,1011 L593,1011 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M578,1006 L565,1021 L591,1021 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M578,1016 L567,1031 L589,1031 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M578,1026 L569,1041 L587,1041 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Crect x='577' y='1032' width='1.5' height='15' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M1180,841 L1157,864 L1203,864 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1180,856 L1160,879 L1200,879 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1180,871 L1163,894 L1197,894 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1180,886 L1166,909 L1194,909 Z' fill='%230b2b2a' opacity='0.25'/%3E%3Crect x='1179' y='896' width='2.3' height='23' fill='%230b2b2a' opacity='0.25'/%3E%3Cpath d='M1096,913 L1076,933 L1116,933 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1096,926 L1079,946 L1114,946 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1096,939 L1082,959 L1111,959 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1096,952 L1085,972 L1108,972 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='1095' y='961' width='2.0' height='20' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M955,920 L938,938 L972,938 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M955,932 L940,949 L970,949 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M955,943 L942,960 L968,960 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M955,954 L945,971 L965,971 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Crect x='954' y='962' width='1.7' height='17' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M253,763 L227,789 L280,789 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M253,779 L231,806 L276,806 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M253,796 L234,823 L272,823 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M253,813 L238,840 L269,840 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='252' y='825' width='2.6' height='26' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M994,930 L979,945 L1008,945 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M994,940 L981,954 L1006,954 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M994,949 L983,964 L1004,964 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M994,959 L985,973 L1002,973 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Crect x='993' y='965' width='1.5' height='15' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M761,962 L742,981 L780,981 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M761,974 L745,993 L777,993 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M761,986 L747,1005 L774,1005 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M761,999 L750,1017 L772,1017 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='760' y='1007' width='1.9' height='19' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1177,900 L1153,923 L1200,923 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M1177,915 L1157,938 L1197,938 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M1177,930 L1160,953 L1193,953 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M1177,945 L1163,968 L1190,968 Z' fill='%230b2b2a' opacity='0.26'/%3E%3Crect x='1175' y='955' width='2.3' height='23' fill='%230b2b2a' opacity='0.26'/%3E%3Cpath d='M802,849 L782,869 L823,869 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M802,862 L784,883 L820,883 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M802,876 L787,896 L817,896 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M802,889 L790,910 L815,910 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Crect x='801' y='899' width='2.1' height='21' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M672,870 L651,891 L693,891 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M672,884 L654,905 L691,905 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M672,897 L657,919 L688,919 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M672,911 L660,932 L685,932 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Crect x='671' y='921' width='2.1' height='21' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M296,937 L277,957 L316,957 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M296,950 L280,969 L313,969 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M296,962 L282,982 L310,982 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M296,975 L285,994 L308,994 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='295' y='984' width='1.9' height='19' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1148,975 L1131,992 L1165,992 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1148,986 L1134,1003 L1163,1003 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1148,997 L1136,1014 L1161,1014 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1148,1008 L1138,1025 L1158,1025 Z' fill='%230b2b2a' opacity='0.27'/%3E%3Crect x='1147' y='1015' width='1.7' height='17' fill='%230b2b2a' opacity='0.27'/%3E%3Cpath d='M1170,950 L1145,974 L1194,974 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M1170,966 L1149,990 L1191,990 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M1170,982 L1152,1006 L1187,1006 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M1170,997 L1155,1022 L1184,1022 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='1168' y='1008' width='2.4' height='24' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M195,892 L176,910 L213,910 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M195,904 L179,922 L210,922 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M195,916 L181,934 L208,934 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M195,928 L184,946 L205,946 Z' fill='%230b2b2a' opacity='0.22'/%3E%3Crect x='194' y='936' width='1.8' height='18' fill='%230b2b2a' opacity='0.22'/%3E%3Cpath d='M346,895 L323,918 L369,918 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M346,910 L326,933 L365,933 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M346,925 L329,948 L362,948 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M346,939 L332,962 L359,962 Z' fill='%230b2b2a' opacity='0.14'/%3E%3Crect x='344' y='950' width='2.3' height='23' fill='%230b2b2a' opacity='0.14'/%3E%3Cpath d='M148,965 L126,986 L169,986 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M148,979 L129,1000 L166,1000 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M148,993 L132,1014 L163,1014 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M148,1007 L135,1028 L160,1028 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Crect x='147' y='1016' width='2.1' height='21' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M639,904 L618,925 L660,925 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M639,918 L621,938 L657,938 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M639,931 L624,952 L654,952 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M639,945 L627,966 L652,966 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Crect x='638' y='954' width='2.1' height='21' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M290,798 L265,824 L316,824 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M290,815 L268,840 L312,840 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M290,831 L272,857 L309,857 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M290,848 L275,873 L305,873 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Crect x='289' y='859' width='2.6' height='26' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M727,788 L708,808 L747,808 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M727,801 L711,820 L744,820 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M727,813 L713,833 L741,833 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M727,826 L716,845 L739,845 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Crect x='727' y='835' width='1.9' height='19' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M-26,830 L-51,855 L-2,855 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M-26,846 L-48,871 L-5,871 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M-26,862 L-44,887 L-8,887 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M-26,878 L-41,903 L-12,903 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='-28' y='889' width='2.5' height='25' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M796,805 L769,832 L823,832 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M796,823 L773,850 L819,850 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M796,840 L776,867 L816,867 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M796,858 L780,885 L812,885 Z' fill='%230b2b2a' opacity='0.28'/%3E%3Crect x='795' y='870' width='2.7' height='27' fill='%230b2b2a' opacity='0.28'/%3E%3Cpath d='M981,938 L954,965 L1009,965 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M981,955 L957,983 L1005,983 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M981,973 L961,1001 L1001,1001 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M981,991 L965,1019 L997,1019 Z' fill='%230b2b2a' opacity='0.18'/%3E%3Crect x='980' y='1004' width='2.8' height='28' fill='%230b2b2a' opacity='0.18'/%3E%3Cpath d='M350,775 L324,802 L377,802 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M350,793 L327,820 L373,820 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M350,810 L331,837 L370,837 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M350,828 L335,854 L366,854 Z' fill='%230b2b2a' opacity='0.32'/%3E%3Crect x='349' y='840' width='2.7' height='27' fill='%230b2b2a' opacity='0.32'/%3E%3Cpath d='M1217,898 L1201,913 L1232,913 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1217,908 L1203,923 L1230,923 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1217,918 L1205,933 L1228,933 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1217,928 L1208,943 L1226,943 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Crect x='1216' y='935' width='1.5' height='15' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M32,939 L5,967 L59,967 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M32,957 L9,984 L56,984 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M32,975 L12,1002 L52,1002 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M32,993 L16,1020 L48,1020 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='31' y='1005' width='2.7' height='27' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M120,804 L107,818 L134,818 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M120,813 L109,827 L132,827 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M120,822 L111,835 L130,835 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M120,831 L113,844 L128,844 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Crect x='120' y='837' width='1.4' height='14' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M283,811 L256,838 L310,838 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M283,829 L260,855 L306,855 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M283,846 L264,873 L303,873 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M283,863 L267,890 L299,890 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Crect x='282' y='875' width='2.7' height='27' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M648,917 L621,944 L675,944 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M648,935 L625,961 L671,961 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M648,952 L629,979 L668,979 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M648,969 L632,996 L664,996 Z' fill='%230b2b2a' opacity='0.15'/%3E%3Crect x='647' y='981' width='2.7' height='27' fill='%230b2b2a' opacity='0.15'/%3E%3Cpath d='M154,777 L135,796 L174,796 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M154,790 L138,809 L171,809 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M154,802 L140,821 L168,821 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M154,815 L143,834 L166,834 Z' fill='%230b2b2a' opacity='0.17'/%3E%3Crect x='153' y='823' width='1.9' height='19' fill='%230b2b2a' opacity='0.17'/%3E%3Cpath d='M809,862 L797,874 L822,874 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M809,870 L799,882 L820,882 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M809,878 L801,890 L818,890 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M809,886 L802,898 L817,898 Z' fill='%230b2b2a' opacity='0.24'/%3E%3Crect x='809' y='891' width='1.2' height='12' fill='%230b2b2a' opacity='0.24'/%3E%3Cpath d='M923,968 L901,990 L945,990 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M923,982 L904,1004 L942,1004 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M923,997 L907,1019 L939,1019 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M923,1011 L910,1033 L936,1033 Z' fill='%230b2b2a' opacity='0.20'/%3E%3Crect x='922' y='1021' width='2.2' height='22' fill='%230b2b2a' opacity='0.20'/%3E%3Cpath d='M1157,807 L1142,822 L1172,822 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1157,817 L1144,831 L1170,831 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1157,826 L1146,841 L1168,841 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M1157,836 L1148,851 L1165,851 Z' fill='%230b2b2a' opacity='0.21'/%3E%3Crect x='1156' y='842' width='1.5' height='15' fill='%230b2b2a' opacity='0.21'/%3E%3Cpath d='M538,835 L521,852 L555,852 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M538,846 L523,864 L553,864 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M538,858 L525,875 L551,875 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M538,869 L528,886 L548,886 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Crect x='537' y='877' width='1.7' height='17' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M300,965 L280,985 L321,985 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M300,978 L283,998 L318,998 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M300,991 L286,1011 L315,1011 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M300,1004 L289,1025 L312,1025 Z' fill='%230b2b2a' opacity='0.30'/%3E%3Crect x='299' y='1013' width='2.0' height='20' fill='%230b2b2a' opacity='0.30'/%3E%3Cpath d='M1179,857 L1165,871 L1193,871 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1179,866 L1167,880 L1191,880 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1179,875 L1169,889 L1189,889 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1179,884 L1171,898 L1187,898 Z' fill='%230b2b2a' opacity='0.31'/%3E%3Crect x='1179' y='891' width='1.4' height='14' fill='%230b2b2a' opacity='0.31'/%3E%3Cpath d='M1081,906 L1064,922 L1097,922 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M1081,917 L1067,933 L1095,933 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M1081,927 L1069,944 L1092,944 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M1081,938 L1071,954 L1090,954 Z' fill='%230b2b2a' opacity='0.23'/%3E%3Crect x='1080' y='945' width='1.6' height='16' fill='%230b2b2a' opacity='0.23'/%3E%3Cpath d='M0,1240 L113,1090 L180,1228 L296,1136 L363,1192 L421,1094 L488,1213 L566,1065 L633,1211 L666,1110 L733,1226 L790,1047 L857,1194 L952,1048 L1019,1184 L1066,1148 L1133,1208 L1200,1224 L1200,1600 L0,1600 Z' fill='%230f2b2b' opacity='.7'/%3E%3Crect x='0' y='1250' width='1200' height='350' fill='url(%23water)'/%3E%3Crect x='125' y='1253' width='256' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Crect x='851' y='1270' width='344' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Crect x='436' y='1279' width='322' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.13'/%3E%3Crect x='-48' y='1297' width='426' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.10'/%3E%3Crect x='661' y='1306' width='197' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.13'/%3E%3Crect x='231' y='1317' width='277' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='603' y='1334' width='187' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.18'/%3E%3Crect x='713' y='1345' width='342' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.20'/%3E%3Crect x='336' y='1360' width='362' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Crect x='93' y='1371' width='497' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.07'/%3E%3Crect x='352' y='1384' width='370' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='478' y='1399' width='284' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.05'/%3E%3Crect x='219' y='1408' width='351' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.19'/%3E%3Crect x='497' y='1422' width='130' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.12'/%3E%3Crect x='281' y='1438' width='216' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.14'/%3E%3Crect x='601' y='1449' width='518' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.07'/%3E%3Crect x='584' y='1463' width='479' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='475' y='1479' width='338' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.10'/%3E%3Crect x='98' y='1489' width='496' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.11'/%3E%3Crect x='833' y='1501' width='233' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.08'/%3E%3Crect x='721' y='1513' width='409' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.07'/%3E%3Crect x='938' y='1531' width='154' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.19'/%3E%3Crect x='323' y='1539' width='410' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.16'/%3E%3Crect x='751' y='1553' width='316' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.20'/%3E%3Crect x='66' y='1569' width='415' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.12'/%3E%3Crect x='181' y='1581' width='413' height='1.6' rx='1' fill='%23a8e8d8' opacity='0.21'/%3E%3Cdefs%3E%3ClinearGradient id='scrim' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2303100f' stop-opacity='.86'/%3E%3Cstop offset='.34' stop-color='%2303100f' stop-opacity='.66'/%3E%3Cstop offset='.62' stop-color='%2303100f' stop-opacity='.46'/%3E%3Cstop offset='1' stop-color='%2303100f' stop-opacity='.34'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='1600' fill='url(%23scrim)'/%3E%3C/svg%3E") center/cover no-repeat !important;background-attachment:fixed !important}
@@ -2299,6 +2429,10 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 
 
 
+
+
+
+
 <!--SKILLS_SEC_START-->
     <!-- ======== 总览 ======== -->
     <section class="view on" id="view-overview">
@@ -2512,7 +2646,7 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
           </svg>
           <div class="mz-head-txt">
             <b>命理与卦象</b>
-            <p>本机三个技能的计算口径都搬进来了：四柱排盘、梅花起卦、六十四卦卦辞爻辞、术语词典、答案卡。全部在本机算，不联网、不上传。<br>
+            <p>本机三个技能的计算口径都搬进来了：四柱八字、紫微斗数十二宫、梅花起卦、六十四卦卦辞爻辞、术语词典、答案卡。全部在本机算，不联网、不上传。<br>
             只作传统文化研习与写作素材，不作预测断言，也不替代医疗、投资、法律意见。</p>
           </div>
           <span class="mz-flash" id="mzFlash"></span>
@@ -2605,6 +2739,10 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
 <!--SKILLS_SEC_END-->
 </main>
 </div>
+
+
+
+
 
 
 
@@ -4607,6 +4745,10 @@ body.th-qing main::before{background:radial-gradient(760px 340px at 46% -6%,rgba
   }
 })();
 </script>
+
+
+
+
 
 
 
@@ -8724,6 +8866,229 @@ window.__MZBA=module.exports;})();
 })();
 
 /* =====================================================================
+   紫微斗数排盘引擎（纯计算，离线，不联网）
+   - 规则按通行紫微斗数安星法实现
+   - 已与 iztro（MIT）逐盘对照 3,336 张盘：命宫/身宫/五行局/十四主星/
+     左辅右弼文昌文曲天魁天钺禄存擎羊陀罗火星铃星地空地劫天马/十二宫名/
+     宫干/四化/大限 全部一致（含闰月、晚子时、春节换年边界）
+   - 亮度表取自 iztro 的星曜数据（MIT），仅作数据引用
+   ===================================================================== */
+(function (root) {
+  'use strict';
+
+  var GAN = '甲乙丙丁戊己庚辛壬癸';
+  var ZHI = '子丑寅卯辰巳午未申酉戌亥';
+  var YIN = 2;                    /* 寅 在「子=0」体系里的下标 */
+
+  function fix(x, n) { n = n || 12; return ((x % n) + n) % n; }
+
+  var TIGER = { 甲: '丙', 己: '丙', 乙: '戊', 庚: '戊', 丙: '庚', 辛: '庚', 丁: '壬', 壬: '壬', 戊: '甲', 癸: '甲' };
+  var FIVE = [3, 4, 2, 6, 5];     /* 木三 金四 水二 火六 土五 */
+  var JU_NAME = { 2: '水二局', 3: '木三局', 4: '金四局', 5: '土五局', 6: '火六局' };
+  var LU = { 甲: '寅', 乙: '卯', 丙: '巳', 丁: '午', 戊: '巳', 己: '午', 庚: '申', 辛: '酉', 壬: '亥', 癸: '子' };
+  var KUI = {
+    甲: ['丑', '未'], 戊: ['丑', '未'], 庚: ['丑', '未'],
+    乙: ['子', '申'], 己: ['子', '申'], 辛: ['午', '寅'],
+    丙: ['亥', '酉'], 丁: ['亥', '酉'], 壬: ['卯', '巳'], 癸: ['卯', '巳']
+  };
+  var SIHUA = {
+    甲: ['廉贞', '破军', '武曲', '太阳'],
+    乙: ['天机', '天梁', '紫微', '太阴'],
+    丙: ['天同', '天机', '文昌', '廉贞'],
+    丁: ['太阴', '天同', '天机', '巨门'],
+    戊: ['贪狼', '太阴', '右弼', '天机'],
+    己: ['武曲', '贪狼', '天梁', '文曲'],
+    庚: ['太阳', '武曲', '太阴', '天同'],
+    辛: ['巨门', '太阳', '文曲', '文昌'],
+    壬: ['天梁', '紫微', '左辅', '武曲'],
+    癸: ['破军', '巨门', '太阴', '贪狼']
+  };
+  var HUA = ['禄', '权', '科', '忌'];
+
+  /* 亮度：从寅宫起，十二宫依次（数据取自 iztro） */
+  var BRIGHT = {
+    紫微: ['旺', '旺', '得', '旺', '庙', '庙', '旺', '旺', '得', '旺', '平', '庙'],
+    天机: ['得', '旺', '利', '平', '庙', '陷', '得', '旺', '利', '平', '庙', '陷'],
+    太阳: ['旺', '庙', '旺', '旺', '旺', '得', '得', '平', '不', '陷', '陷', '不'],
+    武曲: ['得', '利', '庙', '平', '旺', '庙', '得', '利', '庙', '平', '旺', '庙'],
+    天同: ['利', '平', '平', '庙', '陷', '不', '旺', '平', '平', '庙', '旺', '不'],
+    廉贞: ['庙', '平', '利', '陷', '平', '利', '庙', '平', '利', '陷', '平', '利'],
+    天府: ['庙', '得', '庙', '得', '旺', '庙', '得', '旺', '庙', '得', '庙', '庙'],
+    太阴: ['旺', '陷', '陷', '陷', '不', '不', '利', '旺', '旺', '庙', '庙', '庙'],
+    贪狼: ['平', '利', '庙', '陷', '旺', '庙', '平', '利', '庙', '陷', '旺', '庙'],
+    巨门: ['庙', '庙', '陷', '旺', '旺', '不', '庙', '庙', '陷', '旺', '旺', '不'],
+    天相: ['庙', '陷', '得', '得', '庙', '得', '庙', '陷', '得', '得', '庙', '庙'],
+    天梁: ['庙', '庙', '庙', '陷', '庙', '旺', '陷', '得', '庙', '陷', '庙', '旺'],
+    七杀: ['庙', '旺', '庙', '平', '旺', '庙', '庙', '旺', '庙', '平', '旺', '庙'],
+    破军: ['得', '陷', '旺', '平', '庙', '旺', '得', '陷', '旺', '平', '庙', '旺']
+  };
+  var MAJOR = ['紫微', '天机', '太阳', '武曲', '天同', '廉贞', '天府', '太阴', '贪狼', '巨门', '天相', '天梁', '七杀', '破军'];
+
+  function triGroup(zhi) {
+    var i = ZHI.indexOf(zhi);
+    if ([2, 6, 10].indexOf(i) > -1) return 0;      /* 寅午戌 */
+    if ([8, 0, 4].indexOf(i) > -1) return 1;       /* 申子辰 */
+    if ([5, 9, 1].indexOf(i) > -1) return 2;       /* 巳酉丑 */
+    return 3;                                      /* 亥卯未 */
+  }
+  var MA = ['申', '寅', '亥', '巳'];
+  var HUO = ['丑', '寅', '卯', '酉'];
+  var LING = ['卯', '戌', '戌', '戌'];
+  var PNAME = ['命宫', '兄弟', '夫妻', '子女', '财帛', '疾厄', '迁移', '仆役', '官禄', '田宅', '福德', '父母'];
+
+  /* 主入口：农历生日 + 时辰序号（子=0）+ 性别 */
+  function chart(o) {
+    var lunarYear = o.lunarYear, lunarMonth = o.lunarMonth, lunarDay = o.lunarDay;
+    var isLeap = !!o.isLeap, fixLeap = o.fixLeap !== false;
+    var tI = o.timeIndex;
+    var yearGan = GAN[fix(lunarYear - 4, 10)];
+    var yearZhi = ZHI[fix(lunarYear - 4, 12)];
+
+    /* 农历月（寅=0），闰月十五之后算下一个月 */
+    var monthI = fix((lunarMonth - 1) + (isLeap && fixLeap && lunarDay > 15 ? 1 : 0));
+    var soulI = fix(monthI - tI);
+    var bodyI = fix(monthI + tI);
+
+    var stemOfYin = GAN.indexOf(TIGER[yearGan]);
+    function stemAt(i) { return GAN[(stemOfYin + i) % 10]; }
+    var soulStem = stemAt(soulI), soulBranch = ZHI[fix(soulI + YIN)];
+
+    /* 五行局：命宫纳音 */
+    var gN = Math.floor(GAN.indexOf(soulStem) / 2) + 1;
+    var bN = Math.floor(fix(ZHI.indexOf(soulBranch), 6) / 2) + 1;
+    var fi = gN + bN;
+    while (fi > 5) fi -= 5;
+    var juNum = FIVE[fi - 1];
+
+    /* 紫微：局数除日数，余数不为零就加日子继续除 */
+    var remainder = -1, quotient = 0, offset = -1;
+    do {
+      offset++;
+      var divisor = lunarDay + offset;
+      quotient = Math.floor(divisor / juNum);
+      remainder = divisor % juNum;
+    } while (remainder !== 0);
+    quotient %= 12;
+    var zw = quotient - 1;
+    zw = fix(offset % 2 === 0 ? zw + offset : zw - offset);
+    var tf = fix(12 - zw);
+
+    var pos = {};
+    pos['紫微'] = zw;
+    pos['天机'] = fix(zw - 1);
+    pos['太阳'] = fix(zw - 3);
+    pos['武曲'] = fix(zw - 4);
+    pos['天同'] = fix(zw - 5);
+    pos['廉贞'] = fix(zw - 8);
+    pos['天府'] = tf;
+    pos['太阴'] = fix(tf + 1);
+    pos['贪狼'] = fix(tf + 2);
+    pos['巨门'] = fix(tf + 3);
+    pos['天相'] = fix(tf + 4);
+    pos['天梁'] = fix(tf + 5);
+    pos['七杀'] = fix(tf + 6);
+    pos['破军'] = fix(tf + 10);
+
+    var mS = monthI + 1;
+    pos['左辅'] = fix(2 + (mS - 1));        /* 辰（寅=0 → 2）起正月顺行 */
+    pos['右弼'] = fix(8 - (mS - 1));        /* 戌起正月逆行 */
+    pos['文昌'] = fix(8 - tI);              /* 戌起子时逆行 */
+    pos['文曲'] = fix(2 + tI);              /* 辰起子时顺行 */
+    pos['天魁'] = fix(ZHI.indexOf(KUI[yearGan][0]) - YIN);
+    pos['天钺'] = fix(ZHI.indexOf(KUI[yearGan][1]) - YIN);
+
+    var lu = fix(ZHI.indexOf(LU[yearGan]) - YIN);
+    pos['禄存'] = lu;
+    pos['擎羊'] = fix(lu + 1);
+    pos['陀罗'] = fix(lu - 1);
+
+    var tg = triGroup(yearZhi);
+    pos['火星'] = fix(ZHI.indexOf(HUO[tg]) - YIN + tI);
+    pos['铃星'] = fix(ZHI.indexOf(LING[tg]) - YIN + tI);
+    pos['地空'] = fix(9 - tI);              /* 亥起子时逆行 */
+    pos['地劫'] = fix(9 + tI);
+    pos['天马'] = fix(ZHI.indexOf(MA[tg]) - YIN);
+
+    var hua = {};
+    SIHUA[yearGan].forEach(function (star, k) { hua[star] = HUA[k]; });
+
+    var yang = GAN.indexOf(yearGan) % 2 === 0;
+    var male = o.gender === 'male';
+    var forward = (yang && male) || (!yang && !male);
+
+    var palaces = [];
+    for (var i = 0; i < 12; i++) {
+      var rel = fix(i - soulI);
+      var step = forward ? fix(i - soulI) : fix(soulI - i);
+      var startAge = juNum + step * 10;
+      var stars = [];
+      for (var s in pos) if (pos[s] === i) stars.push(s);
+      stars.sort(function (a, b) {
+        var ai = MAJOR.indexOf(a), bi = MAJOR.indexOf(b);
+        if (ai > -1 && bi > -1) return ai - bi;
+        if (ai > -1) return -1;
+        if (bi > -1) return 1;
+        return 0;
+      });
+      palaces.push({
+        idx: i,
+        branch: ZHI[fix(i + YIN)],
+        stem: stemAt(i),
+        name: PNAME[fix(-rel)],
+        isBody: i === bodyI,
+        isSoul: i === soulI,
+        stars: stars,
+        decadal: [startAge, startAge + 9]
+      });
+    }
+
+    return {
+      lunarYear: lunarYear, lunarMonth: lunarMonth, lunarDay: lunarDay, isLeap: isLeap,
+      yearGan: yearGan, yearZhi: yearZhi,
+      juName: JU_NAME[juNum], juNum: juNum,
+      soulBranch: soulBranch, bodyBranch: ZHI[fix(bodyI + YIN)],
+      ziwei: ZHI[fix(zw + YIN)], tianfu: ZHI[fix(tf + YIN)],
+      palaces: palaces, pos: pos, hua: hua,
+      dir: forward ? '顺行' : '逆行',
+      timeIndex: tI
+    };
+  }
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  /* 公历 → 盘；用页面里的 LUNAR 转农历，23 点后归次日 */
+  function fromSolar(y, m, d, hour, gender) {
+    var hi = hour == null ? 12 : hour;
+    var tI = hi === 23 ? 0 : Math.floor((hi + 1) / 2) % 12;
+    var yy = y, mm = m, dd = d;
+    if (hi === 23) {
+      var nd = new Date(y, m - 1, d);
+      nd.setDate(nd.getDate() + 1);
+      yy = nd.getFullYear(); mm = nd.getMonth() + 1; dd = nd.getDate();
+    }
+    var L = root.LUNAR;
+    if (!L || !L.solarToLunar) return { error: '农历模块没加载' };
+    var l = L.solarToLunar(yy, mm, dd);
+    var c = chart({
+      lunarYear: l.year, lunarMonth: l.month, lunarDay: l.day, isLeap: l.isLeap,
+      timeIndex: tI, gender: gender
+    });
+    c.solar = y + '-' + pad(m) + '-' + pad(d) + ' ' + pad(hi) + ':00';
+    c.lunarText = (l.isLeap ? '闰' : '') + l.monthName + l.dayName;
+    if (hi === 23) c.lateZi = true;
+    return c;
+  }
+
+  function brightOf(star, branch) {
+    var arr = BRIGHT[star];
+    if (!arr) return '';
+    return arr[fix(ZHI.indexOf(branch) - YIN)] || '';
+  }
+
+  root.__ZWE = { chart: chart, fromSolar: fromSolar, brightOf: brightOf, MAJOR: MAJOR, BRIGHT: BRIGHT };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+/* =====================================================================
    玄学板块 · 玩法来自本机三个技能（玩占 / 术数玄学全书 / 八字命理）
    - 排盘与起卦都在本机算，不联网、不上传
    - 卦辞爻辞、术语、知识卡由 build.py 从技能参考文件里抽出来内嵌
@@ -9089,7 +9454,7 @@ window.__MZBA=module.exports;})();
 
   /* ---------------- 渲染 ---------------- */
   var doc = root.document;
-  var S = { tab: 'bazi', bazi: null, gua: null, libView: 'hex', hexN: 1, q: '', k: '', cardQ: '' };
+  var S = { tab: 'bazi', bazi: null, gua: null, zw: null, libView: 'hex', hexN: 1, q: '', k: '', cardQ: '' };
   var BKEY = 'wb_mz_birth';
 
   function $(id) { return doc.getElementById(id); }
@@ -9132,6 +9497,7 @@ window.__MZBA=module.exports;})();
     if (!host) return;
     host.innerHTML = tabs() +
       (S.tab === 'bazi' ? baziHtml() : '') +
+      (S.tab === 'zw' ? zwHtml() : '') +
       (S.tab === 'gua' ? guaHtml() : '') +
       (S.tab === 'lib' ? libHtml() : '') +
       (S.tab === 'card' ? cardHtml() : '');
@@ -9139,7 +9505,7 @@ window.__MZBA=module.exports;})();
   }
 
   function tabs() {
-    var items = [['bazi', '排盘'], ['gua', '起卦'], ['lib', '查典'], ['card', '知识卡']];
+    var items = [['bazi', '八字'], ['zw', '紫微'], ['gua', '起卦'], ['lib', '查典'], ['card', '知识卡']];
     return '<div class="subtabs mz-tabs">' + items.map(function (t) {
       return '<button data-mzt="' + t[0] + '"' + (S.tab === t[0] ? ' class="on"' : '') + '>' + t[1] + '</button>';
     }).join('') + '</div>';
@@ -9250,6 +9616,131 @@ window.__MZBA=module.exports;})();
       l.push('【强弱】' + [st.旺衰 || st.强弱等级, st.总分 != null ? st.总分 + ' 分' : ''].filter(Boolean).join(' · '));
       l.push('【格局】' + [ys.格局 ? ys.格局 + '格' : '', ys.说明].filter(Boolean).join(' · '));
     }
+    return l.join('\n');
+  }
+
+  /* ---------- 紫微斗数 ---------- */
+  var ZW_CELL = {
+    巳: [1, 1], 午: [1, 2], 未: [1, 3], 申: [1, 4],
+    辰: [2, 1], 酉: [2, 4],
+    卯: [3, 1], 戌: [3, 4],
+    寅: [4, 1], 丑: [4, 2], 子: [4, 3], 亥: [4, 4]
+  };
+  var HUA_CLS = { 禄: 'lu', 权: 'quan', 科: 'ke', 忌: 'ji' };
+
+  function isMajor(name) {
+    var z = root.__ZWE;
+    return !!(z && z.MAJOR && z.MAJOR.indexOf(name) > -1);
+  }
+  function brightOf(star, branch) {
+    var z = root.__ZWE;
+    return z ? z.brightOf(star, branch) : '';
+  }
+
+  function zwHtml() {
+    var b = loadBirth();
+    var html = '<div class="mz-form">' +
+      '<div class="field"><label>出生日期</label><input id="zwDate" type="date" value="' + esc(b.date || '1995-06-15') + '"></div>' +
+      '<div class="field"><label>出生时间（23 点后归次日）</label><input id="zwTime" type="time" value="' + esc(b.time || '08:30') + '"></div>' +
+      '<div class="field"><label>性别（定大限顺逆）</label><select id="zwSex">' +
+      '<option value="male"' + (b.sex === 'male' ? ' selected' : '') + '>男</option>' +
+      '<option value="female"' + (b.sex === 'female' ? ' selected' : '') + '>女</option></select></div>' +
+      '</div>' +
+      '<div class="btn-row"><button class="btn sm" id="zwRun">排紫微盘</button>' +
+      '<button class="btn ghost sm" id="zwNow">用今天</button>' +
+      '<span class="note" style="margin:0">口径：农历月按闰月过十五算下月，23 点后归次日；主星、辅星、四化、大限都在本机算。</span></div>';
+    html += '<div id="zwOut">' + (S.zw ? zwOut(S.zw) : '<p class="note">点「排紫微盘」，出十二宫盘：主星带庙旺平陷，四化标禄权科忌，底下是大限年龄段。</p>') + '</div>';
+    return html;
+  }
+
+  function curAge(c) {
+    var now = new Date();
+    var lunarNow = now.getFullYear();
+    return lunarNow - c.lunarYear + 1;      /* 虚岁粗算，够用来标当前大限 */
+  }
+
+  function zwOut(c) {
+    if (c.error) return '<p class="mz-warn">' + esc(c.error) + '</p>';
+    var age = curAge(c);
+    var cur = null;
+    c.palaces.forEach(function (p) { if (age >= p.decadal[0] && age <= p.decadal[1]) cur = p; });
+
+    var h = '<div class="zw-meta">' +
+      '<span>' + esc(c.solar) + '</span>' +
+      '<span>农历 ' + esc(c.lunarText || '') + '</span>' +
+      '<span>' + esc(c.yearGan + c.yearZhi) + '年</span>' +
+      '<span class="zw-ju">' + esc(c.juName) + '</span>' +
+      '<span>命宫 ' + esc(c.soulBranch) + ' · 身宫 ' + esc(c.bodyBranch) + '</span>' +
+      '<span>大限 ' + esc(c.dir) + '</span>' +
+      (cur ? '<span class="zw-cur">当前 ' + esc(cur.name) + ' ' + cur.decadal[0] + '–' + cur.decadal[1] + ' 岁</span>' : '') +
+      '</div>';
+
+    h += '<div class="zw-board">';
+    c.palaces.forEach(function (p) {
+      var pos = ZW_CELL[p.branch] || [1, 1];
+      var cls = 'zw-cell' + (p.isSoul ? ' soul' : '') + (cur && cur.branch === p.branch ? ' cur' : '');
+      h += '<div class="' + cls + '" style="grid-area:' + pos[0] + '/' + pos[1] + '">';
+      h += '<div class="zw-c-h"><b>' + esc(p.name) + '</b>' +
+        '<span>' + esc(p.stem + p.branch) + '</span>' +
+        (p.isBody ? '<em class="zw-body">身</em>' : '') + '</div>';
+      var majors = p.stars.filter(isMajor);
+      var minors = p.stars.filter(function (x) { return !isMajor(x); });
+      h += '<div class="zw-c-major">' + (majors.length ? majors.map(function (st) {
+        var br = brightOf(st, p.branch);
+        var hu = c.hua[st];
+        return '<span class="zw-star"><b>' + esc(st) + '</b>' +
+          (br ? '<i class="zw-bright b-' + esc(br) + '">' + esc(br) + '</i>' : '') +
+          (hu ? '<i class="zw-hua ' + (HUA_CLS[hu] || '') + '">' + hu + '</i>' : '') + '</span>';
+      }).join('') : '<span class="zw-empty">—</span>') + '</div>';
+      if (minors.length) {
+        h += '<div class="zw-c-minor">' + minors.map(function (st) {
+          var hu = c.hua[st];
+          return '<span>' + esc(st) + (hu ? '<i class="zw-hua ' + (HUA_CLS[hu] || '') + '">' + hu + '</i>' : '') + '</span>';
+        }).join('') + '</div>';
+      }
+      h += '<div class="zw-c-foot"><span>' + p.decadal[0] + '–' + p.decadal[1] + '</span></div>';
+      h += '</div>';
+    });
+    h += '<div class="zw-center">' +
+      '<div class="zw-c-t">紫微斗数 · 十二宫</div>' +
+      '<div class="zw-c-row"><span>阳历</span><b>' + esc(c.solar) + '</b></div>' +
+      '<div class="zw-c-row"><span>农历</span><b>' + esc(c.lunarText || '') + '</b></div>' +
+      '<div class="zw-c-row"><span>年干支</span><b>' + esc(c.yearGan + c.yearZhi) + '</b></div>' +
+      '<div class="zw-c-row"><span>五行局</span><b>' + esc(c.juName) + '</b></div>' +
+      '<div class="zw-c-row"><span>命 / 身</span><b>' + esc(c.soulBranch) + ' / ' + esc(c.bodyBranch) + '</b></div>' +
+      '<div class="zw-c-row"><span>紫微·天府</span><b>' + esc(c.ziwei) + ' · ' + esc(c.tianfu) + '</b></div>' +
+      '<div class="zw-c-row"><span>大限</span><b>' + esc(c.dir) + (cur ? '，在' + esc(cur.name) : '') + '</b></div>' +
+      '<div class="zw-c-tip">命宫为自身，三方四正看对宫与三合；四化禄权科忌是这盘的重点。</div>' +
+      '</div>';
+    h += '</div>';
+
+    h += '<p class="zw-legend"><i class="lg-soul"></i>命宫　<i class="lg-cur"></i>当前大限　' +
+      '<span>宫名下方是宫干支，格内大字号为主星（带庙旺平陷与四化），小字为辅星，右下为该宫大限岁数。</span></p>';
+    h += '<div class="btn-row" style="margin-top:10px">' +
+      '<button class="btn ghost sm" data-mzact="ask-zw">让 AI 解读这张盘</button>' +
+      '<button class="btn ghost sm" data-mzact="copy-zw">复制盘面</button>' +
+      '<span class="note" style="margin:0">盘只是结构，断事还得看具体问题；此处只作文化研习。</span></div>';
+    return h;
+  }
+
+  function zwText(c) {
+    var l = [];
+    l.push('【阳历】' + c.solar + '　【农历】' + (c.lunarText || ''));
+    l.push('【年干支】' + c.yearGan + c.yearZhi + '　【五行局】' + c.juName);
+    l.push('【命宫】' + c.soulBranch + '　【身宫】' + c.bodyBranch + '　【大限】' + c.dir);
+    l.push('【十二宫】');
+    var order = ['命宫', '兄弟', '夫妻', '子女', '财帛', '疾厄', '迁移', '仆役', '官禄', '田宅', '福德', '父母'];
+    order.forEach(function (nm) {
+      var p = null;
+      c.palaces.forEach(function (x) { if (x.name === nm) p = x; });
+      if (!p) return;
+      var st = p.stars.map(function (s) {
+        var br = brightOf(s, p.branch);
+        var hu = c.hua[s];
+        return s + (br ? '（' + br + '）' : '') + (hu ? '化' + hu : '');
+      }).join('、') || '空宫';
+      l.push(nm + '（' + p.stem + p.branch + '｜' + p.decadal[0] + '–' + p.decadal[1] + '）：' + st);
+    });
     return l.join('\n');
   }
 
@@ -9411,6 +9902,15 @@ window.__MZBA=module.exports;})();
 
     var run = $('mzRun');
     if (run) run.onclick = doPlan;
+    var zr = $('zwRun');
+    if (zr) zr.onclick = doZw;
+    var zn = $('zwNow');
+    if (zn) zn.onclick = function () {
+      var t = new Date();
+      $('zwDate').value = t.getFullYear() + '-' + pad(t.getMonth() + 1) + '-' + pad(t.getDate());
+      $('zwTime').value = pad(t.getHours()) + ':' + pad(t.getMinutes());
+      flash('已填成此刻');
+    };
     var now = $('mzNow');
     if (now) now.onclick = function () {
       var t = new Date();
@@ -9483,6 +9983,25 @@ window.__MZBA=module.exports;})();
     }
   }
 
+  function doZw() {
+    var d = ($('zwDate') || {}).value || '';
+    var t = ($('zwTime') || {}).value || '';
+    var sex = ($('zwSex') || {}).value || 'male';
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+    if (!m) { flash('先选出生日期'); return; }
+    var hh = 12;
+    var tm = /^(\d{1,2}):(\d{2})$/.exec(t);
+    if (tm) hh = +tm[1];
+    if (!root.__ZWE) { flash('紫微引擎没加载上'); return; }
+    S.zw = root.__ZWE.fromSolar(+m[1], +m[2], +m[3], hh, sex);
+    var prev = loadBirth();
+    saveBirth({ date: d, time: t, sex: sex, zi: prev.zi || 'next' });
+    var out = $('zwOut');
+    if (out) out.innerHTML = zwOut(S.zw);
+    var host = $('mzBody');
+    if (host) bind(host);
+  }
+
   function act(a) {
     if (a === 'cast-time') {
       var t = new Date();
@@ -9528,6 +10047,14 @@ window.__MZBA=module.exports;})();
         '不要用「必定」「一定会」这类断言；不要给医疗、投资、法律结论；结尾附一句：以上只为传统文化研习，不作决策依据。');
     }
     if (a === 'copy-bazi') if (S.bazi) copy(baziText(S.bazi), '盘面已复制');
+    if (a === 'ask-zw') {
+      if (!S.zw || S.zw.error) { flash('先排一张紫微盘'); return; }
+      askAI('【已排好的紫微斗数盘】\n' + zwText(S.zw) +
+        '\n\n请按紫微斗数的常规读法解读：先看命宫与身宫的主星与四化，再看命宫三方四正（对宫、三合）的组合，' +
+        '然后逐个讲与我关心的事项相关的宫位（可以用事业、财运、感情做示例），最后结合当前大限说明这段十年的重点。' +
+        '措辞用「传统紫微斗数认为」，不做确定性断言，不给医疗、投资、法律结论；结尾说明这是传统文化研习，不作决策依据。');
+    }
+    if (a === 'copy-zw') if (S.zw && !S.zw.error) copy(zwText(S.zw), '盘面已复制');
     if (a === 'ask-gua') {
       if (!S.gua) { flash('先起一卦'); return; }
       askAI('【已起好的卦】\n' + guaText(S.gua) +
